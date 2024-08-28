@@ -15,6 +15,7 @@ Biblioteca
 class Livro {
     -String nome
     -String autor
+    -String ISBN
     -String sinopse
     -int paginas
     -Genero genero 
