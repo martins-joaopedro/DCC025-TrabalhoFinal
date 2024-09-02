@@ -1,7 +1,14 @@
 package br.ufjf;
 
+import br.ufjf.swing.Manager;
+
 public class Main {
+
+    private static Manager manager;
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        manager = new Manager();
+        manager.start();
     }
 }
