@@ -1,15 +1,13 @@
 package br.ufjf.swing;
 
-import br.ufjf.swing.screens.Home;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
 
     private Manager manager;
-    private final int WIDTH = 800;
-    private final int HEIGHT = WIDTH;
+    public static final int WIDTH = 500;
+    public static final int HEIGHT = WIDTH;
     private JPanel mainPanel;
     private CardLayout layout;
 
@@ -24,17 +22,8 @@ public class Window extends JFrame {
         this.mainPanel = new JPanel(layout);
     }
 
-    public void addPanel (String panelName, JPanel panel) {
-
-        //JPanel j = new JPanel();
-
-        //j.add(new Button("AAAAAAAAA"));
-
-        this.mainPanel.add("h", new Home(this.manager));
+    public void addScreen (String panelName, JPanel panel) {
         this.mainPanel.add(panelName, panel);
-
-        //this.add.add("h", new Home());
-
     }
 
     public void showPanel(String panelName) {
@@ -43,7 +32,7 @@ public class Window extends JFrame {
     }
 
     public void start() {
-        this.layout.show(mainPanel, "h");
+        this.layout.show(mainPanel, "home");
         add(mainPanel);
         setVisible(true);
     }
