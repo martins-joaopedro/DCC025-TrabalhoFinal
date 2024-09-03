@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Window extends JFrame {
 
-    private Manager manager;
+    public static Manager manager;
     public static final int WIDTH = 500;
     public static final int HEIGHT = WIDTH;
     private JPanel mainPanel;
@@ -35,6 +35,10 @@ public class Window extends JFrame {
         this.layout.show(mainPanel, "home");
         add(mainPanel);
         setVisible(true);
+    }
+
+    public static Manager getManager() {
+        return manager;
     }
 
 }
