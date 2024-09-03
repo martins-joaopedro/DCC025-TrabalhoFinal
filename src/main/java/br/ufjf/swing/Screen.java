@@ -1,4 +1,4 @@
-package br.ufjf.swing.screens;
+package br.ufjf.swing;
 
 import javax.swing.JPanel;
 import br.ufjf.swing.Window;
@@ -13,20 +13,16 @@ public class Screen extends JPanel {
     JTextField title;
     JPanel mainPanel;
 
-    Screen(String screenName, Button navigator) {
+    Screen(String screenName, Button navigator, JPanel panel) {
         this.mainPanel = new JPanel(new BorderLayout());
-        
+
         mainPanel.setPreferredSize(new Dimension(Window.WIDTH - OFFSET, Window.HEIGHT - OFFSET));
         title = new JTextField(screenName);
 
         mainPanel.add(title, BorderLayout.NORTH);
         mainPanel.add(navigator, BorderLayout.SOUTH);
+        mainPanel.add(panel, BorderLayout.CENTER);
 
         add(mainPanel);
-    }
-
-
-    public void setCenterComponent(JPanel panel) {
-        mainPanel.add(panel, BorderLayout.CENTER);
     }
 }

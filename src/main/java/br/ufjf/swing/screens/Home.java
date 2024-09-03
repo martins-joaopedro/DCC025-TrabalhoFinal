@@ -1,27 +1,30 @@
 package br.ufjf.swing.screens;
 
-import br.ufjf.swing.Manager;
-import br.ufjf.swing.components.Button;
-
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Home extends Screen {
+import br.ufjf.swing.Window;
 
-    JPanel mainPanel;
 
-    public Home(String screenName, Button navigator) {
-       super(screenName, navigator);
-        
-        mainPanel = new JPanel();
-        mainPanel.add(new JTextArea("A"));
-        
-        setCenterComponent(mainPanel);
-    }
 
-    
-    @Override
-    public void setBackground(Color bgColor) {
-        super.setBackground(Color.red);
+public class Home extends JPanel {
+
+    public Home() {
+        JPanel container1 = new JPanel();
+        String[] lista = new String[100];
+
+
+        for(int i=0; i<100; i++)
+            lista[i] = i+" ";
+
+        JList<String> list = new JList<>(lista);
+
+        JScrollPane container = new JScrollPane(list);
+        container.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        container.setPreferredSize(new Dimension(300, Window.HEIGHT));
+
+       add(container);
     }
 }

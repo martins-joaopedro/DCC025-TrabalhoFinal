@@ -1,14 +1,13 @@
 package br.ufjf.swing;
 
-import br.ufjf.swing.components.Button;
-
-import br.ufjf.swing.screens.Home;
-import br.ufjf.swing.screens.Login;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufjf.swing.screens.*;
+import br.ufjf.swing.components.Button;
+
+import br.ufjf.swing.screens.Collection;
+import br.ufjf.swing.screens.Home;
+import br.ufjf.swing.screens.Login;
 
 public class Manager {
 
@@ -19,19 +18,21 @@ public class Manager {
         this.screens = new ArrayList<>();
         this.window = new Window("App", this);
 
-        addScreens();
+        createScreens();
     }
 
     //TODO: Rever onde vai ficar a instancia das telas e onde adicionamos elas
-    public void addScreens() {
+    public void createScreens() {
         Button navToHome = new Button("Home", "home", this);
-        Button navToLogin = new Button("Login", "login", this);
+        Button navToLogin = new Button("Acervo", "acervo", this);
 
-        Screen login = new Login("login", navToHome);
-        Screen home = new Home("home", navToLogin);
+        Screen Login = new Screen("login", navToHome, new Login());
+        Screen Home = new Screen("home", navToLogin, new Home());
+        Screen Acervo = new Screen("acervo", navToHome, new Collection());
 
-        this.window.addScreen("home", home);
-        this.window.addScreen("login", login);
+        this.window.addScreen("home", Home);
+        this.window.addScreen("login", Login);
+        this.window.addScreen("acervo", Acervo);
     }
 
     public void navigateTo(String screenName) {
