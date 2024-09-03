@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufjf.swing.components.Button;
-
 import br.ufjf.swing.screens.Collection;
 import br.ufjf.swing.screens.Home;
 import br.ufjf.swing.screens.Login;
