@@ -59,9 +59,9 @@ class Leitor {
 class Biblioteca {
     -Livros[] livros
 
-    -addLivro
-    -removerLivro
-    -editarLivro
+    -addLivro()
+    -removerLivro()
+    -editarLivro()
 
     -int calcTotalPaginas
     -String calcGeneroMaisLido
