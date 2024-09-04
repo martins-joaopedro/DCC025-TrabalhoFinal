@@ -1,5 +1,16 @@
 package br.ufjf;
 
 public enum Genero {
-    FANTASIA, ROMANCE, FICCAO, ACADEMICO, DISTOPIA, SUSPENSE, TERROR
+    FANTASIA("fantasia"), ROMANCE("romance"), FICCAO("ficcao"), ACADEMICO("academico"), DISTOPIA("distopia"), SUSPENSE("suspense"), TERROR("terror");
+
+    String tipo;
+
+    Genero(String s) {
+        this.tipo = s;
+    }
+
+
+    public String getTipo() {
+        return this.tipo;
+    }
 }

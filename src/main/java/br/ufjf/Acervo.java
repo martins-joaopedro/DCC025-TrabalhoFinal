@@ -14,9 +14,9 @@ public class Acervo {
         return livrosAcervo;
     }
 
-    public static Livro BuscaLivro(String IBSN) {
+    public static Livro buscaLivro(String ISBN) {
         for(Livro livro : livrosAcervo) {
-            if(livro.getIBSN() == IBSN)
+            if(livro.getIBSN() == ISBN)
                 return livro;
         }
 

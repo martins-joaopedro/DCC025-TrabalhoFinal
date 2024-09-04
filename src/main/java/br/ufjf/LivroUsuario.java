@@ -1,12 +1,12 @@
 package br.ufjf;
 
 public class LivroUsuario {
-    private String IBSN;
+    private String ISBN;
     private Avaliacao avaliacao;
     private Status status;
 
-    public LivroUsuario(String IBSN, Status status) {
-        this.IBSN = IBSN;
+    public LivroUsuario(String ISBN, Status status) {
+        this.ISBN = ISBN;
         this.status = status;
     }
 
@@ -24,7 +24,7 @@ public class LivroUsuario {
     }
 
     public String getIBSN() {
-        return this.IBSN;
+        return this.ISBN;
     }
 
     public Avaliacao getAvaliacao() {
