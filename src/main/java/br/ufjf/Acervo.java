@@ -1,13 +1,26 @@
 package br.ufjf;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Acervo {
-    private Livro[] livros;
+    public static List<Livro> livrosAcervo;
 
-    public Livro[] getLivros() {
-        return livros;
+    public Acervo(List<Livro> livros) {
+        livrosAcervo = new ArrayList<>(livros);
     }
 
-    public void setLivros(Livro[] livros) {
-        this.livros = livros;
+    public List<Livro> getLivros() {
+        return livrosAcervo;
     }
+
+    public static Livro BuscaLivro(String IBSN) {
+        for(Livro livro : livrosAcervo) {
+            if(livro.getIBSN() == IBSN)
+                return livro;
+        }
+
+        return null;
+    } 
+
 }

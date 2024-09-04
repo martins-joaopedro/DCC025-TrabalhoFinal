@@ -1,21 +1,25 @@
 package br.ufjf;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Biblioteca {
-    private Livro[] livros;
+    private List<LivroUsuario> livros;
     private int calcTotalPaginas;
-    private String calcGeneroMaisLido;
     
     private void removerLivro(){};
     private void editarLivro(){};
     private void listarHistorico(){}
     private void addLivro(){}
-    
-    public Livro[] getLivros() {
-        return livros;
-    }
 
-    public void setLivros(Livro[] livros) {
-        this.livros = livros;
+    private Biblioteca(List<LivroUsuario> livros) {
+        this.livros = new ArrayList<>(livros);
+    }
+    
+    public List<LivroUsuario> getLivros() {
+        return livros;
     }
 
     public int getCalcTotalPaginas() {
@@ -23,6 +27,26 @@ public class Biblioteca {
     }
 
     public String getCalcGeneroMaisLido() {
-        return calcGeneroMaisLido;
+        Map<Genero, Integer> generosLidos = new HashMap<>();
+
+        for(LivroUsuario livro : this.livros) {
+            if(livro.getStatus() == Status.LIDO) {
+                Genero generoLivro = Acervo.BuscaLivro(livro.getIBSN()).getGenero();
+
+
+
+            }
+        }
+    }
+
+    public int getNumLivrosLidos() {
+        int numLivrosLidos = 0;
+
+        for(LivroUsuario livro : this.livros) {
+            if(livro.getStatus() == Status.LIDO)
+                numLivrosLidos++;
+        }
+
+        return numLivrosLidos;
     }
 }
