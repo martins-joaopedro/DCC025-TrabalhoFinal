@@ -6,25 +6,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Biblioteca {
-    private List<LivroUsuario> livros;
+    private Map<String, LivroUsuario> livrosUsuario;
     
-    private void editarLivro(){};
-    private void listarHistorico(){}
+    //private void listarHistorico(){}
 
-    private Biblioteca(List<LivroUsuario> livros) {
-        this.livros = new ArrayList<>(livros);
+    private Biblioteca(Map<String, LivroUsuario> livrosUsuarios) {
+        this.livrosUsuario = livrosUsuarios;
     }
     
-    public List<LivroUsuario> getLivros() {
-        return livros;
+    public Map<String, LivroUsuario> getLivros() {
+        return livrosUsuario;
     }
 
     public String getGeneroMaisLido() {
         Map<Genero, Integer> generosLidos = new HashMap<>();
 
-        for(LivroUsuario livro : this.livros) {
-            if(livro.getStatus() == Status.LIDO) {
-                Genero generoLivro = Acervo.buscaLivro(livro.getIBSN()).getGenero();
+        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
+            if(livroUsuario.getStatus() == Status.LIDO) {
+                Genero generoLivro = Acervo.buscaLivro(livroUsuario.getIBSN()).getGenero();
                 
                 if(generosLidos.containsKey(generoLivro))
                     generosLidos.put(generoLivro, generosLidos.get(generoLivro)+1);
@@ -42,12 +41,14 @@ public class Biblioteca {
         return generoMaisLido.getTipo();
     }
 
-    public int getNumPaginasLidas() {
+    public int getNumTotalPaginasLidas() {
         int numTotalPaginas = 0;
 
-        for(LivroUsuario livro : this.livros) {
-            if(livro.getStatus() == Status.LIDO)
-                numTotalPaginas+=Acervo.buscaLivro(livro.getIBSN()).getPaginas();
+        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
+            if(livroUsuario.getStatus() == Status.LIDO)
+                numTotalPaginas+=Acervo.buscaLivro(livroUsuario.getIBSN()).getPaginas();
+            if(livroUsuario.getStatus() == Status.LENDO)
+                numTotalPaginas+=livroUsuario.getNumPaginasLidas();
         }
 
         return numTotalPaginas;
@@ -56,8 +57,8 @@ public class Biblioteca {
     public int getNumLivrosLidos() {
         int numLivrosLidos = 0;
 
-        for(LivroUsuario livro : this.livros) {
-            if(livro.getStatus() == Status.LIDO)
+        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
+            if(livroUsuario.getStatus() == Status.LIDO)
                 numLivrosLidos++;
         }
 
@@ -65,16 +66,63 @@ public class Biblioteca {
     }
 
     public void addLivro(String ISBN, Status status) {
-        LivroUsuario novoLivro = new LivroUsuario(ISBN, status);
-
-        this.livros.add(novoLivro);
-    }
-
-    public void removerLivro(String ISBN) {
-        for(LivroUsuario livro : this.livros) {
-            if(livro.getIBSN() == ISBN)
-                livros.remove(livro);
+        if(this.livrosUsuario.containsKey(ISBN)) {
+            // ERRO DE QUE O LIVRO JÁ ESTÁ NO ACERVO PESSOAL
         }
+        else
+            this.livrosUsuario.put(ISBN, new LivroUsuario(ISBN, status));
     }
 
+    public void removerLivroAcervo(String ISBN) {
+        if(!this.livrosUsuario.containsKey(ISBN)) {
+            // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
+        }
+        else
+            this.livrosUsuario.remove(ISBN);
+    }
+
+    public void editarLivro(String ISBN, Status status, int numPaginasLidas) {
+        if(!this.livrosUsuario.containsKey(ISBN)) {
+            // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
+        }
+        
+        LivroUsuario livroAtualizado = livrosUsuario.get(ISBN);
+        livroAtualizado.atualizarStatus(status);
+        if(status == Status.LENDO)
+            livroAtualizado.atualizarNumPaginasLidas(numPaginasLidas);
+        this.livrosUsuario.put(ISBN, livroAtualizado);
+    }
+
+    public void atualizarAvaliacaoAcervo(String ISBN, int estrela, String comentario) {
+        if(!this.livrosUsuario.containsKey(ISBN)) {
+            // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
+        }
+        
+        LivroUsuario livroAtualizado = livrosUsuario.get(ISBN);
+        livroAtualizado.avaliarLivro(estrela, comentario);
+        this.livrosUsuario.put(ISBN, livroAtualizado);
+    }
+
+    public List<LivroUsuario> getLivrosStatus(Status status) {
+        List<LivroUsuario> listaLivrosUsuario = new ArrayList<>();
+
+        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
+            if(livroUsuario.getStatus() == status)
+                listaLivrosUsuario.add(livroUsuario);
+        }
+
+        return listaLivrosUsuario;
+    }
+
+    public List<LivroUsuario> getLivrosAvaliados() {
+        List<LivroUsuario> listaLivrosAvaliados = new ArrayList<>();
+
+        for(LivroUsuario livroUsuario : getLivrosStatus(Status.LIDO)) {
+            if(livroUsuario.getAvaliacao() != null) {
+                listaLivrosAvaliados.add(livroUsuario);
+            }
+        }
+
+        return listaLivrosAvaliados;
+    }
 }

@@ -6,7 +6,6 @@ import java.util.Map;
 import br.ufjf.swing.Manager;
 import br.ufjf.swing.NavigationConstants;
 import br.ufjf.swing.Screen;
-import br.ufjf.swing.screens.Home;
 
 public class Main {
 
