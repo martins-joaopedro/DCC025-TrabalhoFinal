@@ -4,7 +4,10 @@ repositório do trabalho final da disciplina de orientação a objetos
 ``` mermaid
 classDiagram 
 
-Acervo *-- Livro
+Livro <|-- LivroPessoal
+Avaliacao -- Livro
+Usuario <|-- Administrador
+Usuario <|-- Leitor
 
 class Livro {
     -String nome
@@ -12,9 +15,43 @@ class Livro {
     -String ISBN
     -String sinopse
     -int paginas
-    -Genero genero 
-    -Avaliacao avaliacao
-    -Status status
+    -Genero genero
+}
+
+class LivroPessoal {
+    - status : Status
+    - paginaAtual : int
+}
+
+class Avaliacao {
+    - ISBN : String
+    - idLeitor : String 
+    - estrelas : int
+    - comentario : String
+}
+
+class Leitor {
+    - nome : String
+    - bibliotecaPessoal : Map<String, Livro> 
+}
+
+class Usuario {
+    - idUsuario : String
+    - senha : String
+}
+
+class BibliotecaServico {
+    - livrosUsuario : Map<String, LivroUsuario> 
+    
+    + getGeneroMaisLido() : Genero
+    + getNumTotalPaginasLidas() : int  
+    + getNumLivrosLidos() : int
+    + adicionarLivro()
+    + removerLivro()
+    + editarLivro()
+    + atualizarAvaliacao()
+    + getLivroStatus() : List<LivroUsuario>
+    + getLivrosAvaliados() : List<LivroUsuario>
 }
 
 class Genero {
@@ -28,15 +65,6 @@ class Genero {
     Terror
 }
 
-class Acervo {
-    -Livro[] livros
-}
-
-class Avaliacao {
-    -int estrelas
-    -String comentario
-}
-
 class Status {
     <<enumeration>>
     Lendo
@@ -45,100 +73,5 @@ class Status {
     Abandonei
 }
 
-class Leitor {
-    -String nome
-    -String idade
-    -Biblioteca biblioteca
-}
-
-class Biblioteca {
-    -Livros[] livros
-
-    -addLivro()
-    -removerLivro()
-    -editarLivro()
-
-    -int calcTotalPaginas
-    -int numLivrosLidos
-    -String calcGeneroMaisLido
-    -listarHistorico
-}
-
-class Administrador {
-    -addLivro()
-    -removerLivro()
-    -editarLivro()
-}
+class Administrador
 ```
-
-
-** Diagrama das Telas
-``` mermaid
-classDiagram
-
-
-class Administrador{
-     - void AdicionarLivro()
-     - void RemoverLivro()
-     - void EditarLivro()
-}
-
-class NavigationConstants {
-    Screen static Home
-    Screen static Login
-    Screen static BibliotecaDoUsuario
-    Screen static Catalogo
-    Screen static AdicionarStatusLivro
-    Screen static AtualizarStatus
-    Screen static AvaliacaoLivro
-}
-
-class Manager {
-    -Window window
-    -Map<String, Screen> screens
-    +start()
-    +navigateTo(String screenName)
-    +createScreens(Map<String, Screen> screens)
-}
-
-JFrame <|-- Window
-class JFrame 
-
-class Window {
-    +Manager manager
-    +static int WIDTH
-    +static int HEIGHT
-    -JPanel mainPanel
-    -CardLayout layout
-    +addScreen(String panelName, JPanel panel)
-    +showPanel(String panelName)
-    +start
-}
-
-JPanel <|-- Screen
-
-JPanel <|-- PainelHome
-JPanel <|-- PainelLogin
-JPanel <|-- PainelBibliotecaDoUsuario
-JPanel <|-- PainelCatalogo
-JPanel <|-- PainelAdicionarStatusLivro
-JPanel <|-- PainelAtualizarStatus
-JPanel <|-- PainelAvaliacaoLivro
-
-class JPanel 
-
-class Screen {
-    JTextField title
-    JPanel mainPanel
-    JButton navigator
-}
-
-class PainelHome 
-class PainelLogin 
-class PainelBibliotecaDoUsuario 
-class PainelCatalogo 
-class PainelAdicionarStatusLivro
-class PainelAtualizarStatus
-class PainelAvaliacaoLivro
-```
-
