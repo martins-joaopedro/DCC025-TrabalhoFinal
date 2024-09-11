@@ -1,11 +1,12 @@
-package br.ufjf.swing;
+package br.ufjf.ui;
 
 import javax.swing.JPanel;
-import br.ufjf.swing.Window;
 import javax.swing.JTextField;
- 
+
+import br.ufjf.ui.Window;
+import br.ufjf.ui.components.Button;
+
 import java.awt.*;
-import br.ufjf.swing.components.Button;
 
 public class Screen extends JPanel {
 

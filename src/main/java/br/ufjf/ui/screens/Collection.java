@@ -1,10 +1,10 @@
-package br.ufjf.swing.screens;
+package br.ufjf.ui.screens;
 
 import java.awt.Dimension;
 
 import javax.swing.*;
 
-import br.ufjf.swing.Window;
+import br.ufjf.ui.Window;
 
 public class Collection extends JPanel {
 

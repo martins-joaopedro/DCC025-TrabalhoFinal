@@ -1,11 +1,12 @@
-package br.ufjf.swing.screens;
+package br.ufjf.ui.screens;
 
 import javax.swing.*;
+
+import br.ufjf.ui.Window;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import br.ufjf.swing.Window;
 
 
 

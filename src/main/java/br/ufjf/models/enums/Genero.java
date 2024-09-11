@@ -1,4 +1,4 @@
-package br.ufjf;
+package br.ufjf.models.enums;
 
 public enum Genero {
     FANTASIA("fantasia"), ROMANCE("romance"), FICCAO("ficcao"), ACADEMICO("academico"), DISTOPIA("distopia"), SUSPENSE("suspense"), TERROR("terror");

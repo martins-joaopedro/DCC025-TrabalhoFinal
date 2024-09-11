@@ -1,4 +1,4 @@
-package br.ufjf.swing;
+package br.ufjf.ui;
 
 import javax.swing.*;
 import java.awt.*;

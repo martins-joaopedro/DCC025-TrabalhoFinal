@@ -1,8 +1,8 @@
-package br.ufjf.swing.components;
-
-import br.ufjf.swing.Manager;
+package br.ufjf.ui.components;
 
 import javax.swing.*;
+
+import br.ufjf.ui.Manager;
 
 public class Button extends JButton {
     public Button(String text, String screenToNavigate, Manager manager) {

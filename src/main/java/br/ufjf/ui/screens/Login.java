@@ -1,11 +1,11 @@
-package br.ufjf.swing.screens;
+package br.ufjf.ui.screens;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import br.ufjf.swing.Window;
+import br.ufjf.ui.Window;
 
 public class Login extends JPanel {
 

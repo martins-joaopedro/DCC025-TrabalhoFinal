@@ -1,22 +1,9 @@
-package br.ufjf;
+package br.ufjf.services;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
+/*
 public class AcervoPessoal {
-    private Map<String, LivroUsuario> livrosUsuario;
 
-    public AcervoPessoal(Map<String, LivroUsuario> livrosUsuarios) {
-        this.livrosUsuario = livrosUsuarios;
-    }
-    
-    public Map<String, LivroUsuario> getLivros() {
-        return livrosUsuario;
-    }
-
-    public String getGeneroMaisLido() {
+    public Genero getGeneroMaisLido() {
         Map<Genero, Integer> generosLidos = new HashMap<>();
 
         for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
@@ -36,7 +23,7 @@ public class AcervoPessoal {
                 generoMaisLido = genero;
         }
 
-        return generoMaisLido.getTipo();
+        return generoMaisLido;
     }
 
     public int getNumTotalPaginasLidas() {
@@ -71,7 +58,7 @@ public class AcervoPessoal {
             this.livrosUsuario.put(ISBN, new LivroUsuario(ISBN, status));
     }
 
-    public void removerLivroAcervo(String ISBN) {
+    public void removerLivro(String ISBN) {
         if(!this.livrosUsuario.containsKey(ISBN)) {
             // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
         }
@@ -91,7 +78,7 @@ public class AcervoPessoal {
         this.livrosUsuario.put(ISBN, livroAtualizado);
     }
 
-    public void atualizarAvaliacaoAcervo(String ISBN, int estrela, String comentario) {
+    public void atualizarAvaliacao(String ISBN, int estrela, String comentario) {
         if(!this.livrosUsuario.containsKey(ISBN)) {
             // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
         }
@@ -124,3 +111,4 @@ public class AcervoPessoal {
         return listaLivrosAvaliados;
     }
 }
+*/

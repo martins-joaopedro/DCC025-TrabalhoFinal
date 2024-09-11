@@ -1,4 +1,4 @@
-package br.ufjf.swing.screens;
+package br.ufjf.ui.screens;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;

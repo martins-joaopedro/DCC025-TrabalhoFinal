@@ -3,9 +3,9 @@ package br.ufjf;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.ufjf.swing.Manager;
-import br.ufjf.swing.NavigationConstants;
-import br.ufjf.swing.Screen;
+import br.ufjf.ui.Manager;
+import br.ufjf.ui.NavigationConstants;
+import br.ufjf.ui.Screen;
 
 public class Main {
 

@@ -1,15 +1,15 @@
-package br.ufjf.swing;
+package br.ufjf.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import br.ufjf.swing.components.Button;
-import br.ufjf.swing.screens.Collection;
-import br.ufjf.swing.screens.Configuracao;
-import br.ufjf.swing.screens.Home;
-import br.ufjf.swing.screens.Login;
+import br.ufjf.ui.components.Button;
+import br.ufjf.ui.screens.Collection;
+import br.ufjf.ui.screens.Configuracao;
+import br.ufjf.ui.screens.Home;
+import br.ufjf.ui.screens.Login;
 
 public class Manager {
 
