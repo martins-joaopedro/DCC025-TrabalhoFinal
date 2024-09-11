@@ -9,7 +9,6 @@ public enum Genero {
         this.tipo = s;
     }
 
-
     public String getTipo() {
         return this.tipo;
     }

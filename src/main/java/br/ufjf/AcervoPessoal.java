@@ -7,10 +7,8 @@ import java.util.Map;
 
 public class AcervoPessoal {
     private Map<String, LivroUsuario> livrosUsuario;
-    
-    //private void listarHistorico(){}
 
-    private AcervoPessoal(Map<String, LivroUsuario> livrosUsuarios) {
+    public AcervoPessoal(Map<String, LivroUsuario> livrosUsuarios) {
         this.livrosUsuario = livrosUsuarios;
     }
     
