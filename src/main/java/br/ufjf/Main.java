@@ -1,8 +1,10 @@
 package br.ufjf;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.ufjf.persistence.FileManager;
 import br.ufjf.ui.Manager;
 import br.ufjf.ui.NavigationConstants;
 import br.ufjf.ui.Screen;
@@ -24,5 +26,12 @@ public class Main {
     
         manager.createScreens(screens);
         manager.start();
+
+        FileManager f = new FileManager();
+        try {
+            f.write();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
