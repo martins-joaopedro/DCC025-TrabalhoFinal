@@ -2,31 +2,31 @@ package br.ufjf.models;
 
 public class Review {
 
-    private final String idUsuario;
+    private final String username;
     private final String ISBN;
-    private int estrelas;
-    private String comentario;
+    private int stars;
+    private String comment;
 
-    public Review(String idUsuario, String ISBN, int estrelas, String comentario) {
-        this.idUsuario = idUsuario;
+    public Review(String username, String ISBN, int stars, String comment) {
+        this.username = username;
         this.ISBN = ISBN;
-        this.estrelas = estrelas;
-        this.comentario = comentario;
+        this.stars = stars;
+        this.comment = comment;
     }
 
-    public String getIdUsuario() {
-        return this.idUsuario;
+    public String getUsername() {
+        return this.username;
     }
 
     public String getISBN() {
         return this.ISBN;
     }
 
-    public int getEstrelas() {
-        return this.estrelas;
+    public int getStars() {
+        return this.stars;
     }
 
-    public String getComentario() {
-        return this.comentario;
+    public String getComment() {
+        return this.comment;
     }
 }

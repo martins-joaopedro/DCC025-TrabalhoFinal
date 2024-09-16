@@ -1,15 +1,15 @@
 package br.ufjf.models.enums;
 
-public enum Genero {
+public enum Genre {
     FANTASIA("fantasia"), ROMANCE("romance"), FICCAO("ficcao"), ACADEMICO("academico"), DISTOPIA("distopia"), SUSPENSE("suspense"), TERROR("terror");
 
-    String tipo;
+    String type;
 
-    Genero(String s) {
-        this.tipo = s;
+    Genre(String s) {
+        this.type = s;
     }
 
-    public String getTipo() {
-        return this.tipo;
+    public String getType() {
+        return this.type;
     }
 }
