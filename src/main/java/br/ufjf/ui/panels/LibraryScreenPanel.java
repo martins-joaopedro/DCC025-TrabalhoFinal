@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import br.ufjf.models.Livro;
+import br.ufjf.models.Book;
 import br.ufjf.services.LibraryService;
 
 public class LibraryScreenPanel extends JPanel {
@@ -23,19 +23,19 @@ public class LibraryScreenPanel extends JPanel {
     }
 
     public void loadBooks() {
-        List<Livro> books = service.findAll();
+        List<Book> books = service.findAll();
         System.out.println(books);
         String[] colunas = {"ISBN", "Nome", "Autor", "Sinopse", "Páginas", "Gênero"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);
 
-         for (Livro book : books) {
+         for (Book book : books) {
             model.addRow(new Object[]{
                 book.getISBN(),
-                book.getNome(),
-                book.getAutor(),
-                book.getSinopse(),
-                book.getPaginas(),
-                book.getGenero()
+                book.getName(),
+                book.getAuthor(),
+                book.getSynopsis(),
+                book.getPages(),
+                book.getGenre()
             });
         }
         JTable table = new JTable(model);

@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
-import br.ufjf.models.Usuario;
+import br.ufjf.models.User;
 import br.ufjf.services.LoginService;
 import br.ufjf.ui.Window;
 
@@ -64,7 +64,7 @@ public class LoginScreenPanel extends JPanel {
 
     //TODO: adiconar validações importante aqui
     public void signIn(String name, String password) {
-        service.create(new Usuario(name, password));
+        service.create(new User(name, password));
     }
 
     public void loadAllUsers() {

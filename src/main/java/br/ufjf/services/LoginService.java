@@ -7,25 +7,25 @@ import java.util.List;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.exceptions.CouldNotConvertJsonException;
-import br.ufjf.models.Usuario;
+import br.ufjf.models.User;
 import br.ufjf.persistence.FileManager;
 import br.ufjf.utils.JsonConverter;
 
-public class LoginService implements IService<Usuario> {
+public class LoginService implements IService<User> {
     
     String path = "users.json";
 
     @Override
-    public Usuario findById(String id) {
+    public User findById(String id) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Usuario> findAll() {
+    public List<User> findAll() {
 
         String data = FileManager.load(path);
-        List<Usuario> users = new ArrayList<>();
-        Type type = new TypeToken<List<Usuario>>(){}.getType();
+        List<User> users = new ArrayList<>();
+        Type type = new TypeToken<List<User>>(){}.getType();
         
         try {
             users = new ArrayList<>(JsonConverter.convertDataIntoList(data, type));
@@ -38,12 +38,12 @@ public class LoginService implements IService<Usuario> {
     }
 
     @Override
-    public void create(Usuario obj) {
+    public void create(User obj) {
         FileManager.append(path, obj);
     }
 
     @Override
-    public void saveAll(List<Usuario> obj) {
+    public void saveAll(List<User> obj) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
