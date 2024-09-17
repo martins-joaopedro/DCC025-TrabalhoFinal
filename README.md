@@ -5,17 +5,17 @@ repositório do trabalho final da disciplina de orientação a objetos
 classDiagram 
 
 Livro <|-- LivroPessoal
-Avaliacao -- Livro
+Avaliacao *-- Livro
 Usuario <|-- Administrador
 Usuario <|-- Leitor
 
 class Livro {
-    -String nome
-    -String autor
-    -String ISBN
-    -String sinopse
-    -int paginas
-    -Genero genero
+    - nome : String
+    - autor : String
+    - ISBN : String 
+    - sinopse : String 
+    - paginas : int 
+    - genero : Genero 
 }
 
 class LivroPessoal {
