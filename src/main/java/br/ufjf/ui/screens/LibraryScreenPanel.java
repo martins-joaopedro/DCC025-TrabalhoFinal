@@ -22,7 +22,7 @@ public class LibraryScreenPanel extends JPanel {
     }
 
     public void loadBooks() {
-        List<Livro> books = service.loadAllBooks();
+        List<Livro> books = service.findAll();
         System.out.println(books);
         String[] colunas = {"ISBN", "Nome", "Autor", "Sinopse", "Páginas", "Gênero"};
         DefaultTableModel model = new DefaultTableModel(colunas, 0);

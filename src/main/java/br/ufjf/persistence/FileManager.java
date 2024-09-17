@@ -1,16 +1,13 @@
 package br.ufjf.persistence;
 
-import br.ufjf.models.Usuario;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import com.google.gson.Gson;
 
 public class FileManager {
 
