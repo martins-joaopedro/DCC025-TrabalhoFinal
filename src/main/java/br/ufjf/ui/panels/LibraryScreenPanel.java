@@ -1,14 +1,15 @@
-package br.ufjf.ui.screens;
+package br.ufjf.ui.panels;
 
-import java.awt.Dimension;
 import java.util.List;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import br.ufjf.models.Livro;
 import br.ufjf.services.LibraryService;
-import br.ufjf.ui.Window;
 
 public class LibraryScreenPanel extends JPanel {
 
