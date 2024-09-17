@@ -2,22 +2,47 @@ package br.ufjf.persistence;
 
 import br.ufjf.models.Usuario;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileManager {
-    Gson gson = new Gson();
 
-    public void write() throws IOException {
-        FileWriter writer = new FileWriter("teste.json");
-        String json = gson.toJson(new Usuario("A", "a"));
-        System.out.println(json);
-        writer.write(json);
+    static Gson gson = new Gson();
+    static String mainPath = "content/";
+
+    public static void write(String path, Object data) {
+
+        String fullPath = mainPath + File.separator + path;
+
+        String json = gson.toJson(data);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fullPath, false))) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println("ERRO: Problema ao escrever arquivo");
+        }
     }
+    
+    public static String load(String path) {
+       
+        String fullPath = mainPath + File.separator + path;
 
-    public void load() throws IOException {
-
+        String data = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(fullPath))) {
+            
+            String line;
+            while ((line = reader.readLine()) != null)
+                data += line + "\n";
+        
+        } catch (Exception e) {
+            System.out.println("ERRO: Problema ao ler arquivo");
+        }
+        return data;
     }
-
 }

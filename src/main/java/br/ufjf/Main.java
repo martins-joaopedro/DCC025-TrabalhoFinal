@@ -27,11 +27,7 @@ public class Main {
         manager.createScreens(screens);
         manager.start();
 
-        FileManager f = new FileManager();
-        try {
-            f.write();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FileManager.write("teste.json", "aAa");
+        //FileManager.load("teste.json");
     }
 }

@@ -5,12 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import br.ufjf.ui.components.Button;
-import br.ufjf.ui.screens.Collection;
-import br.ufjf.ui.screens.Configuracao;
-import br.ufjf.ui.screens.Home;
-import br.ufjf.ui.screens.Login;
-
 public class Manager {
 
     Window window;
