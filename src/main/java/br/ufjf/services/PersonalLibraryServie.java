@@ -1,29 +1,34 @@
 package br.ufjf.services;
 
-/*
-public class AcervoPessoal {
+import java.util.HashMap;
+import java.util.Map;
 
-    public Genero getGeneroMaisLido() {
-        Map<Genero, Integer> generosLidos = new HashMap<>();
+import br.ufjf.models.*;
+import br.ufjf.models.enums.*;
+
+public class PersonalLibraryServie {
+/*
+    public Genre getGenreMaisLido() {
+        Map<Genre, Integer> readGenres = new HashMap<>();
 
         for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
             if(livroUsuario.getStatus() == Status.LIDO) {
-                Genero generoLivro = Biblioteca.buscaLivro(livroUsuario.getIBSN()).getGenero();
+                Genre GenreLivro = Biblioteca.buscaLivro(livroUsuario.getIBSN()).getGenre();
                 
-                if(generosLidos.containsKey(generoLivro))
-                    generosLidos.put(generoLivro, generosLidos.get(generoLivro)+1);
+                if(readGenres.containsKey(GenreLivro))
+                    readGenres.put(GenreLivro, readGenres.get(GenreLivro)+1);
                 else
-                    generosLidos.put(generoLivro, 0);
+                    readGenres.put(GenreLivro, 0);
             }
         }
 
-        Genero generoMaisLido = Genero.ACADEMICO;
-        for(Genero genero : generosLidos.keySet()) {
-            if(generosLidos.get(genero) > generosLidos.get(generoMaisLido))
-                generoMaisLido = genero;
+        Genre GenreMaisLido = Genre.ACADEMICO;
+        for(Genre Genre : readGenres.keySet()) {
+            if(readGenres.get(Genre) > readGenres.get(GenreMaisLido))
+                GenreMaisLido = Genre;
         }
 
-        return generoMaisLido;
+        return GenreMaisLido;
     }
 
     public int getNumTotalPaginasLidas() {
@@ -110,5 +115,5 @@ public class AcervoPessoal {
 
         return listaLivrosAvaliados;
     }
+ */
 }
-*/
