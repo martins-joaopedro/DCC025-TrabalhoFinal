@@ -1,15 +1,19 @@
-package br.ufjf.ui.screens;
+package br.ufjf.ui.panels;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import br.ufjf.models.User;
+import br.ufjf.services.LoginService;
 import br.ufjf.ui.Window;
 
-public class Login extends JPanel {
+public class LoginScreenPanel extends JPanel {
 
-    public Login()  {
+    LoginService service = new LoginService();
+
+    public LoginScreenPanel()  {
 
         JTextPane name = new JTextPane();
         name.setText("Digite aqui seu nome");
@@ -38,16 +42,33 @@ public class Login extends JPanel {
                 System.out.println(nameValue);
                 System.out.println(passwordValue);
 
-                handleAuthentication(nameValue, passwordValue);
-            });
+                //handleAuthentication(nameValue, passwordValue);
+                signIn(nameValue, passwordValue);
+            }
+        );
+
+        JButton delete = new JButton("deletar");
+        delete.addActionListener(e -> service.clearAll());
 
         add(submit);
+        add(delete);
+
+        loadAllUsers();
     }
 
     public void handleAuthentication(String name, String password) {
         if(name == password && name == "adm")
             Window.getManager().navigateTo("configuracao");
         else Window.getManager().navigateTo("acervo");
+    }
+
+    //TODO: adiconar validações importante aqui
+    public void signIn(String name, String password) {
+        service.create(new User(name, password));
+    }
+
+    public void loadAllUsers() {
+        System.out.println(service.findAll());
     }
 
 }

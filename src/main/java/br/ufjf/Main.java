@@ -20,7 +20,7 @@ public class Main {
         screens.put("home", NavigationConstants.Home);
         screens.put("acervo", NavigationConstants.Acervo);
         screens.put("login", NavigationConstants.Login);
-        screens.put("configuracao", NavigationConstants.Configuracao);
+        //screens.put("configuracao", NavigationConstants.Configuracao);
     
         manager.createScreens(screens);
         manager.start();

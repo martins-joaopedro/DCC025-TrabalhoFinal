@@ -5,14 +5,14 @@ import br.ufjf.models.enums.Genre;
 public class Book {
     private final String ISBN;
     private String name;
-    private String autor;
+    private String author;
     private String synopsis;
     private int pages;
     private Genre genre;
     
-    public Book(String name, String autor, String ISBN, String synopsis, int pages, Genre genre) {
+    public Book(String name, String author, String ISBN, String synopsis, int pages, Genre genre) {
         this.name = name;
-        this.autor = autor;
+        this.author = author;
         this.ISBN = ISBN;
         this.synopsis = synopsis;
         this.pages = pages;
@@ -27,8 +27,8 @@ public class Book {
         return name;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
     public String getSynopsis() {

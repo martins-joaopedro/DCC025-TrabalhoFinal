@@ -1,0 +1,90 @@
+[
+    {
+        "ISBN": "978-3-16-148410-0",
+        "nome": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "sinopse": "Dom Casmurro é um romance de Machado de Assis que explora a vida de Bentinho, um homem que busca entender o seu passado e a traição de sua esposa Capitu.",
+        "paginas": 256,
+        "genero": "Romance"
+    },
+    {
+        "ISBN": "978-0-14-118280-3",
+        "nome": "1984",
+        "autor": "George Orwell",
+        "sinopse": "1984 é uma distopia que retrata um futuro totalitário, onde o Grande Irmão vigia e controla a vida dos cidadãos.",
+        "paginas": 328,
+        "genero": "Ficção Científica"
+    },
+    {
+        "ISBN": "978-0-7432-7356-5",
+        "nome": "O Caçador de Pipas",
+        "autor": "Khaled Hosseini",
+        "sinopse": "A história de Amir e Hassan, dois amigos na infância, e as complexidades da amizade e da traição em um contexto de guerra no Afeganistão.",
+        "paginas": 371,
+        "genero": "Drama"
+    },
+    {
+        "ISBN": "978-0-307-26366-3",
+        "nome": "O Sol é Para Todos",
+        "autor": "Harper Lee",
+        "sinopse": "A história de Scout Finch e seu pai, Atticus, que defende um homem negro acusado injustamente de estuprar uma mulher branca no sul dos EUA.",
+        "paginas": 281,
+        "genero": "Ficção"
+    },
+    {
+        "ISBN": "978-0-06-112008-4",
+        "nome": "O Apanhador no Campo de Centeio",
+        "autor": "J.D. Salinger",
+        "sinopse": "A jornada de Holden Caulfield, um adolescente que busca encontrar um propósito e compreender o mundo ao seu redor após ser expulso da escola.",
+        "paginas": 277,
+        "genero": "Romance"
+    },
+    {
+        "ISBN": "978-1-59474-249-7",
+        "nome": "O Alquimista",
+        "autor": "Paulo Coelho",
+        "sinopse": "A jornada de Santiago, um jovem pastor que viaja do seu lar na Espanha para o Egito em busca de um tesouro, aprendendo lições sobre a vida e a realização pessoal.",
+        "paginas": 208,
+        "genero": "Ficção"
+    },
+    {
+        "ISBN": "978-1-250-08510-8",
+        "nome": "A Garota no Trem",
+        "autor": "Paula Hawkins",
+        "sinopse": "Rachel, uma mulher que viaja de trem todos os dias, testemunha algo que a faz se envolver em uma investigação de desaparecimento de uma mulher.",
+        "paginas": 395,
+        "genero": "Thriller"
+    },
+    {
+        "ISBN": "978-0-385-35045-4",
+        "nome": "A Menina que Roubava Livros",
+        "autor": "Markus Zusak",
+        "sinopse": "Narrado pela Morte, conta a história de Liesel, uma menina na Alemanha nazista que encontra consolo em livros roubados e amigos.",
+        "paginas": 552,
+        "genero": "Ficção Histórica"
+    },
+    {
+        "ISBN": "978-1-4165-2144-8",
+        "nome": "A Casa dos Espíritos",
+        "autor": "Isabel Allende",
+        "sinopse": "Saga da família Trueba e suas interações com o sobrenatural e as mudanças sociais no Chile.",
+        "paginas": 384,
+        "genero": "Realismo Mágico"
+    },
+    {
+        "ISBN": "978-1-250-30030-1",
+        "nome": "O Código Da Vinci",
+        "autor": "Dan Brown",
+        "sinopse": "Robert Langdon, um professor de simbologia, investiga um assassinato no Louvre e descobre um segredo antigo que pode mudar a história.",
+        "paginas": 489,
+        "genero": "Mistério"
+    },
+    {
+        "ISBN": "978-1-250-29219-0",
+        "nome": "Orgulho e Preconceito",
+        "autor": "Jane Austen",
+        "sinopse": "A história de Elizabeth Bennet e suas irmãs enquanto elas lidam com questões de classe, moralidade e amor na Inglaterra do século XIX.",
+        "paginas": 432,
+        "genero": "Romance"
+    }
+]
