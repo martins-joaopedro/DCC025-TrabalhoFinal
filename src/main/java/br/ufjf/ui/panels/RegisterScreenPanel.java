@@ -1,82 +1,83 @@
 package br.ufjf.ui.panels;
 
 import javax.swing.*;
+import java.awt.*;
 
 import br.ufjf.models.User;
-import br.ufjf.services.LoginService;
 import br.ufjf.ui.Manager;
 
-public class RegisterScreenPanel extends JPanel {
-
-    LoginService service = new LoginService();
+public class RegisterScreenPanel extends LoginScreenPanel {
 
     public RegisterScreenPanel()  {
+        super();
+    }
 
-        JLabel name = new JLabel("Digite aqui seu nome:");
-        name.setBounds(10, 20, 80, 25); // posição x, y e tamanho (largura, altura)
-        add(name);
+    @Override
+    protected JPanel createFormPanel() {
         
-        JTextField nameField = new JTextField(20);  
-        nameField.setPreferredSize(getPreferredSize());   
-        nameField.setBounds(10, 20, 80, 25);
-        add(nameField);
+        JPanel formPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints formGbc = new GridBagConstraints();
+        formGbc.insets = new Insets(10, 10, 10, 10);
+        formGbc.anchor = GridBagConstraints.CENTER;
+        formGbc.fill = GridBagConstraints.HORIZONTAL;
 
-        JLabel password = new JLabel("Digite aqui sua senha:");
-        password.setBounds(10, 20, 80, 25); // posição x, y e tamanho (largura, altura)
-        add(password);
+        JLabel nameLabel = new JLabel("Digite aqui seu usuário:");
+        formGbc.gridx = 0;
+        formGbc.gridy = 0;
+        formPanel.add(nameLabel, formGbc);
 
-        JPasswordField passwordField = new JPasswordField(20);  
-        passwordField.setPreferredSize(getPreferredSize());
-        passwordField.setBounds(10, 20, 80, 25);
-        add(passwordField);
+        JTextField nameField = new JTextField(20);
+        this.setFieldSize(nameField);
+        formGbc.gridx = 1;
+        formPanel.add(nameField, formGbc);
 
+        JLabel passwordLabel = new JLabel("Digite aqui sua senha:");
+        formGbc.gridx = 0;
+        formGbc.gridy = 1;
+        formPanel.add(passwordLabel, formGbc);
 
-        JButton submit = new JButton();
-            submit.setText("Registrar");
-            submit.addActionListener(e -> {
+        JPasswordField passwordField = new JPasswordField(20);
+        this.setFieldSize(passwordField);
+        formGbc.gridx = 1;
+        formPanel.add(passwordField, formGbc);
 
-                String nameValue = nameField.getText();
-                char[] pass = passwordField.getPassword();
-                String passwordValue = new String(pass);
-           
-                System.out.println(nameValue);
-                System.out.println(passwordValue);
-                
-                signIn(nameValue, passwordValue);
-            }
-        );
+        JButton submitButton = new JButton("Registrar");
+        this.setFieldSize(submitButton);
+        submitButton.addActionListener(e -> {
+            String nameValue = nameField.getText();
+            char[] pass = passwordField.getPassword();
+            String passwordValue = new String(pass);
 
-        JButton delete = new JButton("Deletar Usuário");
-        delete.addActionListener(e -> service.clearAll());
+            System.out.println(nameValue);
 
-        add(submit);
-        add(delete);
+            signIn(nameValue, passwordValue);
 
-        loadAllUsers();
+            nameField.setText("");
+            passwordField.setText("");
+        });
+        
+        formGbc.gridx = 0;
+        formGbc.gridy = 2;
+        formGbc.gridwidth = 2;
+        formPanel.add(submitButton, formGbc);
+
+        return formPanel;
     }
 
-    public void handleAuthentication(String name, String password) {
-        if(name == password && name == "adm") {
-            Manager.navigateTo("configuracao");
-        } else {
-            Manager.navigateTo("acervo");
-        }
-    }
-
+    @Override
     public void signIn(String name, String password) {
-        if (service.findById(name) != null) {
-            JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
-            //return; //para parar a execução se o usuário já existir
-        }
-        else {
-            service.create(new User(name, password));
-            Manager.navigateTo("acervo");
-             
+        try {
+            if (this.getService().findById(name) != null) {
+                JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else if (name.isEmpty() || password.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Insira um usuário e uma senha válidos.", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+                this.getService().create(new User(name, password));
+                Manager.navigateTo("acervo");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro ao registrar o usuário.", "Erro", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }
-
-    public void loadAllUsers() {
-        System.out.println(service.findAll());
-    }
-
 }
