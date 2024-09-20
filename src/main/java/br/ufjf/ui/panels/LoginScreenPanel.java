@@ -10,7 +10,7 @@ public class LoginScreenPanel extends JPanel {
 
     LoginService service = new LoginService();
 
-    public LoginScreenPanel()  {
+    public LoginScreenPanel() {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -32,6 +32,7 @@ public class LoginScreenPanel extends JPanel {
 
         JTextField nameField = new JTextField(20);
         nameField.setPreferredSize(new Dimension(200, 24)); // Define o tamanho preferido
+        nameField.setMinimumSize(new Dimension(200, 24)); // Define o tamanho mínimo
         formGbc.gridx = 1;
         formPanel.add(nameField, formGbc);
 
@@ -42,10 +43,13 @@ public class LoginScreenPanel extends JPanel {
 
         JPasswordField passwordField = new JPasswordField(20);
         passwordField.setPreferredSize(new Dimension(200, 24)); // Define o tamanho preferido
+        passwordField.setMinimumSize(new Dimension(200, 24)); // Define o tamanho mínimo
         formGbc.gridx = 1;
         formPanel.add(passwordField, formGbc);
 
         JButton submit = new JButton("Logar");
+        submit.setPreferredSize(new Dimension(200, 24)); // Define o tamanho preferido
+        submit.setMinimumSize(new Dimension(200, 24)); // Define o tamanho mínimo
         submit.addActionListener(e -> {
             String nameValue = nameField.getText();
             char[] pass = passwordField.getPassword();
@@ -77,17 +81,15 @@ public class LoginScreenPanel extends JPanel {
     public void signIn(String name, String password) {
         if (service.findById(name) == null) {
             JOptionPane.showMessageDialog(null, "Esse Usuário não existe. Cadastre-se!", "Erro", JOptionPane.ERROR_MESSAGE);
-            //return; //para parar a execução se o usuário já existir
-        }
-        else {
-            //conferir se a senha bate com o usuario 
+            // return; //para parar a execução se o usuário já existir
+        } else {
+            // conferir se a senha bate com o usuario
             System.out.println(password);
             System.out.println(service.findById(name).getPassword());
 
             if (service.findById(name).getPassword().equals(password)) {
                 Manager.navigateTo("acervo");
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -96,5 +98,4 @@ public class LoginScreenPanel extends JPanel {
     public void loadAllUsers() {
         System.out.println(service.findAll());
     }
-
 }
