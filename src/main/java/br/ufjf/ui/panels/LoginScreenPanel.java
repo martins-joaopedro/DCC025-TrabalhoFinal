@@ -1,7 +1,7 @@
 package br.ufjf.ui.panels;
 
 import javax.swing.*;
-import java.awt.*; 
+import java.awt.*;
 
 import br.ufjf.services.LoginService;
 import br.ufjf.ui.Manager;
@@ -18,54 +18,56 @@ public class LoginScreenPanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = GridBagConstraints.RELATIVE;
         gbc.anchor = GridBagConstraints.CENTER;
-        
+
         JPanel formPanel = new JPanel(new GridBagLayout());
         GridBagConstraints formGbc = new GridBagConstraints();
         formGbc.insets = new Insets(10, 10, 10, 10);
         formGbc.anchor = GridBagConstraints.CENTER;
         formGbc.fill = GridBagConstraints.HORIZONTAL;
-        
+
         JLabel name = new JLabel("Digite aqui seu usuário:");
         formGbc.gridx = 0;
         formGbc.gridy = 0;
         formPanel.add(name, formGbc);
-        
+
         JTextField nameField = new JTextField(20);
+        nameField.setPreferredSize(new Dimension(200, 24)); // Define o tamanho preferido
         formGbc.gridx = 1;
         formPanel.add(nameField, formGbc);
-        
+
         JLabel password = new JLabel("Digite aqui sua senha:");
         formGbc.gridx = 0;
         formGbc.gridy = 1;
         formPanel.add(password, formGbc);
-        
+
         JPasswordField passwordField = new JPasswordField(20);
+        passwordField.setPreferredSize(new Dimension(200, 24)); // Define o tamanho preferido
         formGbc.gridx = 1;
         formPanel.add(passwordField, formGbc);
-        
+
         JButton submit = new JButton("Logar");
         submit.addActionListener(e -> {
             String nameValue = nameField.getText();
             char[] pass = passwordField.getPassword();
             String passwordValue = new String(pass);
-        
+
             System.out.println(nameValue);
             System.out.println(passwordValue);
-        
+
             signIn(nameValue, passwordValue);
         });
         formGbc.gridx = 0;
         formGbc.gridy = 2;
         formGbc.gridwidth = 2;
         formPanel.add(submit, formGbc);
-        
+
         add(formPanel, gbc);
 
         loadAllUsers();
     }
 
     public void handleAuthentication(String name, String password) {
-        if(name == password && name == "adm") {
+        if(name.equals(password) && name.equals("adm")) {
             Manager.navigateTo("configuracao");
         } else {
             Manager.navigateTo("acervo");
