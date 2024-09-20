@@ -8,10 +8,8 @@ import br.ufjf.ui.UIConstants;
 import java.awt.*;
 
 public class Button extends JButton {
-    
-    
-    public Button(String text) {
 
+    public Button(String text) {
         addActionListener(e -> Manager.navigateBack());
         setPreferredSize(new Dimension(30, 30));
         setMargin(new Insets(0, 0, 0, 0));
@@ -22,7 +20,6 @@ public class Button extends JButton {
     }
 
     public Button(String text, String screenToNav) {
-
         setText(text);
         addActionListener(e -> Manager.navigateTo(screenToNav));
     }

@@ -26,5 +26,6 @@ public class Main {
     
         manager.createScreens(screens);
         manager.start();
+
     }
 }
