@@ -1,19 +1,19 @@
 package br.ufjf.ui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.CardLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Window extends JFrame {
 
-    public static final int WIDTH = 500;
-    public static final int HEIGHT = WIDTH;
     private JPanel mainPanel;
     private CardLayout layout;
 
     Window(String title) {
 
         setTitle(title);
-        setSize(WIDTH, HEIGHT);
+        setSize(UIConstants.SCREEN_WIDTH, UIConstants.SCREEN_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.layout = new CardLayout();
@@ -30,7 +30,7 @@ public class Window extends JFrame {
     }
 
     public void start() {
-        this.layout.show(mainPanel, "home");
+        this.layout.show(mainPanel, "acervo");
         add(mainPanel);
         setVisible(true);
     }
