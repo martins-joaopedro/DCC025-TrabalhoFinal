@@ -1,33 +1,43 @@
 package br.ufjf.ui;
 
+import java.util.Stack;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Manager {
 
-    Window window;
+    public static Window window;
     Map<String, Screen> screens;
+    public static Stack<String> history;
 
     public Manager() {
-        this.screens = screens;
-        this.window = new Window("App", this);
+        this.screens = new HashMap<>();
+        window = new Window("App", this);
+        history = new Stack<String>();
+        history.push("home");
     }
 
     public void createScreens(Map<String, Screen> screens) {
 
         for(String key : screens.keySet()) {
-            this.window.addScreen(key, screens.get(key));
+            window.addScreen(key, screens.get(key));
         }
     }
 
-    public void navigateTo(String screenName) {
+    public static void navigateTo(String screenName) {
 
-        System.out.println(screenName);
-
-        this.window.showPanel(screenName);
+        history.push(screenName);
+        window.showPanel(screenName);
     }
 
+    public static void navigateBack() {
+
+        history.pop();
+        window.showPanel(history.lastElement());
+    } 
+
     public void start() {
-        this.window.start();
+        window.start();
     }
 
 }

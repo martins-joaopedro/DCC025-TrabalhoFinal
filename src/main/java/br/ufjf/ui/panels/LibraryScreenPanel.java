@@ -2,14 +2,13 @@ package br.ufjf.ui.panels;
 
 import java.util.List;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import java.awt.*;
 
 import br.ufjf.models.Book;
 import br.ufjf.services.LibraryService;
+
+import br.ufjf.ui.components.BookCard;
 
 public class LibraryScreenPanel extends JPanel {
 
@@ -24,24 +23,30 @@ public class LibraryScreenPanel extends JPanel {
 
     public void loadBooks() {
         List<Book> books = service.findAll();
-        System.out.println(books);
-        String[] colunas = {"ISBN", "Nome", "Autor", "Sinopse", "Páginas", "Gênero"};
-        DefaultTableModel model = new DefaultTableModel(colunas, 0);
+        
+        JPanel container = new JPanel();
+        container.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
+        container.setPreferredSize(new Dimension(Window.WIDTH, 200)); 
 
-         for (Book book : books) {
-            model.addRow(new Object[]{
-                book.getISBN(),
-                book.getName(),
-                book.getAuthor(),
-                book.getSynopsis(),
-                book.getPages(),
-                book.getGenre()
-            });
-        }
+        for (Book book : books) {
+           container.add(new BookCard(book));
+        }   
+
+        JScrollPane scroll = new JScrollPane(container);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS); // Define o scroll horizontal
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER); // Remove o scroll vertical
+
+        // Define o tamanho preferido para o painel
+        // Define a altura e largura da área de visualização
+
+        add(scroll);
+       /*  String[] colunas = {"ISBN", "Nome", "Autor", "Sinopse", "Páginas", "Gênero"};
+        //DefaultTableModel model = new DefaultTableModel(colunas, 0);
+
+        
         JTable table = new JTable(model);
-        JScrollPane container = new JScrollPane(table);
-        add(container);
+        
+        
+        add(container); */
     }
-
-
 }
