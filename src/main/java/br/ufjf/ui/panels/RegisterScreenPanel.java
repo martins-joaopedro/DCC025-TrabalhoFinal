@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import br.ufjf.models.User;
 import br.ufjf.services.LoginService;
-import br.ufjf.ui.Window;
 import br.ufjf.ui.Manager;
 
 public class RegisterScreenPanel extends JPanel {
@@ -57,9 +56,11 @@ public class RegisterScreenPanel extends JPanel {
     }
 
     public void handleAuthentication(String name, String password) {
-        if(name == password && name == "adm")
-            Window.getManager().navigateTo("configuracao");
-        else Window.getManager().navigateTo("acervo");
+        if(name == password && name == "adm") {
+            Manager.navigateTo("configuracao");
+        } else {
+            Manager.navigateTo("acervo");
+        }
     }
 
     public void signIn(String name, String password) {

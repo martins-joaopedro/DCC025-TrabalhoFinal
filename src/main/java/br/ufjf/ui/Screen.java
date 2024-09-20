@@ -1,12 +1,9 @@
 package br.ufjf.ui;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import br.ufjf.ui.Window;
 import br.ufjf.ui.components.Button;
 
 import java.awt.*;

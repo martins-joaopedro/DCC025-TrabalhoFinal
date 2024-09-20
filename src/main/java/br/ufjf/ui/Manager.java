@@ -12,7 +12,7 @@ public class Manager {
 
     public Manager() {
         this.screens = new HashMap<>();
-        window = new Window("App", this);
+        window = new Window("Bookself");
         history = new Stack<String>();
         history.push("home");
     }

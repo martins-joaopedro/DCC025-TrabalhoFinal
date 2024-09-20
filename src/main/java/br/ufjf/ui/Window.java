@@ -5,14 +5,12 @@ import java.awt.*;
 
 public class Window extends JFrame {
 
-    public static Manager manager;
     public static final int WIDTH = 500;
     public static final int HEIGHT = WIDTH;
     private JPanel mainPanel;
     private CardLayout layout;
 
-    Window(String title, Manager manager) {
-        this.manager = manager;
+    Window(String title) {
 
         setTitle(title);
         setSize(WIDTH, HEIGHT);
@@ -36,9 +34,4 @@ public class Window extends JFrame {
         add(mainPanel);
         setVisible(true);
     }
-
-    public static Manager getManager() {
-        return manager;
-    }
-
 }
