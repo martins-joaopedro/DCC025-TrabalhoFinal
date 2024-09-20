@@ -10,7 +10,6 @@ import br.ufjf.ui.Screen;
 public class Main {
 
     private static Manager manager;
-
     public static void main(String[] args) {
 
         manager = new Manager();
