@@ -43,18 +43,18 @@ public class BookCard extends JPanel {
             buttons.setLayout(new FlowLayout());
             buttons.setPreferredSize(new Dimension(30, 30));
 
-            JButton options = new JButton("ver todas as avaliações");
+            JButton seeReviews = new JButton("ver todas as avaliações");
             //Dimension fixedSize = new Dimension(150, 50);
 
 
-        options.addActionListener(e -> handleOptions());
-            buttons.add(options, BorderLayout.EAST);
+        seeReviews.addActionListener(e -> handleOptions(book));
+            buttons.add(seeReviews, BorderLayout.EAST);
         add(buttons);
 
         add(new Image("content/star.png", 10, 10));
 
     }
-    public void handleOptions() {
-        new ReviewScreenFrame();
+    public void handleOptions(Book book) {
+        new ReviewScreenFrame(book);
     }
 }
