@@ -30,7 +30,8 @@ public class Window extends JFrame {
     }
 
     public void start() {
-        this.layout.show(mainPanel, "acervo");
+        this.layout.show(mainPanel, "bibliotecaPessoal");
+        //this.layout.show(mainPanel, "personalLibrary");
         add(mainPanel);
         setVisible(true);
     }

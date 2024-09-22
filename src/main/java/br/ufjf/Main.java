@@ -18,7 +18,8 @@ public class Main {
         Map<String, Screen> screens = new HashMap<>();        
 
         screens.put("home", NavigationConstants.Home);
-        screens.put("acervo", NavigationConstants.Acervo);
+        screens.put("biblioteca", NavigationConstants.Library);
+        screens.put("bibliotecaPessoal", NavigationConstants.PersonalLibrary);
         screens.put("login", NavigationConstants.Login);
         screens.put("register", NavigationConstants.Register);
         screens.put("teste", NavigationConstants.Teste);
