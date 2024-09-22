@@ -31,10 +31,11 @@ public class Manager {
     }
 
     public static void navigateBack() {
-
-        history.pop();
-        window.showPanel(history.lastElement());
-    } 
+        if(!history.empty()) {
+            history.pop();
+            window.showPanel(history.lastElement());
+        }
+    }
 
     public void start() {
         window.start();
