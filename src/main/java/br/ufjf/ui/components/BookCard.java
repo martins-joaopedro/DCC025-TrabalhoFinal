@@ -1,12 +1,21 @@
 package br.ufjf.ui.components;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
-
-import br.ufjf.ui.UIConstants;
 import br.ufjf.models.Book;
+import br.ufjf.ui.UIConstants;
 import br.ufjf.ui.frames.ReviewScreenFrame;
 
 public class BookCard extends JPanel {
@@ -22,7 +31,8 @@ public class BookCard extends JPanel {
             header.setBackground(Color.WHITE);
         add(header);
 
-        setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH/3, 250));
+        setPreferredSize(new Dimension(UIConstants.BOOKCARD_WIDTH, UIConstants.BOOKCARD_HEIGHT));
+        setMaximumSize(new Dimension(UIConstants.BOOKCARD_WIDTH, UIConstants.BOOKCARD_HEIGHT));
         setBorder(BorderFactory.createTitledBorder(book.getName()));
         setBackground(Color.WHITE);
 
