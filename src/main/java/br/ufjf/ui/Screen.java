@@ -1,12 +1,14 @@
 package br.ufjf.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.JLabel;
 
 import br.ufjf.ui.components.Button;
-
-import java.awt.*;
 
 public class Screen extends JPanel {
 
@@ -32,7 +34,7 @@ public class Screen extends JPanel {
     }
 
     public void draw() {
-        this.mainPanel = new JPanel(new BorderLayout());
+        this.mainPanel = new JPanel();
 
         mainPanel.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH - UIConstants.OFFSET, UIConstants.SCREEN_HEIGHT - UIConstants.OFFSET));
 
@@ -42,7 +44,7 @@ public class Screen extends JPanel {
 
         // Cria o painel de cabeçalho
         JPanel header = new JPanel(new BorderLayout(2, 1));
-        header.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH, 75));
+        header.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH  - UIConstants.OFFSET, 75));
 
         System.out.println(screenName);
 
@@ -53,9 +55,8 @@ public class Screen extends JPanel {
             header.add(title, BorderLayout.SOUTH);
         }
 
-        mainPanel.add(header, BorderLayout.NORTH);
-
-        mainPanel.add(centerPanel, BorderLayout.CENTER);
+        mainPanel.add(header);
+        mainPanel.add(centerPanel);
 
         add(mainPanel);
     }
