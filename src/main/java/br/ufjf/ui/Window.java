@@ -26,12 +26,12 @@ public class Window extends JFrame {
 
     public void showPanel(String panelName) {
         System.out.println(panelName);
+        
         this.layout.show(mainPanel, panelName);
     }
 
     public void start() {
-        this.layout.show(mainPanel, "bibliotecaPessoal");
-        //this.layout.show(mainPanel, "personalLibrary");
+        this.showPanel("home");
         add(mainPanel);
         setVisible(true);
     }

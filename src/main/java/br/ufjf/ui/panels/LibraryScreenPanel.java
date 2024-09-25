@@ -8,8 +8,8 @@ import javax.swing.JPanel;
 
 import br.ufjf.models.Book;
 import br.ufjf.services.LibraryService;
-import br.ufjf.ui.components.BookCard;
 import br.ufjf.ui.components.ComponentList;
+import br.ufjf.ui.components.cards.LibraryBookCard;
 
 public class LibraryScreenPanel extends JPanel {
 
@@ -25,12 +25,12 @@ public class LibraryScreenPanel extends JPanel {
 
     public void loadBooks() {
         List<Book> books = service.findAll();
-        List<BookCard> bookCards = new ArrayList<>();
+        List<LibraryBookCard> bookCards = new ArrayList<>();
 
         for(Book book : books)
-            bookCards.add(new BookCard(book));
+            bookCards.add(new LibraryBookCard(book));
 
-        ComponentList<BookCard> list = new ComponentList<>(bookCards, false);
+        ComponentList<LibraryBookCard> list = new ComponentList<>(bookCards, false);
         add(list);
     }
 }

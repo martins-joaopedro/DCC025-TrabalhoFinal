@@ -1,12 +1,83 @@
 package br.ufjf.services;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-import br.ufjf.models.*;
-import br.ufjf.models.enums.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-public class PersonalLibraryServie {
+import br.ufjf.models.Book;
+import br.ufjf.models.PersonalBook;
+import br.ufjf.models.dto.PersonalBookDTO;
+import br.ufjf.models.enums.Status;
+import br.ufjf.persistence.FileManager;
+
+public class PersonalLibraryService implements IService<PersonalBookDTO> {
+
+    LibraryService service = new LibraryService();
+
+    Gson gson = new Gson();
+    String path = "library.json";
+
+    @Override
+    public PersonalBookDTO findById(String id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
+
+    @Override
+    public List<PersonalBookDTO> findAll() {
+        String data = FileManager.load(path);
+        List<PersonalBookDTO> books;
+        if(!data.isEmpty()) {
+            var type = new TypeToken<List<PersonalBookDTO>>(){}.getType();
+            books = new ArrayList<>(gson.fromJson(data, type));
+            return books;
+        } else return new ArrayList<>();
+    }
+
+    @Override
+    public void create(PersonalBookDTO obj) {
+        FileManager.append(path, obj);
+    }
+
+    @Override
+    public void saveAll(List<PersonalBookDTO> obj) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
+    }
+
+    public void addToPersonalLibrary(String ISBN) {
+        create(new PersonalBookDTO(ISBN, Status.ABANDONEI, 0));
+    }
+
+    public List<PersonalBook> getAll() {
+        List<PersonalBookDTO> dtos = findAll();
+        List<PersonalBook> books = new ArrayList<>();
+
+        for(PersonalBookDTO dto : dtos) {
+            Book book = service.findById(dto.ISBN());
+            System.out.println(book);
+            if(book != null)
+                books.add(new PersonalBook(book, dto.status(), dto.currentPage()));
+        }
+
+        System.out.println("TODOS");
+        return books;
+    }
+
+    public void removeFromPersonalLibrary(String id) {
+        List<PersonalBookDTO> dtos = findAll();
+        for(PersonalBookDTO dto : dtos) {
+            if(dto.ISBN().equalsIgnoreCase(id)) {
+                dtos.remove(dto);
+                break;
+            }
+        }
+        FileManager.write(path, dtos);
+    }
+
+   
 /*
     public Genre getGenreMaisLido() {
         Map<Genre, Integer> readGenres = new HashMap<>();

@@ -1,7 +1,15 @@
 package br.ufjf.ui.panels;
 
-import javax.swing.*;
-import java.awt.*; 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout; 
+import java.awt.Insets;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 import br.ufjf.services.LoginService;
 import br.ufjf.ui.Manager;
@@ -83,14 +91,14 @@ public class LoginScreenPanel extends JPanel {
             System.out.println(service.findById(name).getPassword());
 
             if (service.findById(name).getPassword().equals(password)) {
-                Manager.navigateTo("acervo");
+                Manager.navigateTo("biblioteca");
             }
             else {
                 JOptionPane.showMessageDialog(null, "Senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
-
+    
     public void loadAllUsers() {
         System.out.println(service.findAll());
     }

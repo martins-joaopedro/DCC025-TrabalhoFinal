@@ -30,6 +30,7 @@ public class Manager {
         window.showPanel(screenName);
     }
 
+    
     public static void navigateBack() {
         if(!history.empty()) {
             history.pop();

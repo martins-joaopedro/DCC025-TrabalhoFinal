@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -57,6 +58,17 @@ public class Screen extends JPanel {
 
         mainPanel.add(header);
         mainPanel.add(centerPanel);
+
+        JButton navToLibrary = new JButton("biblioteca");
+        navToLibrary.addActionListener(e -> Manager.navigateTo("biblioteca"));
+
+        JButton navToPersonalLibrary = new JButton("bibliotecaPessoal");
+        navToPersonalLibrary.addActionListener(e -> Manager.navigateTo("bibliotecaPessoal"));
+
+        JButton navToReview = new JButton();
+
+        add(navToLibrary);
+        add(navToPersonalLibrary);
 
         add(mainPanel);
     }

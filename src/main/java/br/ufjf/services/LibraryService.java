@@ -17,7 +17,11 @@ public class LibraryService implements IService<Book>{
 
     @Override
     public Book findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Book> books = findAll();
+        for(Book book : books)
+            if(book.getISBN().equalsIgnoreCase(id))
+                return book;
+        return null;
     }
 
     @Override

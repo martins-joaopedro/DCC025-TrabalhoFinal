@@ -1,16 +1,14 @@
 package br.ufjf.ui.frames;
 
-import br.ufjf.models.Book;
-import br.ufjf.models.Review;
-import br.ufjf.services.ReviewService;
-import br.ufjf.ui.Screen;
-import br.ufjf.ui.UIConstants;
-import br.ufjf.ui.components.BookCard;
-import br.ufjf.ui.components.Button;
-import br.ufjf.ui.panels.ReviewScreenPanel;
+import java.awt.Dimension;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import br.ufjf.models.Book;
+import br.ufjf.services.ReviewService;
+import br.ufjf.ui.UIConstants;
+import br.ufjf.ui.components.cards.BookCard;
 
 public class ReviewScreenFrame extends JFrame {
 

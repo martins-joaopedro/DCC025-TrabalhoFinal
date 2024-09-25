@@ -6,19 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import br.ufjf.models.Book;
-import br.ufjf.services.LibraryService;
+import br.ufjf.models.PersonalBook;
+import br.ufjf.services.PersonalLibraryService;
+import br.ufjf.ui.Manager;
 import br.ufjf.ui.UIConstants;
-import br.ufjf.ui.components.BookCard;
 import br.ufjf.ui.components.ComponentList;
+import br.ufjf.ui.components.cards.PersonalBookCard;
 
 public class PersonalLibraryScreenPanel extends JPanel {
 
-    LibraryService service = new LibraryService(); 
+    PersonalLibraryService service = new PersonalLibraryService(); 
     JPanel mainPanel;
+    JPanel area = new JPanel();
 
     public PersonalLibraryScreenPanel() {
         
@@ -26,21 +29,37 @@ public class PersonalLibraryScreenPanel extends JPanel {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
         mainPanel.setBackground(Color.red);
 
-        List<Book> books = service.findAll();
-        List<BookCard> bookCards = new ArrayList<>();
-
-        for(Book book : books)
-            bookCards.add(new BookCard(book));
-
-        ComponentList<BookCard> list = new ComponentList<>(bookCards, true);
-        mainPanel.add(list);
-
+        JButton a = new JButton("RECARREGAR");
+        a.addActionListener(e -> loadAllBookCards());
+        mainPanel.add(a);
+        
+      
+        mainPanel.add(area);
+        
         JScrollPane scroll = new JScrollPane(mainPanel);
         scroll.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH - UIConstants.OFFSET, UIConstants.SCREEN_HEIGHT-200));
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(scroll);
-
+        
     }
     
+    public void loadAllBookCards() {
+        List<PersonalBook> books = service.getAll();
+        List<PersonalBookCard> bookCards = new ArrayList<>();
+
+        for(PersonalBook book : books)
+            bookCards.add(new PersonalBookCard(book));
+
+        area.removeAll();
+        area.add(new ComponentList<>(bookCards, true));
+        //area.repaint();
+        //mainPanel.repaint();
+        
+        Manager.navigateTo("home");
+        Manager.navigateTo("bibliotecaPessoal");
+       
+    }
+
+
 }
