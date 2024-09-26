@@ -53,7 +53,6 @@ public class Register extends BasicScreen {
 
         if (service.findById(user) != null) {
             JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
-            //return; //para parar a execução se o usuário já existir
         }
         else {
             service.create(new User(user, password));

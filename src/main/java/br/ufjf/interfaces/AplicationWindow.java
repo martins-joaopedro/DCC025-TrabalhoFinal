@@ -26,7 +26,7 @@ public class AplicationWindow {
         mainPanel.add(new Login(), "login");
         mainPanel.add(new Register(), "register");
         mainPanel.add(new PersonalLibrary(), "personalLibrary");
-        //mainPanel.add(new Library(), "library");
+        mainPanel.add(new Library(), "library");
         //mainPanel.add(new BookDetails(), "bookDetails");
 
 
