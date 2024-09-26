@@ -4,9 +4,9 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
-import br.ufjf.interfaces.widgets.TelaBase;
+import br.ufjf.interfaces.widgets.*;
 
-public class TelaIncial extends TelaBase {
+public class Home extends BasicScreen {
 
     private final JLabel titulo = new JLabel("Bookself");
 
@@ -22,13 +22,14 @@ public class TelaIncial extends TelaBase {
     // prazer mas por incrível que pareça, a quase totalidade, não sente esta
     // sede.");
 
-    private final JButton login = new JButton("Entrar");
-    private final JButton signin = new JButton("Cadastrar");
+    private final JButton login = new Button("Entrar");
+    private final JButton signin = new Button("Registrar");
 
-    public TelaIncial() {
+    public Home() {
+        super(null);
 
         login.addActionListener(e -> AplicationWindow.showScreen("login"));
-        signin.addActionListener(e -> AplicationWindow.showScreen("signin"));
+        signin.addActionListener(e -> AplicationWindow.showScreen("register"));
 
         addTitle(titulo);
 
@@ -36,6 +37,6 @@ public class TelaIncial extends TelaBase {
         citacao.setMinimumSize(new Dimension(300, 300)); // Define o tamanho mínimo        
         addComponent(citacao, 0, 0);
 
-        addButtons(signin, login);
+        addButtons(login, signin);
     }
 }

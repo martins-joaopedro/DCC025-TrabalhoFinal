@@ -1,20 +1,20 @@
 package br.ufjf.interfaces;
 
 import javax.swing.*;
+import java.awt.*;
 
 import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.TextField;
 
+import br.ufjf.models.User;
 import br.ufjf.services.LoginService;
 
-import java.awt.*;
-
-public class Login extends BasicScreen {
+public class Register extends BasicScreen {
 
     LoginService service = new LoginService();
     
-    private final JLabel title = new JLabel("Entrar");
+    private final JLabel title = new JLabel("Registrar");
 
     private JLabel userText = new JLabel("Digite seu usuário:");
     private JTextField userField = new TextField(15);
@@ -22,14 +22,14 @@ public class Login extends BasicScreen {
     private JLabel passwordText = new JLabel("Digite sua senha:");
     private JTextField passwordField = new PasswordField(15);
 
-    private JButton login = new Button("Entrar");
+    private JButton register = new Button("Registrar");
 
-    public Login() {
+    public Register() {
         super("home");
 
-        login.addActionListener(e -> this.startLogin(userField.getText(), passwordField.getText()));
+        register.addActionListener(e -> this.startRegister(userField.getText(), passwordField.getText()));
 
-        addTitle(this.title);
+        addTitle(title);
         
         addComponent(userText, 0, 0);
         addComponent(passwordText, 0, 1);
@@ -43,27 +43,22 @@ public class Login extends BasicScreen {
         addComponent(userField, 1, 0);
         addComponent(passwordField, 1, 1);
 
-        addButtons(login);
+        addButtons(register);
     }
 
-    private void startLogin(String user, String password) {
+    private void startRegister(String user, String password) {
 
         System.out.println(user);
         System.out.println(password);
 
-        if (service.findById(user) == null) {
-            JOptionPane.showMessageDialog(null, "Esse Usuário não existe. Cadastre-se!", "Erro", JOptionPane.ERROR_MESSAGE);
-            // return; //para parar a execução se o usuário já existir
-        } else {
-            // conferir se a senha bate com o usuario
-            System.out.println(password);
-            System.out.println(service.findById(user).getPassword());
-
-            if (service.findById(user).getPassword().equals(password)) {
-                AplicationWindow.showScreen("personalLibrary");
-            } else {
-                JOptionPane.showMessageDialog(null, "Senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
+        if (service.findById(user) != null) {
+            JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
+            //return; //para parar a execução se o usuário já existir
+        }
+        else {
+            service.create(new User(user, password));
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            AplicationWindow.showScreen("PersonalLibrary");
         }
     }
 

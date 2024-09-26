@@ -22,8 +22,13 @@ public class AplicationWindow {
 
         mainPanel = new JPanel(cardLayout);
 
-        mainPanel.add(new TelaIncial(), "telaInicial");
+        mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
+        mainPanel.add(new Register(), "register");
+        mainPanel.add(new PersonalLibrary(), "personalLibrary");
+        //mainPanel.add(new Library(), "library");
+        //mainPanel.add(new BookDetails(), "bookDetails");
+
 
         frame.add(mainPanel);
         frame.setVisible(true);

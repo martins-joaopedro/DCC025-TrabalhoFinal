@@ -17,7 +17,6 @@ public class LoginService implements IService<User> {
 
     @Override
     public User findById(String id) {
-        //throw new UnsupportedOperationException("Not supported yet.");
         
         String data = FileManager.load(path);
         List<User> users = new ArrayList<>();
