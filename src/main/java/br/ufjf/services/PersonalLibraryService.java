@@ -77,6 +77,18 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         FileManager.write(path, dtos);
     }
 
+    public void updateBook(PersonalBookDTO book) {
+        List<PersonalBookDTO> dtos = findAll();
+        for(PersonalBookDTO dto : dtos) {
+            if(dto.ISBN().equalsIgnoreCase(book.ISBN())) {
+                dtos.remove(dto);
+                dtos.add(book);
+                break;
+            }
+        }
+        FileManager.write(path, dtos);
+    }
+
    
 /*
     public Genre getGenreMaisLido() {

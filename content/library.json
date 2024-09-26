@@ -1,6 +1,16 @@
 [
   {
+    "ISBN": "978-0-14-118280-3",
+    "status": "ABANDONEI",
+    "currentPage": 0
+  },
+  {
     "ISBN": "978-3-16-148410-0",
+    "status": "ABANDONEI",
+    "currentPage": 0
+  },
+  {
+    "ISBN": "978-0-307-26366-3",
     "status": "ABANDONEI",
     "currentPage": 0
   }

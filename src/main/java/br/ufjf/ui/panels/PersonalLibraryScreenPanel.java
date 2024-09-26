@@ -2,11 +2,15 @@ package br.ufjf.ui.panels;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -19,21 +23,15 @@ import br.ufjf.ui.components.cards.PersonalBookCard;
 
 public class PersonalLibraryScreenPanel extends JPanel {
 
-    PersonalLibraryService service = new PersonalLibraryService(); 
+    public static PersonalLibraryService service = new PersonalLibraryService(); 
     JPanel mainPanel;
-    JPanel area = new JPanel();
+    static JPanel area = new JPanel();
 
     public PersonalLibraryScreenPanel() {
         
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBackground(Color.red);
-
-        JButton a = new JButton("RECARREGAR");
-        a.addActionListener(e -> loadAllBookCards());
-        mainPanel.add(a);
-        
-      
+        mainPanel.setBackground(Color.red);   
         mainPanel.add(area);
         
         JScrollPane scroll = new JScrollPane(mainPanel);
@@ -42,24 +40,43 @@ public class PersonalLibraryScreenPanel extends JPanel {
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         add(scroll);
         
+        drawAllPersonalBooks();
     }
     
-    public void loadAllBookCards() {
+    public static void reload() {
+        drawAllPersonalBooks();
+        Manager.navigateTo("home");
+        Manager.navigateBack();
+    }
+
+    public static void drawAllPersonalBooks() {
+
+        area.removeAll();
+
         List<PersonalBook> books = service.getAll();
         List<PersonalBookCard> bookCards = new ArrayList<>();
 
-        for(PersonalBook book : books)
-            bookCards.add(new PersonalBookCard(book));
+        Map<String, List<PersonalBookCard>> list = new HashMap<>();
 
-        area.removeAll();
-        area.add(new ComponentList<>(bookCards, true));
-        //area.repaint();
-        //mainPanel.repaint();
-        
-        Manager.navigateTo("home");
-        Manager.navigateTo("bibliotecaPessoal");
-       
+        for(PersonalBook book : books) {
+            
+            if(!list.containsKey(book.getStatus())) {
+                list.put(book.getStatus().name(), new ArrayList<>());
+            } 
+
+            list.get(book.getStatus().name()).add(new PersonalBookCard(book));
+        }
+
+        for(String key : list.keySet()) {
+            System.out.println("AAAAAAA" + key);
+            JPanel panel = new JPanel();
+            panel.add(new JLabel("STATUS: " + key));
+            System.out.println(list.get(key));
+            panel.add(new ComponentList<>(list.get(key), true));
+            area.add(panel);
+        }
+
     }
-
-
 }
+
+//o que era pra ser varias listagens ta sendo um componente so
