@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import br.ufjf.models.Book;
+import br.ufjf.models.enums.Status;
 import br.ufjf.services.PersonalLibraryService;
 import br.ufjf.ui.components.Image;
 
@@ -26,7 +27,7 @@ public class LibraryBookCard extends BookCard {
             //seeReviews.addActionListener(e -> new ReviewScreenFrame());
 
             JButton addButton = new JButton("adicionar à biblioteca pessoal");
-            addButton.addActionListener(e -> service.addToPersonalLibrary(book.getISBN()));
+            addButton.addActionListener(e -> service.addToPersonalLibrary(book.getISBN(), Status.QUERO_LER));
 
         seeReviews.addActionListener(e -> handleOptions());
             buttons.add(seeReviews);

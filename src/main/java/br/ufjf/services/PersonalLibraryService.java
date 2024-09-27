@@ -47,8 +47,8 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
-    public void addToPersonalLibrary(String ISBN) {
-        create(new PersonalBookDTO(ISBN, Status.ABANDONEI, 0));
+    public void addToPersonalLibrary(String ISBN, Status status) {
+        create(new PersonalBookDTO(ISBN, status, 0));
     }
 
     public List<PersonalBook> getAll() {

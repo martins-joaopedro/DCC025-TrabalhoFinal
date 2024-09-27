@@ -2,6 +2,50 @@
   {
     "ISBN": "978-3-16-148410-0",
     "status": "ABANDONEI",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-385-35045-4",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-385-35045-4",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-385-35045-4",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "status": "LENDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-3-16-148410-0",
+    "status": "QUERO_LER",
     "currentPage": 0
   }
 ]

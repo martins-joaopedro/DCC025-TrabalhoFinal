@@ -3,6 +3,7 @@ package br.ufjf.interfaces;
 import javax.swing.*;
 
 import br.ufjf.interfaces.widgets.Style;
+import br.ufjf.models.*;
 
 import java.awt.*;
 
@@ -11,6 +12,8 @@ public class AplicationWindow {
     // CardLayout para alternar entre as telas
     static private CardLayout cardLayout;
     static private JPanel mainPanel;
+
+    static private String book;
 
     public AplicationWindow() {
         JFrame frame = new JFrame("Bookself");
@@ -27,8 +30,6 @@ public class AplicationWindow {
         mainPanel.add(new Register(), "register");
         mainPanel.add(new PersonalLibrary(), "personalLibrary");
         mainPanel.add(new Library(), "library");
-        //mainPanel.add(new BookDetails(), "bookDetails");
-
 
         frame.add(mainPanel);
         frame.setVisible(true);
@@ -36,5 +37,15 @@ public class AplicationWindow {
 
     static public void showScreen(String screenName) {
         cardLayout.show(mainPanel, screenName);
+    }
+
+    static public void showScreen(String screenName, String book) {
+        AplicationWindow.book = book;
+        mainPanel.add(new BookInfo(), "bookInfo");
+        cardLayout.show(mainPanel, screenName);
+    }
+
+    static public String getBook() {
+        return book;
     }
 }

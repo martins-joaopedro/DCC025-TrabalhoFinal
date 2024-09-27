@@ -38,13 +38,13 @@ public class ComponentList<T extends JPanel> extends JPanel {
         }
         
         JScrollPane scrollPane = new JScrollPane(listContainer);
-        scrollPane.getHorizontalScrollBar().setUnitIncrement(16);
-        scrollPane.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH - UIConstants.OFFSET, UIConstants.BOOKCARD_HEIGHT+200));
-        scrollPane.setMaximumSize(new Dimension(UIConstants.SCREEN_WIDTH - UIConstants.OFFSET, UIConstants.BOOKCARD_HEIGHT+200));
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        //scrollPane.getHorizontalScrollBar().setUnitIncrement(16);
+        //scrollPane.setPreferredSize(new Dimension(100,150));
+        //scrollPane.setMaximumSize(new Dimension(100,150));
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
-        add(scrollPane);
+        add(listContainer);
     }
 
     public void drawVertical() {
@@ -56,7 +56,7 @@ public class ComponentList<T extends JPanel> extends JPanel {
         
         JScrollPane scrollPane = new JScrollPane(listContainer);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-        scrollPane.setPreferredSize(new Dimension(UIConstants.SCREEN_WIDTH  - UIConstants.OFFSET, UIConstants.BOOKCARD_HEIGHT*2));
+        scrollPane.setPreferredSize(new Dimension(500,100));
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 

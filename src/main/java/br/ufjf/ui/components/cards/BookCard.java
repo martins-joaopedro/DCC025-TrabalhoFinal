@@ -19,8 +19,9 @@ public class BookCard extends JPanel {
     public BookCard(Book book) {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setPreferredSize(new Dimension(UIConstants.BOOKCARD_WIDTH, UIConstants.BOOKCARD_HEIGHT));
-        setMaximumSize(new Dimension(UIConstants.BOOKCARD_WIDTH, UIConstants.BOOKCARD_HEIGHT));
+        setPreferredSize(new Dimension(150, 125));
+        setMinimumSize(new Dimension(150,125));
+        setMaximumSize(new Dimension(150, 125));
         setBackground(Color.WHITE);
 
         Border roundedBorder = BorderFactory.createLineBorder(Color.GRAY, 2, true); // true para cantos arredondados
