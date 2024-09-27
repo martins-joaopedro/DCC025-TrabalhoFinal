@@ -2,8 +2,9 @@ package br.ufjf.interfaces.widgets.cards;
 
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Button;
+import br.ufjf.interfaces.widgets.imageCards.Image;
 import br.ufjf.models.Book;
-import br.ufjf.ui.components.Image;
+
 
 public class LibraryBookCard extends BookCard {
 
