@@ -59,18 +59,15 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 
-    public List<PersonalBook> getAll() {
+    public List<PersonalBook> getAllAsPersonalBooks() {
         List<PersonalBookDTO> dtos = findAll();
         List<PersonalBook> books = new ArrayList<>();
 
         for(PersonalBookDTO dto : dtos) {
             Book book = service.findById(dto.ISBN());
-            System.out.println(book);
             if(book != null && dto.user().equals(AplicationWindow.getUser()))
                 books.add(new PersonalBook(book, dto.user(), dto.status(), dto.currentPage()));
         }
-
-        System.out.println("TODOS");
         return books;
     }
 
@@ -97,7 +94,7 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     public List<PersonalBook> getBooksByStatus(Status status) {
         List<PersonalBook> listBookByStatus = new ArrayList<>();
 
-        for(PersonalBook book : this.getAll())
+        for(PersonalBook book : this.getAllAsPersonalBooks())
             if(book.getStatus() == status)
                 listBookByStatus.add(book);
 
@@ -107,7 +104,7 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     public int getNumTotalPaginasLidas() {
         int numTotalPaginas = 0;
 
-        for(PersonalBook book : this.getAll()) {
+        for(PersonalBook book : this.getAllAsPersonalBooks()) {
             if(book.getStatus() == Status.LIDO)
                 numTotalPaginas+=book.getPages();
             if(book.getStatus() == Status.LENDO)
@@ -120,7 +117,7 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     public int getNumLivrosLidos() {
         int numLivrosLidos = 0;
 
-        for(PersonalBook book : this.getAll()) {
+        for(PersonalBook book : this.getAllAsPersonalBooks()) {
             if(book.getStatus() == Status.LIDO)
                 numLivrosLidos++;
         }
@@ -131,7 +128,7 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     public Genre getGenreMaisLido() {
         Map<Genre, Integer> readGenres = new HashMap<>();
         
-        for(PersonalBook book : this.getAll()) {
+        for(PersonalBook book : this.getAllAsPersonalBooks()) {
             if(book.getStatus() == Status.LIDO) {
                 Genre genre = book.getGenre();
                 System.out.println(genre.toString());

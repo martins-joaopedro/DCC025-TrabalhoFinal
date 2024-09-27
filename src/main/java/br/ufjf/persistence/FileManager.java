@@ -18,7 +18,7 @@ public class FileManager {
 
     // usamos a factory para adicionar de forma formatada 
     static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    static String mainPath = "content/";
+    static String mainPath = "content";
 
     public static void write(String path, Object data) {
 
