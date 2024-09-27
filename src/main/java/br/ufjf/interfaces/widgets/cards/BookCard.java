@@ -1,8 +1,18 @@
 package br.ufjf.interfaces.widgets.cards;
 
-import javax.swing.*;
-import javax.swing.border.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
@@ -102,7 +112,7 @@ public class BookCard extends JPanel {
         }
         else if(book.getStatus().equals(Status.LIDO)) {
             try {
-                info.setText(reviewService.getReview(book.getISBN(), book.getUser()).getStars() + " / 5 estrelas.");
+                //info.setText(reviewService.getReview(book.getISBN(), book.getUser()).getStars() + " / 5 estrelas.");
             } catch (Exception e) {
                 info.setText("Sem avaliação.");
             }
