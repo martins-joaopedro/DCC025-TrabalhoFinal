@@ -1,0 +1,79 @@
+package br.ufjf.interfaces;
+
+import javax.swing.*;
+
+import br.ufjf.interfaces.widgets.Style;
+import br.ufjf.models.*;
+
+import java.awt.*;
+
+public class AplicationWindow {
+
+    // CardLayout para alternar entre as telas
+    private static CardLayout cardLayout;
+    private static JPanel mainPanel;
+
+    private static String book;
+    private static String user;
+
+    public AplicationWindow() {
+        JFrame frame = new JFrame("Bookself");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(Style.getWidth(), Style.getHeight());
+        frame.setLocationRelativeTo(null);
+
+        cardLayout = new CardLayout();
+
+        mainPanel = new JPanel(cardLayout);
+
+        mainPanel.add(new Home(), "home");
+        mainPanel.add(new Login(), "login");
+        mainPanel.add(new Register(), "register");
+        mainPanel.add(new PersonalLibrary(), "personalLibrary");
+        mainPanel.add(new Admin(), "admin");
+        mainPanel.add(new Library(), "library");
+
+        frame.add(mainPanel);
+        frame.setVisible(true);
+    }
+
+    static public void showScreen(String screenName) {
+        cardLayout.show(mainPanel, screenName);
+    }
+
+    static public void showBookScreen(String screenName, String book) {
+        AplicationWindow.book = book;
+
+        if(screenName.equals("bookInfo"))
+            mainPanel.add(new BookInfo(), "bookInfo");
+        else if(screenName.equals("bookEdit"))
+            mainPanel.add(new BookEdit(), "bookEdit");
+
+        cardLayout.show(mainPanel, screenName);
+    }
+
+    static public String getBook() {
+        return book;
+    }
+
+    static public void showScreen(String screenName, User user) {
+        AplicationWindow.user = user.getUsername();
+
+        if(user.getUsername().equals("admin"))
+            mainPanel.add(new Admin(), "admin");
+        else if(screenName.equals("personalLibrary"))
+            mainPanel.add(new PersonalLibrary(), "personalLibrary");
+    
+        
+        cardLayout.show(mainPanel, screenName);
+    }
+
+    static public String getUser() {
+        return user;
+    }
+
+    static public void reloadScreen(BasicScreen screen, String screenName) {
+        mainPanel.add(screen, screenName);
+        cardLayout.show(mainPanel, screenName);
+    }
+}
