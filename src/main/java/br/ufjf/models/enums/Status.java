@@ -1,10 +1,10 @@
 package br.ufjf.models.enums;
 
 public enum Status {
-    LENDO("Lendo"), 
-    LIDO("Lido"), 
-    QUERO_LER("Quero Ler"), 
-    ABANDONEI("Abandonei");
+    LENDO("LENDO"), 
+    LIDO("LIDO"), 
+    QUERO_LER("QUERO LER"), 
+    ABANDONEI("ABANDONEI");
 
     private String displayName;
 

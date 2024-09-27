@@ -1,6 +1,7 @@
 package br.ufjf.interfaces;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 import java.util.List;
@@ -97,30 +98,24 @@ public class BookInfo extends BasicScreen {
             numPaginas.setText("Número de Páginas: ");
             genero.setText("Gênero: ");
             sinopse.setText("Sinopse: ");
+        }   
+
+        for(Status s : Status.values()) {
+            statusBox.addItem(s.getDisplayName());
         }
 
         status.setText("Status: ");
-        statusBox.addItem("LIDO");
-        statusBox.addItem("LENDO");
-        statusBox.addItem("QUERO LER");
-        statusBox.addItem("ABANDONEI");
-
+       
         statusBox.setSelectedItem("QUERO LER");
         statusBox.addActionListener(e -> {
-            if(statusBox.getSelectedItem().toString() == "QUERO LER")
-                this.selectedStatus = Status.QUERO_LER;
-            else if(statusBox.getSelectedItem().toString() == "LENDO")
-                this.selectedStatus = Status.LENDO;
-            else if(statusBox.getSelectedItem().toString() == "LIDO")
-                this.selectedStatus = Status.LIDO;
-            else if(statusBox.getSelectedItem().toString() == "ABANDONEI")
-                this.selectedStatus = Status.ABANDONEI;
+            this.selectedStatus = Status.fromDisplayName(statusBox.getSelectedItem().toString());
         });
 
         avaliacoesList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         avaliacoesList.setViewportView(avaliacoes(reviewService.getReviews(ISBN)));
     }
 
+    // TODO: add o card com imagem com a quantidade de estrelas
     private JPanel avaliacoes(List<Review> reviews) {
         JPanel avaliacoes = new JPanel();
         avaliacoes.setLayout(new BoxLayout(avaliacoes, BoxLayout.Y_AXIS));
