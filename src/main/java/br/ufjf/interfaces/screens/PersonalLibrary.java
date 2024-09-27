@@ -88,8 +88,8 @@ public class PersonalLibrary extends BasicScreen {
     }
 
     private ComponentList bookList(Status status) {
-        List<JComponent> components = new ArrayList<JComponent>();
 
+        List<JComponent> components = new ArrayList<>();
         List<PersonalBook> books = service.getBooksByStatus(status);
 
         for (PersonalBook book : books) {

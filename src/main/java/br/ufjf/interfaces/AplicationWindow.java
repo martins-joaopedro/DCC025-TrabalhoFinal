@@ -5,15 +5,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import br.ufjf.interfaces.screens.Admin;
-import br.ufjf.interfaces.screens.BasicScreen;
-import br.ufjf.interfaces.screens.BookEdit;
-import br.ufjf.interfaces.screens.BookInfo;
-import br.ufjf.interfaces.screens.Home;
-import br.ufjf.interfaces.screens.Library;
-import br.ufjf.interfaces.screens.Login;
-import br.ufjf.interfaces.screens.PersonalLibrary;
-import br.ufjf.interfaces.screens.Register;
+import br.ufjf.interfaces.screens.*;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.User;
 
@@ -36,6 +28,7 @@ public class AplicationWindow {
 
         mainPanel = new JPanel(cardLayout);
 
+        //mainPanel.add(new Teste(), "home3");
         mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
         mainPanel.add(new Register(), "register");

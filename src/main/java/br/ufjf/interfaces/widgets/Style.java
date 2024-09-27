@@ -6,9 +6,10 @@ import java.io.File;
 import javax.swing.*;
 
 public class Style {
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 600;
+    private static final int WIDTH = 1280;
+    private static final int HEIGHT = 800;
 
+    private static final Color lightBackgroundColor = new Color(235, 243, 245);
     private static final Color primaryColor = new Color(30, 0, 100);
     private static final Color backgroundColor = new Color(173, 216, 230);
     private static final Color buttonColor = new Color(135, 206, 250);
@@ -40,8 +41,8 @@ public class Style {
     private static final int borderRadius = 20; // Raio para a curvatura das bordas arredondadas
 
     // Carrega ícones para logo e botão "Voltar"
-    private static ImageIcon logo = new ImageIcon(new ImageIcon(Style.class.getResource("/br/ufjf/interfaces/resources/bookself_logo.png")).getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
-    private static ImageIcon backIcon = new ImageIcon(new ImageIcon(Style.class.getResource("/br/ufjf/interfaces/resources/back_icon.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+    //private static ImageIcon logo = new ImageIcon(Style.class.getResource("bookself_logo.png"));
+    //private static ImageIcon backIcon = new ImageIcon(Style.class.getResource("/back_icon.png"));
 
     public static int getWidth() { return WIDTH; }
     public static int getHeight() { return HEIGHT; }
@@ -49,6 +50,9 @@ public class Style {
     public static Color getPrimaryColor() { return primaryColor; }
     public static Color getBackgroundColor() { return backgroundColor; }
     public static Color getButtonColor() { return buttonColor; }
+    public static Color getLightBackgroundColor() {
+        return lightBackgroundColor;
+    }
 
     public static Font getTitleFont() { return titleFont; }
     public static Font getMainFont() { return mainFont; }
@@ -57,6 +61,6 @@ public class Style {
     // Método para retornar uma borda arredondada
     public static int getBorderRadius() { return borderRadius; }
 
-    public static ImageIcon getLogo() { return logo; }
-    public static Icon getBackIcon() { return backIcon; }
+    public static ImageIcon getLogo() { return null; }
+    public static Icon getBackIcon() { return null; }
 }
