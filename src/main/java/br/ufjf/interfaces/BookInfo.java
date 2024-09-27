@@ -45,7 +45,7 @@ public class BookInfo extends BasicScreen {
         updateData(ISBN);
 
         adicionarLivro.addActionListener(e -> {
-                personalLibraryService.addToPersonalLibrary(ISBN, selectedStatus);
+                personalLibraryService.addToPersonalLibrary(ISBN, AplicationWindow.getUser(), selectedStatus);
                 AplicationWindow.showScreen("personalLibrary");
         });
         
@@ -100,12 +100,12 @@ public class BookInfo extends BasicScreen {
         }
 
         status.setText("Status: ");
-        statusBox.addItem("LENDO");
         statusBox.addItem("LIDO");
+        statusBox.addItem("LENDO");
         statusBox.addItem("QUERO LER");
         statusBox.addItem("ABANDONEI");
 
-        statusBox.setSelectedItem(this.selectedStatus.toString());
+        statusBox.setSelectedItem("QUERO LER");
         statusBox.addActionListener(e -> {
             if(statusBox.getSelectedItem().toString() == "QUERO LER")
                 this.selectedStatus = Status.QUERO_LER;

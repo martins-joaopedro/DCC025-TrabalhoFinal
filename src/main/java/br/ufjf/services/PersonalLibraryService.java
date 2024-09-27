@@ -1,14 +1,20 @@
 package br.ufjf.services;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.Library;
+import br.ufjf.interfaces.PersonalLibrary;
 import br.ufjf.models.Book;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.dto.PersonalBookDTO;
+import br.ufjf.models.enums.Genre;
 import br.ufjf.models.enums.Status;
 import br.ufjf.persistence.FileManager;
 
@@ -47,8 +53,10 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
-    public void addToPersonalLibrary(String ISBN, Status status) {
-        create(new PersonalBookDTO(ISBN, status, 0));
+    public void addToPersonalLibrary(String ISBN, String user, Status status) {
+        create(new PersonalBookDTO(ISBN, user, status, 0));
+        AplicationWindow.reloadScreen(new Library(), "library");
+        AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 
     public List<PersonalBook> getAll() {
@@ -58,12 +66,20 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         for(PersonalBookDTO dto : dtos) {
             Book book = service.findById(dto.ISBN());
             System.out.println(book);
-            if(book != null)
-                books.add(new PersonalBook(book, dto.status(), dto.currentPage()));
+            if(book != null && dto.user().equals(AplicationWindow.getUser()))
+                books.add(new PersonalBook(book, dto.user(), dto.status(), dto.currentPage()));
         }
 
         System.out.println("TODOS");
         return books;
+    }
+
+    public boolean isOnPersonalLibrary(String id) {
+        List<PersonalBookDTO> dtos = findAll();
+        for(PersonalBookDTO dto : dtos)
+            if(dto.ISBN().equalsIgnoreCase(id))
+                return true;
+        return false;
     }
 
     public void removeFromPersonalLibrary(String id) {
@@ -75,41 +91,27 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
             }
         }
         FileManager.write(path, dtos);
+        AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 
-   
-/*
-    public Genre getGenreMaisLido() {
-        Map<Genre, Integer> readGenres = new HashMap<>();
+    public List<PersonalBook> getBooksByStatus(Status status) {
+        List<PersonalBook> listBookByStatus = new ArrayList<>();
 
-        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
-            if(livroUsuario.getStatus() == Status.LIDO) {
-                Genre GenreLivro = Biblioteca.buscaLivro(livroUsuario.getIBSN()).getGenre();
-                
-                if(readGenres.containsKey(GenreLivro))
-                    readGenres.put(GenreLivro, readGenres.get(GenreLivro)+1);
-                else
-                    readGenres.put(GenreLivro, 0);
-            }
-        }
+        for(PersonalBook book : this.getAll())
+            if(book.getStatus() == status)
+                listBookByStatus.add(book);
 
-        Genre GenreMaisLido = Genre.ACADEMICO;
-        for(Genre Genre : readGenres.keySet()) {
-            if(readGenres.get(Genre) > readGenres.get(GenreMaisLido))
-                GenreMaisLido = Genre;
-        }
-
-        return GenreMaisLido;
+        return listBookByStatus;
     }
 
     public int getNumTotalPaginasLidas() {
         int numTotalPaginas = 0;
 
-        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
-            if(livroUsuario.getStatus() == Status.LIDO)
-                numTotalPaginas+=Biblioteca.buscaLivro(livroUsuario.getIBSN()).getPaginas();
-            if(livroUsuario.getStatus() == Status.LENDO)
-                numTotalPaginas+=livroUsuario.getNumPaginasLidas();
+        for(PersonalBook book : this.getAll()) {
+            if(book.getStatus() == Status.LIDO)
+                numTotalPaginas+=book.getPages();
+            if(book.getStatus() == Status.LENDO)
+                numTotalPaginas+=book.getCurrentPage();
         }
 
         return numTotalPaginas;
@@ -118,30 +120,52 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     public int getNumLivrosLidos() {
         int numLivrosLidos = 0;
 
-        for(LivroUsuario livroUsuario : this.livrosUsuario.values()) {
-            if(livroUsuario.getStatus() == Status.LIDO)
+        for(PersonalBook book : this.getAll()) {
+            if(book.getStatus() == Status.LIDO)
                 numLivrosLidos++;
         }
 
         return numLivrosLidos;
     }
 
-    public void addLivro(String ISBN, Status status) {
-        if(this.livrosUsuario.containsKey(ISBN)) {
-            // ERRO DE QUE O LIVRO JÁ ESTÁ NO ACERVO PESSOAL
+    public Genre getGenreMaisLido() {
+        Map<Genre, Integer> readGenres = new HashMap<>();
+        
+        for(PersonalBook book : this.getAll()) {
+            if(book.getStatus() == Status.LIDO) {
+                Genre genre = book.getGenre();
+                System.out.println(genre.toString());
+
+                try {
+                    if(readGenres.containsKey(genre))
+                        readGenres.put(genre, readGenres.get(genre)+1);
+                    else
+                        readGenres.put(genre, 1);
+                } catch (NullPointerException e) {
+                    System.out.println("Genero do livro não encontrado");
+                    try {
+                        System.out.println("Livro:" + book.getName());
+                    } catch (NullPointerException e2) {
+                        System.out.println("Livro com erro");
+                    }
+                }
+            }
         }
-        else
-            this.livrosUsuario.put(ISBN, new LivroUsuario(ISBN, status));
+        
+        Genre genreMaisLido = null;
+        int max = 0;
+        for(Genre genre : readGenres.keySet()) {
+            if(readGenres.get(genre) > max) {
+                genreMaisLido = genre;
+                max = readGenres.get(genre);
+            }
+        }
+
+        return genreMaisLido;
     }
 
-    public void removerLivro(String ISBN) {
-        if(!this.livrosUsuario.containsKey(ISBN)) {
-            // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL
-        }
-        else
-            this.livrosUsuario.remove(ISBN);
-    }
-
+   
+/*
     public void editarLivro(String ISBN, Status status, int numPaginasLidas) {
         if(!this.livrosUsuario.containsKey(ISBN)) {
             // ERRO DE QUE O LIVRO NÃO ESTÁ NO ACERVO PESSOAL

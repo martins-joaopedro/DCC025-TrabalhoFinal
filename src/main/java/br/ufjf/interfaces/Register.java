@@ -54,7 +54,9 @@ public class Register extends BasicScreen {
         if (service.findById(user) != null) {
             JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-        else {
+        else if (user.equals("") || password.equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
             service.create(new User(user, password));
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             AplicationWindow.showScreen("PersonalLibrary");

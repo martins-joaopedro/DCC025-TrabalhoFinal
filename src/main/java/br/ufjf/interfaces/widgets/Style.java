@@ -15,6 +15,7 @@ public class Style {
 
     private static Font titleFont;
     private static Font mainFont;
+    private static Font fitFont;
 
     // Carrega a fonte "AlbertSans" do diretório de recursos
     static {
@@ -25,11 +26,14 @@ public class Style {
             
             titleFont = font.deriveFont(Font.BOLD, 30); // Fonte para os títulos
             mainFont = font.deriveFont(Font.PLAIN, 16); // Fonte padrão para os componentes
+            fitFont = font.deriveFont(Font.PLAIN, 14); // Fonte para os componentes menores
+
         } catch (Exception e) {
             e.printStackTrace();
             
             titleFont = new Font("Serif", Font.BOLD, 30); // Fonte para os títulos
             mainFont = new Font("Serif", Font.PLAIN, 16); // Fonte padrão para os componentes
+            fitFont = new Font("Serif", Font.PLAIN, 14); // Fonte para os componentes menores
         }
     }
 
@@ -48,6 +52,7 @@ public class Style {
 
     public static Font getTitleFont() { return titleFont; }
     public static Font getMainFont() { return mainFont; }
+    public static Font getFitFont() { return fitFont; }
 
     // Método para retornar uma borda arredondada
     public static int getBorderRadius() { return borderRadius; }

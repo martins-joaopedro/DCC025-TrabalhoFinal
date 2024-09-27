@@ -60,7 +60,12 @@ public class Login extends BasicScreen {
             System.out.println(service.findById(user).getPassword());
 
             if (service.findById(user).getPassword().equals(password)) {
-                AplicationWindow.showScreen("personalLibrary");
+                if(user.equals("admin")) {
+                    AplicationWindow.showScreen("admin", service.findById(user));
+                    return;
+                }
+
+                AplicationWindow.showScreen("personalLibrary", service.findById(user));
             } else {
                 JOptionPane.showMessageDialog(null, "Senha incorreta", "Erro", JOptionPane.ERROR_MESSAGE);
             }

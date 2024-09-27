@@ -8,12 +8,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.models.Book;
+import br.ufjf.models.enums.Genre;
 import br.ufjf.persistence.FileManager;
 
 public class LibraryService implements IService<Book>{
     
     Gson gson = new Gson();
     String path = "books.json";
+
+    private static PersonalLibraryService personalLibraryService = new PersonalLibraryService();
 
     @Override
     public Book findById(String id) {
@@ -43,5 +46,21 @@ public class LibraryService implements IService<Book>{
     @Override
     public void saveAll(List<Book> obj) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<Book> getBooksByGenre(Genre genre) {
+        List<Book> books = findAll();
+        List<Book> genreBooks = new ArrayList<>();
+
+        
+        for(Book book : books)
+            try {
+                if(book.getGenre().equals(genre) && !personalLibraryService.isOnPersonalLibrary(book.getISBN()))
+                    genreBooks.add(book);
+            } catch (NullPointerException e) {
+                System.out.println("Genre not found");
+            }
+        
+        return genreBooks;
     }
 }

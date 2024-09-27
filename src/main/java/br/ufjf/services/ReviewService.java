@@ -24,6 +24,13 @@ public class ReviewService {
 
         return reviews;
     }
+
+    public Review getReview(String ISBN, String username) {
+        
+        String[] reviewKey = {ISBN, username};
+
+        return listReview.get(reviewKey);
+    }
     
     public Map<String[], Review> addReview(Review review) {
         
