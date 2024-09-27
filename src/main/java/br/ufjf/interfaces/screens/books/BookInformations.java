@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.screens;
+package br.ufjf.interfaces.screens.books;
 
 import javax.swing.*;
 
@@ -7,17 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
-import br.ufjf.interfaces.components.cards.PersonalBookCard;
 import br.ufjf.interfaces.components.cards.ReviewCard;
 import br.ufjf.interfaces.components.lists.ComponentList;
 import br.ufjf.models.*;
+import br.ufjf.models.dto.PersonalBookDTO;
 import br.ufjf.models.enums.Status;
 
 import br.ufjf.services.*;
 
-public class BookInfo extends BasicScreen {
+public class BookInformations extends BasicScreen {
 
     private String ISBN = AplicationWindow.getBook();
     
@@ -37,9 +38,8 @@ public class BookInfo extends BasicScreen {
     private Status selectedStatus = Status.QUERO_LER;
     private ScrollPanel avaliacoesList = new ScrollPanel();
     private JButton adicionarLivro = new Button("Adicionar Livro");
-    
 
-    public BookInfo() {
+    public BookInformations() {
 
         super("library");
 
@@ -48,7 +48,7 @@ public class BookInfo extends BasicScreen {
         updateData(ISBN);
 
         adicionarLivro.addActionListener(e -> {
-                personalLibraryService.addToPersonalLibrary(ISBN, AplicationWindow.getUser(), selectedStatus);
+                personalLibraryService.addToPersonalLibrary( new PersonalBookDTO(ISBN, AplicationWindow.getUser(), selectedStatus, 0));
                 reviewService.create(new Review("0", "1", ISBN, 4, "AAAAAAAAAAAA"));
                 AplicationWindow.showScreen("personalLibrary");
         });

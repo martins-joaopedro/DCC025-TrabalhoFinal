@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.screens;
+package br.ufjf.interfaces.screens.users;
 
 import java.awt.Dimension;
 
@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.PasswordField;
 import br.ufjf.interfaces.widgets.TextField;

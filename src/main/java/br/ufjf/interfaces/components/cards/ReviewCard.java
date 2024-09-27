@@ -6,14 +6,20 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
+import br.ufjf.services.ReviewService;
 
 public class ReviewCard extends JPanel {
-    
+
+    ReviewService service = new ReviewService();
+    String USER = AplicationWindow.getUser();
+
     public ReviewCard(Review review) {
 
-        setPreferredSize(new Dimension(300, 200));
+        setPreferredSize(new Dimension(500, 500));
+        setMinimumSize(new Dimension(500, 500));
         setLayout(new GridBagLayout());
         setBackground(Style.getLightBackgroundColor());
 
@@ -47,5 +53,15 @@ public class ReviewCard extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 3;
         add(starsPanel, gbc);
+
+        JButton editReview = new JButton("Editar Avaliação");
+        editReview.addActionListener(e -> {
+            AplicationWindow.showEditReviewScreen(review.getISBN());
+        });
+
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        if(review.getUsername().equalsIgnoreCase(USER))
+            add(editReview, gbc);
     }
 }

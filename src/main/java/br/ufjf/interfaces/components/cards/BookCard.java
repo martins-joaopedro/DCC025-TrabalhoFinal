@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Book;
@@ -29,7 +30,12 @@ public class BookCard extends JPanel {
     private static final int BOOKCARD_WIDTH = 300;
     private static final int BOOKCARD_HEIGHT = 250;
 
+    ReviewService service = new ReviewService();
+    private final Button seeReview = new Button("Ver Avaliações");
+
     public BookCard(Book book) {
+
+        int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
@@ -64,6 +70,11 @@ public class BookCard extends JPanel {
             sinopsysArea.setMaximumSize(new Dimension(BOOKCARD_WIDTH, 50));
             sinopsysArea.setBackground(Style.getBackgroundColor());
         add(sinopsysArea);
+
+
+        seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(book.getISBN()));
+        if(reviewsAmount > 0)
+            addButtons(seeReview);
     }
 
     public BookCard(PersonalBook book) {

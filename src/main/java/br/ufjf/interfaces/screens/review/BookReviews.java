@@ -1,8 +1,9 @@
-package br.ufjf.interfaces.screens;
+package br.ufjf.interfaces.screens.review;
 
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.components.cards.ReviewCard;
 import br.ufjf.interfaces.components.lists.ComponentList;
+import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
 import br.ufjf.services.LibraryService;
@@ -36,7 +37,7 @@ public class BookReviews extends BasicScreen {
         } else {
             for (Review review : reviews)
                 components.add(new ReviewCard(review));
-            addComponent(new ComponentList(components, false), 0 , 0);
+            addComponent(new ComponentList(components, false, 500, 500), 0 , 0);
         }
     }
 }

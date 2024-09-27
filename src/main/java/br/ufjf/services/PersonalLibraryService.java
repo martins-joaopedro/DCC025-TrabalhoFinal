@@ -9,8 +9,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.screens.Library;
-import br.ufjf.interfaces.screens.PersonalLibrary;
+import br.ufjf.interfaces.screens.libraries.Library;
+import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.models.Book;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.dto.PersonalBookDTO;
@@ -28,8 +28,15 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
 
     @Override
     public PersonalBookDTO findById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        String data = FileManager.load(path);
+        List<PersonalBookDTO> dtos = findAll();
+
+        for (PersonalBookDTO dto : dtos) {
+            if (dto.ISBN().equals(id))
+                return dto;
+        }
+
+        return null;
     }
 
     @Override
@@ -54,8 +61,8 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         throw new UnsupportedOperationException("Unimplemented method 'saveAll'");
     }
 
-    public void addToPersonalLibrary(String ISBN, String user, Status status) {
-        create(new PersonalBookDTO(ISBN, user, status, 0));
+    public void addToPersonalLibrary(PersonalBookDTO dto) {
+        create(dto);
         AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
@@ -71,6 +78,16 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         }
         return books;
     }
+
+    public PersonalBook getAsPersonalBook(String ISBN) {
+        PersonalBookDTO dto = findById(ISBN);
+        Book book = service.findById(dto.ISBN());
+
+        if(book != null)
+            return new PersonalBook(book, dto.user(), dto.status(), dto.currentPage());
+        else return  null;
+    }
+
 
     public boolean isOnPersonalLibrary(String id) {
         List<PersonalBookDTO> dtos = findAll();
@@ -91,6 +108,11 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         FileManager.write(path, dtos);
         AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
+    }
+
+    public void update(PersonalBookDTO receivedDto) {
+       removeFromPersonalLibrary(receivedDto.ISBN());
+       create(receivedDto);
     }
 
     public List<PersonalBook> getBooksByStatus(Status status) {

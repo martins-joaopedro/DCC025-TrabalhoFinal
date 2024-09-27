@@ -3,11 +3,12 @@ package br.ufjf.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufjf.models.dto.PersonalBookDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.screens.PersonalLibrary;
+import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.models.Review;
 import br.ufjf.persistence.FileManager;
 
@@ -66,10 +67,9 @@ public class ReviewService implements IService<Review> {
     }
     
     public void removeUserReview(Review receivedReview) {
-        
         List<Review> reviews = findAll();
         for(Review review : reviews) {
-            if(review == receivedReview) {
+            if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
                 reviews.remove(review);
                 break;
             }
@@ -77,4 +77,26 @@ public class ReviewService implements IService<Review> {
         FileManager.write(path, reviews);
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
+
+    public void update(Review receivedReview) {
+        removeUserReview(receivedReview);
+        create(receivedReview);
+    }
+
+    public int getAverageStarsByISBN(String ISBN) {
+        List<Review> reviews = findAll();
+        int sum = 0;
+        int amount = 0;
+        for(Review review : reviews) {
+            if(review.getISBN().equalsIgnoreCase(ISBN)) {
+                sum += review.getStars();
+                amount++;
+            }
+        }
+
+        if(amount == 0)
+            return 0;
+        else return sum/amount;
+    }
+
 }

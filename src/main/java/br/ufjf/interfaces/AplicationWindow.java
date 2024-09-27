@@ -6,6 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import br.ufjf.interfaces.screens.*;
+import br.ufjf.interfaces.screens.books.BookEdition;
+import br.ufjf.interfaces.screens.books.BookInformations;
+import br.ufjf.interfaces.screens.review.BookReviews;
+import br.ufjf.interfaces.screens.general.Home;
+import br.ufjf.interfaces.screens.review.ReviewEdition;
+import br.ufjf.interfaces.screens.users.Login;
+import br.ufjf.interfaces.screens.users.Register;
+import br.ufjf.interfaces.screens.libraries.Admin;
+import br.ufjf.interfaces.screens.libraries.Library;
+import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.User;
 
@@ -48,9 +58,9 @@ public class AplicationWindow {
         AplicationWindow.book = book;
 
         if(screenName.equals("bookInfo"))
-            mainPanel.add(new BookInfo(), "bookInfo");
+            mainPanel.add(new BookInformations(), "bookInfo");
         else if(screenName.equals("bookEdit"))
-            mainPanel.add(new BookEdit(), "bookEdit");
+            mainPanel.add(new BookEdition(), "bookEdit");
 
         cardLayout.show(mainPanel, screenName);
     }
@@ -61,6 +71,15 @@ public class AplicationWindow {
 
         cardLayout.show(mainPanel, "bookReviews");
     }
+
+    public static void showEditReviewScreen(String ISBN) {
+        mainPanel.add(new ReviewEdition(), "reviewEdition");
+        AplicationWindow.book = ISBN;
+
+        cardLayout.show(mainPanel, "reviewEdition");
+    }
+
+
 
     static public String getBook() {
         return book;

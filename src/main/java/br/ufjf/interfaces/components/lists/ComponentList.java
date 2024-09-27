@@ -32,6 +32,22 @@ public class ComponentList extends ScrollPanel {
         }
     }
 
+    public ComponentList(List<JComponent> components, boolean isHorizontal, int width, int height ) {
+
+        this.components = components;
+        this.isHorizontal = isHorizontal;
+
+        setPreferredSize(new Dimension(width, height));
+        setMinimumSize(new Dimension(width, height));
+        setBackground(Color.WHITE);
+
+        if(isHorizontal) {
+            setViewportView(drawHorizontalList());
+        } else {
+            setViewportView(drawVerticalList());
+        }
+    }
+
     private BasicScreen drawHorizontalList() {
         setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
