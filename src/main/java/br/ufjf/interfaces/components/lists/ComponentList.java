@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.widgets;
+package br.ufjf.interfaces.components.lists;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,7 @@ import javax.swing.JComponent;
 import javax.swing.ScrollPaneConstants;
 
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.widgets.ScrollPanel;
 ;
 
 public class ComponentList extends ScrollPanel {

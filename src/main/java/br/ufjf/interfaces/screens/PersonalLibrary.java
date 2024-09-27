@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.components.cards.PersonalBookCard;
+import br.ufjf.interfaces.components.lists.ComponentList;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.enums.*;
 

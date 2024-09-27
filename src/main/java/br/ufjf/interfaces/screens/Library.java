@@ -9,8 +9,8 @@ import br.ufjf.interfaces.widgets.*;
 import br.ufjf.models.Book;
 import br.ufjf.models.enums.Genre;
 import br.ufjf.services.LibraryService;
-
 import br.ufjf.interfaces.components.cards.LibraryBookCard;
+import br.ufjf.interfaces.components.lists.ComponentList;
 
 public class Library extends BasicScreen {
 

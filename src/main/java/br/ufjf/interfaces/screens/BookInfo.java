@@ -11,6 +11,7 @@ import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.components.cards.PersonalBookCard;
 import br.ufjf.interfaces.components.cards.ReviewCard;
+import br.ufjf.interfaces.components.lists.ComponentList;
 import br.ufjf.models.*;
 import br.ufjf.models.enums.Status;
 

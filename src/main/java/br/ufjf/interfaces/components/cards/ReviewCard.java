@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import br.ufjf.interfaces.components.imageCards.Image;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
 
@@ -23,7 +22,7 @@ public class ReviewCard extends JPanel {
         reviewCard.add(new JLabel(review.getComment()));
 
         for(int i=0; i<review.getStars(); i++)
-            reviewCard.add(new Image("resources/star.png", 10, 10));
+            reviewCard.add(new ImageCard("star.png", 10, 10));
         
         add(reviewCard);
     }

@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.components.imageCards;
+package br.ufjf.interfaces.components.cards;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -8,15 +8,19 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Image extends JPanel {
+public class ImageCard extends JPanel {
 
     int width;
     int height;
     int x;
     int y;
     BufferedImage img;
+    String mainPath = "src" + File.separator + "main" 
+        + File.separator + "java" + File.separator + "br" 
+        + File.separator + "ufjf" + File.separator + "interfaces"
+        + File.separator + "resources" + File.separator;
 
-    public Image(String path, int width, int height, int x, int y) {
+    public ImageCard(String path, int width, int height, int x, int y) {
         this.width = width;
         this.height = height;
         this.x = x;
@@ -29,14 +33,14 @@ public class Image extends JPanel {
         }
     }
 
-    public Image(String path, int width, int height) {
+    public ImageCard(String path, int width, int height) {
         this.width = width;
         this.height = height;
         this.x = 0;
         this.y = 0;
 
         try {
-            this.img = ImageIO.read(new File(path));
+            this.img = ImageIO.read(new File(mainPath+path));
         } catch (IOException e) {
             e.printStackTrace();
         }
