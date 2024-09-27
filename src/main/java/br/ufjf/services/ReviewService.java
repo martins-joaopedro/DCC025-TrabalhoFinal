@@ -1,64 +1,80 @@
 package br.ufjf.services;
 
-import java.util.Map;
-import java.util.HashMap;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.PersonalLibrary;
 import br.ufjf.models.Review;
+import br.ufjf.persistence.FileManager;
 
-public class ReviewService {
-    
-    Map<String[], Review> listReview = new HashMap<>();
+public class ReviewService implements IService<Review> {
 
-    public List<Review> getReviews(String ISBN) {
+    Gson gson = new Gson();
+    String path = "reviews.json";
 
-        List<Review> reviews = new ArrayList<Review>();
+    @Override
+    public Review findById(String id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public List<Review> findAll() {
+        String data = FileManager.load(path);
+        List<Review> reviews;
+        if(!data.isEmpty()) {
+            var type = new TypeToken<List<Review>>(){}.getType();
+            reviews = new ArrayList<>(gson.fromJson(data, type));
+            return reviews;
+        } else return new ArrayList<>();
+    }
+
+    @Override
+    public void create(Review obj) {
+        int id = findAll().size();
+        obj.setId(String.valueOf(id));
+        System.out.println(obj);
+        FileManager.append(path, obj);
+    }
+
+    @Override
+    public void saveAll(List<Review> obj) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<Review> getReviewsByISBN(String ISBN) {
         
-        for(Review review : listReview.values()) {
-            if(review.getISBN().equals(ISBN)) {
+        List<Review> reviews = new ArrayList<>();
+        
+        for(Review review : findAll())
+            if(review.getISBN().equalsIgnoreCase(ISBN))
                 reviews.add(review);
-            }
-        }
 
         return reviews;
     }
 
-    public Review getReview(String ISBN, String username) {
+    public Review getUserReviewByISBN(String ISBN, String username) {
         
-        String[] reviewKey = {ISBN, username};
-
-        return listReview.get(reviewKey);
+        for(Review review : getReviewsByISBN(ISBN))
+            if(review.getUsername().equalsIgnoreCase(username))
+                return review;
+        
+        return null;
     }
     
-    public Map<String[], Review> addReview(Review review) {
+    public void removeUserReview(Review receivedReview) {
         
-        Map<String[], Review> listReview = new HashMap<>(); // MUDAR DEPOIS PARA GET LIST
-        String[] reviewKey = {review.getISBN(), review.getUsername()};
-
-        listReview.put(reviewKey, review);
-
-        // SAVE
-
-        return listReview;
-    }
-
-    public Map<String[], Review> removeReview(Review review) {
-        
-        Map<String[], Review> listReview = new HashMap<>(); // MUDAR DEPOIS PARA GET LIST
-        String[] reviewKey = {review.getISBN(), review.getUsername()};
-
-        //TO DO TRY CATCH
-        if(listReview.containsKey(reviewKey)) {
-            listReview.remove(reviewKey);
+        List<Review> reviews = findAll();
+        for(Review review : reviews) {
+            if(review == receivedReview) {
+                reviews.remove(review);
+                break;
+            }
         }
-        else {
-            // ERROR
-        }
-
-        // SAVE listReview
-
-        return listReview;
+        FileManager.write(path, reviews);
+        AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 }

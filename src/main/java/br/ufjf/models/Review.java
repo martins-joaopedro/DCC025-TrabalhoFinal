@@ -2,12 +2,14 @@ package br.ufjf.models;
 
 public class Review {
 
+    private String id; 
     private final String username;
     private final String ISBN;
     private int stars;
     private String comment;
 
-    public Review(String username, String ISBN, int stars, String comment) {
+    public Review(String id, String username, String ISBN, int stars, String comment) {
+        this.id = id;
         this.username = username;
         this.ISBN = ISBN;
         this.stars = stars;
@@ -28,5 +30,9 @@ public class Review {
 
     public String getComment() {
         return this.comment;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

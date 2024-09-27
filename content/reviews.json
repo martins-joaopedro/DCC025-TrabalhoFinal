@@ -1,0 +1,23 @@
+[
+  {
+    "id": "0",
+    "username": "1",
+    "ISBN": "978-1-5011-1752-9",
+    "stars": 4.0,
+    "comment": "AAAAAAAAAAAA"
+  },
+  {
+    "id": "1",
+    "username": "1",
+    "ISBN": "978-0-7475-3274-0",
+    "stars": 4.0,
+    "comment": "AAAAAAAAAAAA"
+  },
+  {
+    "id": "2",
+    "username": "1",
+    "ISBN": "978-0-7475-3274-0",
+    "stars": 4,
+    "comment": "AAAAAAAAAAAA"
+  }
+]
