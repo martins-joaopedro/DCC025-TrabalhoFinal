@@ -3,9 +3,34 @@ package br.ufjf.services;
 import java.util.Map;
 import java.util.HashMap;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import br.ufjf.models.Review;
 
 public class ReviewService {
+    
+    Map<String[], Review> listReview = new HashMap<>();
+
+    public List<Review> getReviews(String ISBN) {
+
+        List<Review> reviews = new ArrayList<Review>();
+        
+        for(Review review : listReview.values()) {
+            if(review.getISBN().equals(ISBN)) {
+                reviews.add(review);
+            }
+        }
+
+        return reviews;
+    }
+
+    public Review getReview(String ISBN, String username) {
+        
+        String[] reviewKey = {ISBN, username};
+
+        return listReview.get(reviewKey);
+    }
     
     public Map<String[], Review> addReview(Review review) {
         
