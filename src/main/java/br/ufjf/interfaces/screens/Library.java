@@ -25,7 +25,7 @@ public class Library extends BasicScreen {
 
         int i = 0;
         for(Genre genre : Genre.values()) {
-            addComponent(new JLabel(genre.getType()), 0, i, false);
+            addComponent(new JLabel(genre.getDisplayName()), 0, i, false);
             addComponent(bookList(genre), 0, i+1, false);
             i+=2;
         }

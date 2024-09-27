@@ -12,17 +12,22 @@ public enum Genre {
     MISTERIO("Misterio"),
     HORROR("Horror");
 
-    String type;
+    private String displayName;
 
-    Genre(String s) {
-        this.type = s;
+    Genre(String displayName) {
+        this.displayName = displayName;
     }
 
-    public String getType() {
-        try {
-            return this.type;
-        } catch (Exception e) {
-            return "Genero não encontrado";
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public static Genre fromDisplayName(String displayName) {
+        for (Genre genre : Genre.values()) {
+            if (genre.displayName.equalsIgnoreCase(displayName)) {
+                return genre;
+            }
         }
+        throw new IllegalArgumentException("Status desconhecido: " + displayName);
     }
 }

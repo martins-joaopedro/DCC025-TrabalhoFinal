@@ -22,7 +22,6 @@ public enum Status {
                 return status;
             }
         }
-        // Caso não encontre, pode retornar nulo ou lançar uma exceção
-        throw new IllegalArgumentException("Nenhum Status encontrado com displayName: " + displayName);
+        throw new IllegalArgumentException("Status desconhecido: " + displayName);
     }
 }
