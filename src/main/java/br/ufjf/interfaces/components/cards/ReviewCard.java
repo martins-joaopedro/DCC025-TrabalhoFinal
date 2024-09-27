@@ -13,7 +13,7 @@ public class ReviewCard extends JPanel {
     
     public ReviewCard(Review review) {
 
-        //setPreferredSize(new Dimension(300, 200));
+        setPreferredSize(new Dimension(300, 200));
         setLayout(new GridBagLayout());
         setBackground(Style.getLightBackgroundColor());
 

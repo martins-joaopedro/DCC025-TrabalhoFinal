@@ -55,6 +55,13 @@ public class AplicationWindow {
         cardLayout.show(mainPanel, screenName);
     }
 
+    public static void showReviewScreen(String ISBN) {
+        mainPanel.add(new BookReviews(), "bookReviews");
+        AplicationWindow.book = ISBN;
+
+        cardLayout.show(mainPanel, "bookReviews");
+    }
+
     static public String getBook() {
         return book;
     }
