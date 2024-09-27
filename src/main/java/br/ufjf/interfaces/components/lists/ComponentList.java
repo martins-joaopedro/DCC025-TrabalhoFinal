@@ -21,8 +21,8 @@ public class ComponentList extends ScrollPanel {
         this.components = components;
         this.isHorizontal = isHorizontal;
 
-        setPreferredSize(new Dimension(150, 180));
-        setMinimumSize(new Dimension(150, 180));
+        setPreferredSize(new Dimension(150, 350));
+        setMinimumSize(new Dimension(150, 350));
         setBackground(Color.WHITE);
 
         if(isHorizontal) {
@@ -35,6 +35,7 @@ public class ComponentList extends ScrollPanel {
     private BasicScreen drawHorizontalList() {
         setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        getHorizontalScrollBar().setUnitIncrement(16);
 
         BasicScreen listContainer = new BasicScreen(null, Color.WHITE);
         listContainer.setBackground(Color.WHITE);
@@ -51,6 +52,7 @@ public class ComponentList extends ScrollPanel {
     private BasicScreen drawVerticalList() {
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        getVerticalScrollBar().setUnitIncrement(16);
 
         BasicScreen listContainer = new BasicScreen(null, Color.WHITE);
         listContainer.setBackground(Color.WHITE);

@@ -11,15 +11,15 @@ public class PersonalBookCard extends BookCard {
 
     private final Button editBook = new Button("Editar");
     private final Button removeBook = new Button("Remover");
+    private final Button seeReview = new Button("Ver Avaliações");
     
     public PersonalBookCard(PersonalBook book) {
         super(book);
         
         editBook.addActionListener(e -> AplicationWindow.showBookScreen("bookEdit", book.getISBN()));
         removeBook.addActionListener(e -> service.removeFromPersonalLibrary(book.getISBN()));
-
-        addButtons(editBook, removeBook);
-
+        seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(book.getISBN()));
+        addButtons(editBook, removeBook, seeReview);
     }
 
     public void handleOptions() {

@@ -23,24 +23,23 @@ import br.ufjf.services.ReviewService;
 
 public class BookCard extends JPanel {
 
-    private final ReviewService reviewService = new ReviewService();
-
     private final JLabel bookName = new JLabel();
     private final JLabel autor = new JLabel();
     private final JLabel genero = new JLabel();
+    private static final int BOOKCARD_WIDTH = 300;
+    private static final int BOOKCARD_HEIGHT = 250;
 
     public BookCard(Book book) {
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
-
         this.bookName.setFont(Style.getFitFont().deriveFont(Font.BOLD));
         this.autor.setFont(Style.getFitFont().deriveFont(Font.BOLD));
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setPreferredSize(new Dimension(150, 150));
-        setMinimumSize(new Dimension(150, 150));
-        setMaximumSize(new Dimension(150, 150));
+        setPreferredSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
+        setMinimumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
+        setMaximumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
         setBackground(Style.getBackgroundColor());
 
         Border roundedBorder = BorderFactory.createLineBorder(Color.GRAY, 2, true); // true para cantos arredondados
@@ -55,37 +54,31 @@ public class BookCard extends JPanel {
             header.setBackground(Style.getBackgroundColor());
         add(header);
 
-        JTextArea a = new JTextArea(book.getSynopsis());
-            a.setFont(Style.getFitFont().deriveFont(Font.PLAIN, 10));
-            a.setEditable(false);
-            a.setWrapStyleWord(true);
-            a.setAutoscrolls(true);
-            a.setLineWrap(true);
-            a.setPreferredSize(new Dimension(150, 50));
-            a.setMinimumSize(new Dimension(150, 50));
-            a.setMaximumSize(new Dimension(150, 50));
-            a.setBackground(Style.getBackgroundColor());
-        add(a);
+        JTextArea sinopsysArea = new JTextArea(book.getSynopsis());
+            sinopsysArea.setFont(Style.getFitFont().deriveFont(Font.PLAIN, 10));
+            sinopsysArea.setEditable(false);
+            sinopsysArea.setWrapStyleWord(true);sinopsysArea.setAutoscrolls(true);
+            sinopsysArea.setLineWrap(true);
+            sinopsysArea.setPreferredSize(new Dimension(BOOKCARD_WIDTH, 50));
+            sinopsysArea.setMinimumSize(new Dimension(BOOKCARD_WIDTH, 50));
+            sinopsysArea.setMaximumSize(new Dimension(BOOKCARD_WIDTH, 50));
+            sinopsysArea.setBackground(Style.getBackgroundColor());
+        add(sinopsysArea);
     }
 
     public BookCard(PersonalBook book) {
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
-        try {
-            this.genero.setText("Genero: " + book.getGenre().getType());
-        } catch (Exception e) {
-            this.genero.setText("Genero: Não informado");
-        }
-
+        this.genero.setText("Genero: " + book.getGenre().getDisplayName());
         this.bookName.setFont(Style.getFitFont().deriveFont(Font.BOLD));
         this.autor.setFont(Style.getFitFont().deriveFont(Font.BOLD));
         this.genero.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setPreferredSize(new Dimension(200, 150));
-        setMinimumSize(new Dimension(200, 150));
-        setMaximumSize(new Dimension(200, 150));
+        setPreferredSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
+        setMinimumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
+        setMaximumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
         setBackground(Style.getBackgroundColor());
 
         Border roundedBorder = BorderFactory.createLineBorder(Color.GRAY, 2, true); // true para cantos arredondados
@@ -99,37 +92,30 @@ public class BookCard extends JPanel {
             header.add(this.genero);
             header.add(bookInfo(book));
             header.setBackground(Style.getBackgroundColor());
-
         add(header);
     }
 
     private JLabel bookInfo(PersonalBook book) {
+
         JLabel info = new JLabel();
         info.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
 
         if(book.getStatus().equals(Status.LENDO)) {
             info.setText("Página atual: " + String.valueOf(book.getCurrentPage()));
         }
-        else if(book.getStatus().equals(Status.LIDO)) {
-            try {
-                //info.setText(reviewService.getReview(book.getISBN(), book.getUser()).getStars() + " / 5 estrelas.");
-            } catch (Exception e) {
-                info.setText("Sem avaliação.");
-            }
-        }
-        
+
         return info;
     }
 
     public void addButtons(Button... buttons) {
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 6)); // Cria um painel com FlowLayout
-        buttonPanel.setBackground(Style.getBackgroundColor()); // Define a cor de fundo
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 6));
+        buttonPanel.setBackground(Style.getBackgroundColor());
         
-        for (JComponent button : buttons) { // Adiciona cada botão ao painel
+        for (JComponent button : buttons) {
             button.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
             buttonPanel.add(button);
         }
-        
+
         buttonPanel.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
         add(buttonPanel);
     } 
