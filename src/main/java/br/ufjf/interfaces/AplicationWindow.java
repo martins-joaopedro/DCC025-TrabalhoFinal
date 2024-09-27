@@ -1,11 +1,21 @@
 package br.ufjf.interfaces;
 
-import javax.swing.*;
+import java.awt.CardLayout;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import br.ufjf.interfaces.screens.Admin;
+import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.BookEdit;
+import br.ufjf.interfaces.screens.BookInfo;
+import br.ufjf.interfaces.screens.Home;
+import br.ufjf.interfaces.screens.Library;
+import br.ufjf.interfaces.screens.Login;
+import br.ufjf.interfaces.screens.PersonalLibrary;
+import br.ufjf.interfaces.screens.Register;
 import br.ufjf.interfaces.widgets.Style;
-import br.ufjf.models.*;
-
-import java.awt.*;
+import br.ufjf.models.User;
 
 public class AplicationWindow {
 

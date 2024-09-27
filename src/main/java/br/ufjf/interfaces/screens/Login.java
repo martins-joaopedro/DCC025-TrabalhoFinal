@@ -1,14 +1,17 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
-import javax.swing.*;
+import java.awt.Dimension;
 
-import br.ufjf.interfaces.widgets.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Button;
+import br.ufjf.interfaces.widgets.PasswordField;
 import br.ufjf.interfaces.widgets.TextField;
-
 import br.ufjf.services.LoginService;
-
-import java.awt.*;
 
 public class Login extends BasicScreen {
 

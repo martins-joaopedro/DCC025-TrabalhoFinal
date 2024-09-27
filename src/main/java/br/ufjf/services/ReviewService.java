@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.PersonalLibrary;
+import br.ufjf.interfaces.screens.PersonalLibrary;
 import br.ufjf.models.Review;
 import br.ufjf.persistence.FileManager;
 

@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.widgets.imageCards;
+package br.ufjf.interfaces.components.imageCards;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

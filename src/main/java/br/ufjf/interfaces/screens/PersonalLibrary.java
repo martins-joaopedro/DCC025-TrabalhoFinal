@@ -1,12 +1,13 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
 import javax.swing.*;
 
 import java.util.List;
 import java.util.ArrayList;
 
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.*;
-import br.ufjf.interfaces.widgets.cards.PersonalBookCard;
+import br.ufjf.interfaces.components.cards.PersonalBookCard;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.enums.*;
 

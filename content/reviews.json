@@ -17,6 +17,13 @@
     "id": "2",
     "username": "1",
     "ISBN": "978-0-7475-3274-0",
+    "stars": 4.0,
+    "comment": "AAAAAAAAAAAA"
+  },
+  {
+    "id": "3",
+    "username": "1",
+    "ISBN": "978-0-7475-3274-0",
     "stars": 4,
     "comment": "AAAAAAAAAAAA"
   }

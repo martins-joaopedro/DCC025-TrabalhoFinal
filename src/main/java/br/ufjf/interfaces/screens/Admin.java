@@ -1,8 +1,6 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.services.AdmService;
 

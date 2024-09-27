@@ -1,4 +1,4 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
 import javax.swing.*;
 
@@ -6,10 +6,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
-import br.ufjf.interfaces.widgets.cards.PersonalBookCard;
-import br.ufjf.interfaces.widgets.cards.ReviewCard;
+import br.ufjf.interfaces.components.cards.PersonalBookCard;
+import br.ufjf.interfaces.components.cards.ReviewCard;
 import br.ufjf.models.*;
 import br.ufjf.models.enums.Status;
 

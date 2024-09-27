@@ -1,6 +1,6 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
-import javax.swing.*;
+import javax.swing.JLabel;
 
 public class BookEdit extends BasicScreen {
     public BookEdit() {

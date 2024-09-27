@@ -1,4 +1,4 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
 import javax.swing.*;
 
@@ -10,7 +10,7 @@ import br.ufjf.models.Book;
 import br.ufjf.models.enums.Genre;
 import br.ufjf.services.LibraryService;
 
-import br.ufjf.interfaces.widgets.cards.LibraryBookCard;
+import br.ufjf.interfaces.components.cards.LibraryBookCard;
 
 public class Library extends BasicScreen {
 

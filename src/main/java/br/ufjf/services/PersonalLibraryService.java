@@ -9,14 +9,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.Library;
-import br.ufjf.interfaces.PersonalLibrary;
+import br.ufjf.interfaces.screens.Library;
+import br.ufjf.interfaces.screens.PersonalLibrary;
 import br.ufjf.models.Book;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.dto.PersonalBookDTO;
 import br.ufjf.models.enums.Genre;
 import br.ufjf.models.enums.Status;
 import br.ufjf.persistence.FileManager;
+
 
 public class PersonalLibraryService implements IService<PersonalBookDTO> {
 
@@ -88,6 +89,7 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
             }
         }
         FileManager.write(path, dtos);
+        AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 

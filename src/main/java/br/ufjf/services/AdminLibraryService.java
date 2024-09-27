@@ -1,4 +1,4 @@
-package br.ufjf.interfaces;
+package br.ufjf.services;
 
 public class AdminLibraryService {
 

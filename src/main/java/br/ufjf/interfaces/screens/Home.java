@@ -1,10 +1,12 @@
-package br.ufjf.interfaces;
+package br.ufjf.interfaces.screens;
 
 import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
-import br.ufjf.interfaces.widgets.*;
+import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.widgets.Button;
 
 public class Home extends BasicScreen {
 

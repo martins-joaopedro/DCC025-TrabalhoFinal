@@ -1,4 +1,4 @@
-package br.ufjf.interfaces.widgets.cards;
+package br.ufjf.interfaces.components.cards;
 
 import java.awt.Color;
 import java.awt.Dimension;
