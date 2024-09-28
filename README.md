@@ -4,10 +4,22 @@ repositório do trabalho final da disciplina de orientação a objetos
 ``` mermaid
 classDiagram 
 
+RuntimeException <|-- CouldNotConvertJsonException
 Book <|-- PersonalBook
 Review *-- Book
-User <|-- Adm
+Status *-- Book
 User <|-- Reader
+IService <|.. LibraryService
+IService <|.. LoginService
+IService <|.. PersonalLibraryService
+IService <|.. ReviewService
+
+class RuntimeException
+class CouldNotConvertJsonException
+
+class PersonalBookDTO {
+    + PersonalBookDTO() : record
+}
 
 class Book {
     - name : String
@@ -24,32 +36,6 @@ class PersonalBook {
     - currentPage : int
 }
 
-class Review {
-    - id : String
-    - username : String
-    - ISBN : String
-    - stars : int
-    - comment : String
-}
-
-class Reader {
-    - name : String
-    - personalLibrary : Map<String, Book> 
-}
-
-class User {
-    - username : String
-    - password : String
-}
-
-class BibliotecaServico {
-    - livrosUsuario : Map<String, LivroUsuario> 
-    
-    + adicionarLivro()
-    + removerLivro()
-    + editarLivro()
-    + atualizarAvaliacao()   
-}
 
 class Genre {
     <<enumeration>>
@@ -75,8 +61,80 @@ class Status {
     - dispalyName : String
 
     + fromDisplayName() : Status
-    
-    
-    
+}
+
+class Review {
+    - id : String
+    - username : String
+    - ISBN : String
+    - stars : int
+    - comment : String
+}
+
+class Reader {
+    - name : String
+    - personalLibrary : Map<String, Book> 
+}
+
+class User {
+    - username : String
+    - password : String
+}
+
+class FileManager {
+    + write()
+    + load() : String
+    + append()
+    + clear()   
+}
+
+class IService {
+    <<interface>>
+
+    + findById() : T
+    + findAll() : List<T> 
+    + create()
+    + saveAll()
+}
+
+class LibraryService {
+    + findById() : Book
+    + findAll() : List<Book>
+    + create()
+    + saveAll()
+    + getBooksByGenre : List <Book>
+}
+
+class LoginService {
+    + findById() : User
+    + findAll() : LIst<User>
+    + create()
+    + saveAll()
+    + clearAll()
+}
+
+class PersonalLibraryService {
+    + findById() : PersonalBookDTO ATENcAOO
+    + findAll() : List<PersonalBookDTO>
+    + create()
+    + saveAll()
+    + addToPersonalLibrary()
+    + getAllAsPersonalBooks() : List<PersonalBook>
+    + isOnPersonalLibrary() : boolean
+    + removeFromPersonalLibrary()
+    + getBooksByStatus() : List<PersonalBook>
+    + getNumTotalPaginasLidas() : int
+    + getNumLivrosLidos() : int
+    + getGenreMaisLido() : Genre 
+}
+
+class ReviewService {
+    + findById() : Review
+    + findAll() : List<Review>
+    + create()
+    + saveAll()
+    + getReviewsByISBN() : List<Review>
+    + getUserReviewByISBN : Review
+    + removeUserReview()
 }
 ```
