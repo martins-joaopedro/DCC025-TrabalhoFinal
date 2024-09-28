@@ -16,7 +16,7 @@ import br.ufjf.services.ReviewService;
 
 public class ReviewCard extends BasicScreen {
 
-    ReviewService service = new ReviewService();
+    private ReviewService service = new ReviewService();
     String USER = AplicationWindow.getUser();
    
     public ReviewCard(Review review) {

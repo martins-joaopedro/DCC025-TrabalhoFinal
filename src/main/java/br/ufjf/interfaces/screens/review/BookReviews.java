@@ -21,7 +21,7 @@ public class BookReviews extends BasicScreen {
         drawReviewsList();
     }
 
-    public void drawReviewsList() {
+    private void drawReviewsList() {
         String BOOK_ISBN = AplicationWindow.getBook();
         List<Review> reviews = reviewService.getAllReviewsByISBN(BOOK_ISBN);
 

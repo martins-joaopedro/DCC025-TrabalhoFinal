@@ -3,6 +3,12 @@
     "ISBN": "978-0-06-112008-4",
     "user": "1",
     "status": "LIDO",
-    "currentPage": 22
+    "currentPage": 22.0
+  },
+  {
+    "ISBN": "978-85-7683-052-3",
+    "user": "1",
+    "status": "LIDO",
+    "currentPage": 50
   }
 ]

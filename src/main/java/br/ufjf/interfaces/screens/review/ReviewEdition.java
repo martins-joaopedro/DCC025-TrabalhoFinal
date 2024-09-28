@@ -14,6 +14,7 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
+import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
 import br.ufjf.services.ReviewService;
@@ -58,12 +59,16 @@ public class ReviewEdition extends BasicScreen {
         comment.setBackground(Style.getLightBackgroundColor());
         addComponent(comment, 0, 5);
 
-        JButton save = new JButton("Salvar");
+        Button remove = new Button("Excluir");
+        remove.addActionListener(e -> removeDataController());
+        addComponent(remove, 1, 7);
+
+        Button save = new Button("Salvar");
         save.addActionListener(e -> updateDataController());
         addComponent(save, 0, 7);
     }
 
-    public void updateDataController() {
+    private void removeDataController() {
 
         int stars = 0;
         try {
@@ -73,12 +78,35 @@ public class ReviewEdition extends BasicScreen {
         }
 
         try {
-            service.update(new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText()));
+            Review data = new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText());
+            service.removeUserReview(data);
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }
 
+        reload();
+    }
+
+    private void updateDataController() {
+
+        int stars = 0;
+        try {
+            stars = InputParser.toInteger(selectedStars.toString(), 5);
+        } catch (ParserExceptions e) {
+            new ExceptionsController(e);
+        }
+
+        try {
+            Review data = new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText());
+            service.update(data);
+        } catch (ReviewsException e) {
+            new ExceptionsController(e);
+        }
+    }
+
+    private void reload() {
         AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
+
 }

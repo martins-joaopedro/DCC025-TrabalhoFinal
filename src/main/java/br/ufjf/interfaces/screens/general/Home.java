@@ -21,23 +21,19 @@ public class Home extends BasicScreen {
                                     + "- George R. R. Martin"
                                     + "</p></html>");
 
-    // private JLabel citacao = new JLabel("A leitura é uma fonte inesgotável de
-    // prazer mas por incrível que pareça, a quase totalidade, não sente esta
-    // sede.");
-
     private final JButton login = new Button("Entrar");
     private final JButton signin = new Button("Registrar");
 
     public Home() {
         super(null);
 
+        addTitle(titulo);
+
         login.addActionListener(e -> AplicationWindow.showScreen("login"));
         signin.addActionListener(e -> AplicationWindow.showScreen("register"));
 
-        addTitle(titulo);
-
-        citacao.setPreferredSize(new Dimension(300, 300)); // Define o tamanho preferido
-        citacao.setMinimumSize(new Dimension(300, 300)); // Define o tamanho mínimo        
+        citacao.setPreferredSize(new Dimension(300, 300));
+        citacao.setMinimumSize(new Dimension(300, 300));
         addComponent(citacao, 0, 0);
 
         addButtons(login, signin);
