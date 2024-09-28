@@ -7,7 +7,7 @@ public class InputParser {
     public static int toInteger(String pages, int max) throws ParserExceptions {
         int value = Integer.parseInt(pages);
 
-        if(pages.matches("[A-Z]*"))
+        if(pages.contains("[a-Z]*"))
             throw new ParserExceptions("Informe um valor numérico");
 
         if(value < 0) 
