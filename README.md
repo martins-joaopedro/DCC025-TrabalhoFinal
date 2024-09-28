@@ -4,57 +4,54 @@ repositório do trabalho final da disciplina de orientação a objetos
 ``` mermaid
 classDiagram 
 
-Livro <|-- LivroPessoal
-Avaliacao *-- Livro
-Usuario <|-- Administrador
-Usuario <|-- Leitor
+Book <|-- PersonalBook
+Review *-- Book
+User <|-- Adm
+User <|-- Reader
 
-class Livro {
-    - nome : String
-    - autor : String
+class Book {
+    - name : String
+    - author : String
     - ISBN : String 
-    - sinopse : String 
-    - paginas : int 
-    - genero : Genero 
+    - synopsis : String 
+    - pages : int 
+    - genre : Genre
 }
 
-class LivroPessoal {
+class PersonalBook {
     - status : Status
-    - paginaAtual : int
+    - user : String
+    - currentPage : int
 }
 
-class Avaliacao {
+class Review {
+    - id : String
+    - username : String
     - ISBN : String
-    - idLeitor : String 
-    - estrelas : int
-    - comentario : String
+    - stars : int
+    - comment : String
 }
 
-class Leitor {
-    - nome : String
-    - bibliotecaPessoal : Map<String, Livro> 
+class Reader {
+    - name : String
+    - personalLibrary : Map<String, Book> 
 }
 
-class Usuario {
-    - idUsuario : String
-    - senha : String
+class User {
+    - username : String
+    - password : String
 }
 
 class BibliotecaServico {
     - livrosUsuario : Map<String, LivroUsuario> 
     
-    + getGeneroMaisLido() : Genero
-    + getNumTotalPaginasLidas() : int  
-    + getNumLivrosLidos() : int
     + adicionarLivro()
     + removerLivro()
     + editarLivro()
-    + atualizarAvaliacao()
-    + getLivroStatus() : List<LivroUsuario>
-    + getLivrosAvaliados() : List<LivroUsuario>
+    + atualizarAvaliacao()   
 }
 
-class Genero {
+class Genre {
     <<enumeration>>
     Fantasia
     Romance
@@ -62,16 +59,24 @@ class Genero {
     Academico
     Distopia
     Suspense
-    Terror
+    Literatura_Juvenil
+    Ficcao_Cientifica
+    Misterio
+    Horror
+    - type : String
 }
 
 class Status {
     <<enumeration>>
     Lendo
     Lido
-    Pretendo ler
+    Quero_Ler
     Abandonei
-}
+    - dispalyName : String
 
-class Administrador
+    + fromDisplayName() : Status
+    
+    
+    
+}
 ```
