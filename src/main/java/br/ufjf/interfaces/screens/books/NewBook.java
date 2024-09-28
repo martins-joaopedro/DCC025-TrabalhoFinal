@@ -44,8 +44,8 @@ public class NewBook extends BasicScreen {
     private JComboBox<String> genreBox = new JComboBox<String>();
     private Genre selectedGenre = Genre.ACADEMICO;
     private JTextArea sinopseText = new JTextArea();
-
-    private JButton adicionarLivro = new Button("Salvar Livro");
+    private boolean isEditing = false;
+    private JButton saveBook;
 
     public NewBook() {
         super("adm");
@@ -78,10 +78,13 @@ public class NewBook extends BasicScreen {
         
         addComponent(new JLabel("Avaliações: "), 0, 3, false);
         addComponent(new BookReviews(true, new Object()), 0, 4, false);
-        
-        adicionarLivro.addActionListener(e -> addBookController());
 
-        addButtons(adicionarLivro);
+        if(isEditing)
+            this.saveBook = new Button("Editar Livro");
+        else this.saveBook = new Button("Adicionar Livro");
+        saveBook.addActionListener(e -> addBookController());
+
+        addButtons(saveBook);
     }
 
     private void addBookController() {
@@ -96,7 +99,9 @@ public class NewBook extends BasicScreen {
         Book data = new Book(bookName.getText(), autor.getText(), isbnText.getText(), sinopseText.getText(), page, this.selectedGenre);
         
         try {
-            service.addBook(data);
+            if(this.isEditing)
+                service.update(data);
+            else service.addBook(data);
         } catch (LibraryException e) {
             new ExceptionsController(e);
         }
@@ -106,6 +111,9 @@ public class NewBook extends BasicScreen {
     private void updateData(String ISBN) {
 
         Book book = libraryService.findById(ISBN);
+
+        if(book != null)
+            this.isEditing = true;
 
         for(Genre g : Genre.values()) {
             genreBox.addItem(g.getDisplayName());
