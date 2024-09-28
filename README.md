@@ -4,7 +4,6 @@ repositório do trabalho final da disciplina de orientação a objetos
 ``` mermaid
 classDiagram 
 
-RuntimeException <|-- CouldNotConvertJsonException
 Book <|-- PersonalBook
 Review *-- Book
 Status *-- Book
@@ -13,9 +12,12 @@ IService <|.. LibraryService
 IService <|.. LoginService
 IService <|.. PersonalLibraryService
 IService <|.. ReviewService
+JsonConverter *-- CouldNotConvertJsonException
 
-class RuntimeException
 class CouldNotConvertJsonException
+class JsonConverter {
+    + convertDataIntoList() : List<T>
+}
 
 class PersonalBookDTO {
     + PersonalBookDTO() : record
