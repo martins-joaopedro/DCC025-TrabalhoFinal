@@ -3,6 +3,8 @@ package br.ufjf.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufjf.exceptions.ReviewsException;
+import br.ufjf.models.Book;
 import br.ufjf.models.dto.PersonalBookDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -46,41 +48,60 @@ public class ReviewService implements IService<Review> {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public List<Review> getReviewsByISBN(String ISBN) {
+    public void addUserReview(Review review) throws ReviewsException {
+        if(getUserReviewByISBN(review.getISBN(), review.getUsername()) != null)
+            throw new ReviewsException("Esse Usuário já cadastrou sua avalição!");
+        else create(review);
+    }
+
+    public void removeUserReview(Review receivedReview) throws ReviewsException {
+        List<Review> reviews = findAll();
+        boolean isFound = false;
+        for(Review review : reviews) {
+            if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
+                reviews.remove(review);
+                isFound = true;
+                break;
+            }
+        }
+
+        if(isFound) {
+            FileManager.write(path, reviews);
+            AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
+        } else throw new ReviewsException("Avaliação não encontrada!");
+    }
+
+    public List<Review> getAllReviewsByISBN(String ISBN) {
         
         List<Review> reviews = new ArrayList<>();
         
         for(Review review : findAll())
             if(review.getISBN().equalsIgnoreCase(ISBN))
                 reviews.add(review);
-
         return reviews;
     }
 
     public Review getUserReviewByISBN(String ISBN, String username) {
-        
-        for(Review review : getReviewsByISBN(ISBN))
+        for(Review review : getAllReviewsByISBN(ISBN))
             if(review.getUsername().equalsIgnoreCase(username))
                 return review;
-        
         return null;
     }
-    
-    public void removeUserReview(Review receivedReview) {
+
+    public void update(Review receivedReview) throws ReviewsException {
         List<Review> reviews = findAll();
+        boolean isFound = false;
         for(Review review : reviews) {
             if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
                 reviews.remove(review);
+                reviews.add(receivedReview);
+                isFound = true;
                 break;
             }
         }
-        FileManager.write(path, reviews);
-        AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
-    }
-
-    public void update(Review receivedReview) {
-        removeUserReview(receivedReview);
-        create(receivedReview);
+        if(isFound)
+            FileManager.write(path, reviews);
+        else throw new ReviewsException("Nenhuma avaliação encontrada!");
     }
 
     public int getAverageStarsByISBN(String ISBN) {

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.Teste;
 import br.ufjf.interfaces.screens.books.BookEdition;
 import br.ufjf.interfaces.screens.books.BookInformations;
 import br.ufjf.interfaces.screens.general.Home;

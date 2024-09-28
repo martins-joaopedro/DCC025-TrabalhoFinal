@@ -1,20 +1,8 @@
 [
   {
-    "ISBN": "978-0-7475-3274-0",
-    "user": "1",
-    "status": "QUERO_LER",
-    "currentPage": 0.0
-  },
-  {
-    "ISBN": "978-85-02-02050-7",
+    "ISBN": "978-0-06-112008-4",
     "user": "1",
     "status": "LIDO",
-    "currentPage": 0.0
-  },
-  {
-    "ISBN": "978-0-14-028333-4",
-    "user": "1",
-    "status": "QUERO_LER",
-    "currentPage": 0
+    "currentPage": 22
   }
 ]

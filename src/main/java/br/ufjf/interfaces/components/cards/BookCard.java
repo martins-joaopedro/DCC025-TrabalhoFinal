@@ -31,12 +31,12 @@ public class BookCard extends JPanel {
     private static final int BOOKCARD_WIDTH = 300;
     private static final int BOOKCARD_HEIGHT = 250;
 
-    ReviewService service = new ReviewService();
+    protected ReviewService service = new ReviewService();
     private final Button seeReview = new Button("Ver Avaliações");
 
     public BookCard(Book book) {
 
-        int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
+        int reviewsAmount = service.getAllReviewsByISBN(book.getISBN()).size();
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
@@ -126,6 +126,5 @@ public class BookCard extends JPanel {
 
         buttonPanel.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
         add(buttonPanel);
-    } 
-
+    }
 }

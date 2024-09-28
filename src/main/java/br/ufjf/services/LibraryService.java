@@ -38,6 +38,17 @@ public class LibraryService implements IService<Book>{
         } else return new ArrayList<>();
     }
 
+    public List<Book> getBooksByGenre(Genre genre) {
+        List<Book> books = findAll();
+        List<Book> genreBooks = new ArrayList<>();
+
+        for(Book book : books)
+            if(book.getGenre().equals(genre) && !personalLibraryService.isOnPersonalLibrary(book.getISBN()))
+                genreBooks.add(book);
+        
+        return genreBooks;
+    }
+
     @Override
     public void create(Book obj) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -46,21 +57,5 @@ public class LibraryService implements IService<Book>{
     @Override
     public void saveAll(List<Book> obj) {
         throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public List<Book> getBooksByGenre(Genre genre) {
-        List<Book> books = findAll();
-        List<Book> genreBooks = new ArrayList<>();
-
-        
-        for(Book book : books)
-            try {
-                if(book.getGenre().equals(genre) && !personalLibraryService.isOnPersonalLibrary(book.getISBN()))
-                    genreBooks.add(book);
-            } catch (NullPointerException e) {
-                System.out.println("Genre not found");
-            }
-        
-        return genreBooks;
     }
 }

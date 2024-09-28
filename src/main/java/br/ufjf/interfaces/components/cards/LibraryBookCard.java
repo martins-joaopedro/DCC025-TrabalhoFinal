@@ -8,7 +8,6 @@ import br.ufjf.models.Book;
 
 public class LibraryBookCard extends BookCard {
 
-    //private ReviewService service = new ReviewService();
     private final Button addBook = new Button("Adicionar livro");
     
     public LibraryBookCard(Book book) {

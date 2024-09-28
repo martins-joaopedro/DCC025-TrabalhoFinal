@@ -21,7 +21,6 @@ import br.ufjf.services.*;
 public class BookInformations extends BasicScreen {
 
     private String ISBN = AplicationWindow.getBook();
-    
     private final ReviewService reviewService = new ReviewService();
     private final LibraryService libraryService = new LibraryService();
     private final PersonalLibraryService personalLibraryService = new PersonalLibraryService();
@@ -40,17 +39,11 @@ public class BookInformations extends BasicScreen {
     private JButton adicionarLivro = new Button("Adicionar Livro");
 
     public BookInformations() {
-
         super("library");
-
-        ISBN = AplicationWindow.getBook();
 
         updateData(ISBN);
 
-        adicionarLivro.addActionListener(e -> {
-            personalLibraryService.addToPersonalLibrary( new PersonalBookDTO(ISBN, AplicationWindow.getUser(), this.selectedStatus, 0));
-            AplicationWindow.showScreen("personalLibrary");
-        });
+        adicionarLivro.addActionListener(e -> addBookController());
         
         addTitle(title, false);
         addComponent(bookName, 0, 0, false);
@@ -64,6 +57,12 @@ public class BookInformations extends BasicScreen {
         addComponent(new JLabel("Avaliações: "), 0, 8, false);
         addComponent(avaliacoesList, 0, 9, false);
         addButtons(adicionarLivro);
+    }
+
+    private void addBookController() {
+        PersonalBookDTO book = new PersonalBookDTO(ISBN, AplicationWindow.getUser(), this.selectedStatus, 0);
+        personalLibraryService.addToPersonalLibrary(book);
+        AplicationWindow.showScreen("personalLibrary");
     }
 
     private void updateData(String ISBN) {
@@ -113,7 +112,7 @@ public class BookInformations extends BasicScreen {
     }
 
     private ComponentList loadReviewsList() {
-        List<Review> reviews = reviewService.getReviewsByISBN(ISBN);
+        List<Review> reviews = reviewService.getAllReviewsByISBN(ISBN);
         List<JComponent> components = new ArrayList<JComponent>();
 
         if(reviews.isEmpty())
@@ -130,5 +129,4 @@ public class BookInformations extends BasicScreen {
 
         return new ComponentList(components, false);
     }
-    
 }

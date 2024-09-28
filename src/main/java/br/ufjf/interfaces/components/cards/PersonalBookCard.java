@@ -9,7 +9,7 @@ import br.ufjf.services.ReviewService;
 
 public class PersonalBookCard extends BookCard {
 
-    PersonalLibraryService service = new PersonalLibraryService();
+    private PersonalLibraryService service = new PersonalLibraryService();
     
     private final Button editBook = new Button("Editar");
     private final Button removeBook = new Button("Remover");

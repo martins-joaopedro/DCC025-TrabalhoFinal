@@ -3,14 +3,14 @@
     "id": "1",
     "username": "1",
     "ISBN": "978-0-7475-3274-0",
-    "stars": 2.0,
-    "comment": "123"
+    "stars": 2,
+    "comment": "123222"
   },
   {
     "id": "1",
     "username": "1",
     "ISBN": "978-0-7475-3274-0",
-    "stars": 5,
+    "stars": 3,
     "comment": "123333"
   }
 ]

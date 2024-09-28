@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import br.ufjf.exceptions.ExceptionsController;
+import br.ufjf.exceptions.ParserExceptions;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
@@ -19,23 +21,23 @@ import br.ufjf.models.dto.PersonalBookDTO;
 import br.ufjf.models.enums.Status;
 import br.ufjf.services.PersonalLibraryService;
 import br.ufjf.services.ReviewService;
+import br.ufjf.utils.InputParser;
 
 public class BookEdition extends BasicScreen {
 
-    PersonalLibraryService personalLibraryService = new PersonalLibraryService();
-    ReviewService reviewService = new ReviewService();
+    private PersonalLibraryService personalLibraryService = new PersonalLibraryService();
+    private ReviewService reviewService = new ReviewService();
 
-    String BOOK_ISBN = AplicationWindow.getBook();
-    String USER = AplicationWindow.getUser();
+    private String BOOK_ISBN = AplicationWindow.getBook();
+    private String USER = AplicationWindow.getUser();
+    private PersonalBook book;
+    private Review review;
 
-    PersonalBook book;
-    Review review;
-
-    JComboBox<String> statusBox = new JComboBox<>();
-    JComboBox<String> starsBox = new JComboBox<>();
+    private JComboBox<String> statusBox = new JComboBox<>();
+    private JComboBox<String> starsBox = new JComboBox<>();
+    private JTextField currentPage = new JTextField();
     private Status selectedStatus;
     private String selectedStars;
-    private JTextField currentPage = new JTextField();
 
     JTextArea comment = new JTextArea("");
 
@@ -69,8 +71,8 @@ public class BookEdition extends BasicScreen {
         if(review != null)
             drawReviewEdition();
 
-        JButton save = new JButton("Salvar");
-        save.addActionListener(e -> handleSave());
+        JButton save = new JButton("Editar dados");
+        save.addActionListener(e -> updateDataController());
         addButtons(save);
     }
 
@@ -100,16 +102,24 @@ public class BookEdition extends BasicScreen {
         addComponent(comment, 0, 9);
     }
 
-    public void handleSave() {
+    public void updateDataController() {
+        int page = 0;
+        int stars = 0;
+        try {
+            page = InputParser.toInteger(currentPage.getText(), book.getPages());
+            if(review != null)
+                stars = InputParser.toInteger(selectedStars.toString(), 5);
+        } catch (ParserExceptions e) {
+            new ExceptionsController(e);
+        }
 
-        int page = Integer.parseInt(currentPage.getText());
-        int stars = Integer.parseInt(selectedStars);
-
-        System.out.println(page);
-        System.out.println(stars);
-
-        personalLibraryService.update(new PersonalBookDTO(BOOK_ISBN, USER, selectedStatus, page));
-        reviewService.update(new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText()));
+        try {
+            personalLibraryService.update(new PersonalBookDTO(BOOK_ISBN, USER, selectedStatus, page));
+            if(review != null)
+                reviewService.update(new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText()));
+        } catch (Exception e) {
+            new ExceptionsController(e);
+        }
 
         AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");

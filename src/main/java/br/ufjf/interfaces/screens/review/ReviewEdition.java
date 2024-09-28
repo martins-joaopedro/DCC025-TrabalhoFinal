@@ -7,6 +7,9 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import br.ufjf.exceptions.ExceptionsController;
+import br.ufjf.exceptions.ParserExceptions;
+import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
@@ -14,18 +17,18 @@ import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
 import br.ufjf.services.ReviewService;
+import br.ufjf.utils.InputParser;
 
 public class ReviewEdition extends BasicScreen {
 
-    ReviewService service = new ReviewService();
+    private ReviewService service = new ReviewService();
+    private String BOOK_ISBN = AplicationWindow.getBook();
+    private String USER = AplicationWindow.getUser();
+    private Review review;
 
-    JComboBox<String> starsBox = new JComboBox<>();
+    private JComboBox<String> starsBox = new JComboBox<>();
     private String selectedStars;
     private JTextArea comment = new JTextArea();
-
-    Review review;
-    String BOOK_ISBN = AplicationWindow.getBook();
-    String USER = AplicationWindow.getUser();
 
     public ReviewEdition() {
         super("personalLibrary");
@@ -56,15 +59,24 @@ public class ReviewEdition extends BasicScreen {
         addComponent(comment, 0, 5);
 
         JButton save = new JButton("Salvar");
-        save.addActionListener(e -> handleSave());
+        save.addActionListener(e -> updateDataController());
         addComponent(save, 0, 7);
     }
 
-    public void handleSave() {
+    public void updateDataController() {
 
-        int stars = Integer.parseInt(selectedStars);
+        int stars = 0;
+        try {
+            stars = InputParser.toInteger(selectedStars.toString(), 5);
+        } catch (ParserExceptions e) {
+            new ExceptionsController(e);
+        }
 
-        service.update(new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText()));
+        try {
+            service.update(new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText()));
+        } catch (ReviewsException e) {
+            new ExceptionsController(e);
+        }
 
         AplicationWindow.reloadScreen(new Library(), "library");
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");

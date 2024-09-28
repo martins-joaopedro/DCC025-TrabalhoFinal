@@ -1,402 +1,402 @@
 [
-    {
-        "ISBN": "978-0-7475-3274-0",
-        "name": "Harry Potter e a Pedra Filosofal",
-        "author": "J.K. Rowling",
-        "synopsis": "Um jovem bruxo descobre seu legado e vai para a Escola de Magia e Bruxaria de Hogwarts.",
-        "pages": 223,
-        "genre": "FANTASIA"
-    },
-    {
-        "ISBN": "978-0-14-028333-4",
-        "name": "O Senhor dos Anéis: A Sociedade do Anel",
-        "author": "J.R.R. Tolkien",
-        "synopsis": "A primeira parte da jornada de Frodo Bolseiro para destruir o Um Anel e salvar a Terra Média.",
-        "pages": 423,
-        "genre": "FANTASIA"
-    },
-    {
-        "ISBN": "978-0-06-112008-4",
-        "name": "A Crônica do Gelo e Fogo: A Guerra dos Tronos",
-        "author": "George R.R. Martin",
-        "synopsis": "Nobres famílias lutam pelo controle do trono em um mundo medieval repleto de intrigas e magia.",
-        "pages": 694,
-        "genre": "FANTASIA"
-    },
-    {
-        "ISBN": "978-1-250-08227-2",
-        "name": "Mistborn: O Último Império",
-        "author": "Brandon Sanderson",
-        "synopsis": "Em um mundo onde o Senhor Soberano governa com punho de ferro, uma jovem descobre seus poderes mágicos.",
-        "pages": 541,
-        "genre": "FANTASIA"
-    },
-    {
-        "ISBN": "978-0-312-35473-2",
-        "name": "O Nome do Vento",
-        "author": "Patrick Rothfuss",
-        "synopsis": "A história de Kvothe, um jovem prodígio que se torna uma lenda, narrada em primeira pessoa.",
-        "pages": 662,
-        "genre": "FANTASIA"
-    },
-    {
-        "ISBN": "978-85-01-05888-5",
-        "name": "A Culpa é das Estrelas",
-        "author": "John Green",
-        "synopsis": "A história de amor entre dois adolescentes que lutam contra o câncer.",
-        "pages": 313,
-        "genre": "ROMANCE"
-    },
-    {
-        "ISBN": "978-85-02-02050-7",
-        "name": "O Morro dos Ventos Uivantes",
-        "author": "Emily Brontë",
-        "synopsis": "Um romance gótico que narra a tumultuada relação entre Heathcliff e Catherine.",
-        "pages": 384,
-        "genre": "ROMANCE"
-    },
-    {
-        "ISBN": "978-0-14-027416-5",
-        "name": "Orgulho e Preconceito",
-        "author": "Jane Austen",
-        "synopsis": "A história de Elizabeth Bennet e seu tumultuado relacionamento com o Sr. Darcy.",
-        "pages": 279,
-        "genre": "ROMANCE"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "Dom Casmurro",
-        "author": "Machado de Assis",
-        "synopsis": "Bentinho tenta entender a traição de Capitu e revive suas memórias do passado.",
-        "pages": 256,
-        "genre": "ROMANCE"
-    },
-    {
-        "ISBN": "978-0-06-245773-8",
-        "name": "O Lado Bom da Vida",
-        "author": "Matthew Quick",
-        "synopsis": "Pat Peoples tenta reconstruir sua vida após um tempo em uma instituição mental.",
-        "pages": 304,
-        "genre": "ROMANCE"
-    },
-    {
-        "ISBN": "978-0-06-112008-4",
-        "name": "Cem Anos de Solidão",
-        "author": "Gabriel García Márquez",
-        "synopsis": "A história da família Buendía e suas maldições em Macondo, uma aldeia mágica.",
-        "pages": 432,
-        "genre": "FICCAO"
-    },
-    {
-        "ISBN": "978-0-06-112008-4",
-        "name": "O Estrangeiro",
-        "author": "Albert Camus",
-        "synopsis": "A vida de Meursault, um homem que comete um crime sem motivo aparente, é examinada sob a luz da absurdidade da existência.",
-        "pages": 123,
-        "genre": "FICCAO"
-    },
-    {
-        "ISBN": "978-85-7683-052-3",
-        "name": "A Metamorfose",
-        "author": "Franz Kafka",
-        "synopsis": "A história de Gregor Samsa, que acorda transformado em um inseto e enfrenta a rejeição da família.",
-        "pages": 201,
-        "genre": "FICCAO"
-    },
-    {
-        "ISBN": "978-0-14-028951-0",
-        "name": "O Sol é Para Todos",
-        "author": "Harper Lee",
-        "synopsis": "Um relato sobre a perda da inocência e as injustiças raciais no sul dos Estados Unidos, visto pelos olhos de uma criança.",
-        "pages": 336,
-        "genre": "FICCAO"
-    },
-    {
-        "ISBN": "978-85-030-3872-5",
-        "name": "O Pequeno Príncipe",
-        "author": "Antoine de Saint-Exupéry",
-        "synopsis": "Um piloto perdido no deserto encontra um príncipe de um asteroide que ensina lições sobre a vida.",
-        "pages": 96,
-        "genre": "FICCAO"
-    },
-    {
-        "ISBN": "978-85-7653-106-3",
-        "name": "O Gene: Uma História Íntima",
-        "author": "Siddhartha Mukherjee",
-        "synopsis": "Uma narrativa abrangente sobre a história da genética e o impacto dos genes na nossa identidade e saúde.",
-        "pages": 608,
-        "genre": "ACADEMICO"
-    },
-    {
-        "ISBN": "978-0-06-246431-6",
-        "name": "Sapiens: Uma Breve História da Humanidade",
-        "author": "Yuval Noah Harari",
-        "synopsis": "Uma exploração sobre a história da humanidade desde a era das pedras até o futuro das nossas espécies.",
-        "pages": 512,
-        "genre": "ACADEMICO"
-    },
-    {
-        "ISBN": "978-85-7252-865-2",
-        "name": "O Capital no Século XXI",
-        "author": "Thomas Piketty",
-        "synopsis": "Uma análise detalhada da desigualdade econômica e da distribuição de riqueza ao longo da história.",
-        "pages": 608,
-        "genre": "ACADEMICO"
-    },
-    {
-        "ISBN": "978-0-14-302701-0",
-        "name": "A República",
-        "author": "Platão",
-        "synopsis": "Platão discute a natureza da justiça e a ordem política ideal, na forma de um diálogo entre Sócrates e vários interlocutores.",
-        "pages": 416,
-        "genre": "ACADEMICO"
-    },
-    {
-        "ISBN": "978-1-5011-1752-9",
-        "name": "O Que É Literatura",
-        "author": "Julio Cortázar",
-        "synopsis": "Uma reflexão sobre o papel da literatura na sociedade contemporânea.",
-        "pages": 154,
-        "genre": "ACADEMICO"
-    },
-    {
-        "ISBN": "978-0-385-50399-8",
-        "name": "1984",
-        "author": "George Orwell",
-        "synopsis": "Uma distopia que retrata um futuro totalitário, onde o Grande Irmão vigia e controla a vida dos cidadãos.",
-        "pages": 328,
-        "genre": "DISTOPIA"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "A Estrangeira",
-        "author": "Paula Pimenta",
-        "synopsis": "Uma jovem se muda para uma nova cidade e se vê envolvida em um romance inesperado.",
-        "pages": 288,
-        "genre": "DISTOPIA"
-    },
-    {
-        "ISBN": "978-0-06-245773-8",
-        "name": "A Corrida do Ouro",
-        "author": "H.G. Wells",
-        "synopsis": "Uma história de aventuras que se passa em uma sociedade futurista, onde a corrida do ouro se torna uma questão de sobrevivência.",
-        "pages": 432,
-        "genre": "DISTOPIA"
-    },
-    {
-        "ISBN": "978-1-5011-1752-9",
-        "name": "Admirável Mundo Novo",
-        "author": "Aldous Huxley",
-        "synopsis": "Um olhar crítico sobre uma sociedade futurista onde a felicidade é alcançada por meio do controle social.",
-        "pages": 268,
-        "genre": "DISTOPIA"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "Fahrenheit 451",
-        "author": "Ray Bradbury",
-        "synopsis": "Em um futuro onde os livros são proibidos, um bombeiro se torna um fugitivo e busca a liberdade do pensamento.",
-        "pages": 158,
-        "genre": "DISTOPIA"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "O Silêncio dos Inocentes",
-        "author": "Thomas Harris",
-        "synopsis": "Uma agente do FBI busca a ajuda de um assassino em série para capturar outro criminoso.",
-        "pages": 368,
-        "genre": "SUSPENSE"
-    },
-    {
-        "ISBN": "978-0-06-227778-2",
-        "name": "A Garota no Trem",
-        "author": "Paula Hawkins",
-        "synopsis": "Uma mulher se envolve em um mistério de desaparecimento que desafia sua própria sanidade.",
-        "pages": 326,
-        "genre": "SUSPENSE"
-    },
-    {
-        "ISBN": "978-85-02-02620-5",
-        "name": "O código Da Vinci",
-        "author": "Dan Brown",
-        "synopsis": "Um simbologista se vê envolvido em uma conspiração religiosa após um assassinato no Louvre.",
-        "pages": 456,
-        "genre": "SUSPENSE"
-    },
-    {
-        "ISBN": "978-0-06-227778-2",
-        "name": "Garota Exemplar",
-        "author": "Gillian Flynn",
-        "synopsis": "Um thriller psicológico sobre o desaparecimento de uma mulher e a investigação que revela segredos perturbadores.",
-        "pages": 432,
-        "genre": "SUSPENSE"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "Os Homens que Não Amavam as Mulheres",
-        "author": "Stieg Larsson",
-        "synopsis": "Um jornalista e uma hacker se unem para resolver um mistério de desaparecimento que remonta a décadas.",
-        "pages": 540,
-        "genre": "SUSPENSE"
-    },
-    {
-        "ISBN": "978-0-06-234058-0",
-        "name": "A Menina que Roubava Livros",
-        "author": "Markus Zusak",
-        "synopsis": "Durante a Segunda Guerra Mundial, uma jovem encontra consolo em livros e nas palavras enquanto a guerra destrói seu mundo.",
-        "pages": 552,
-        "genre": "LITERATURA_JUVENIL"
-    },
-    {
-        "ISBN": "978-0-06-076549-5",
-        "name": "O Diário de Anne Frank",
-        "author": "Anne Frank",
-        "synopsis": "O relato verdadeiro de uma jovem judia que se esconde dos nazistas durante a Segunda Guerra Mundial.",
-        "pages": 304,
-        "genre": "LITERATURA_JUVENIL"
-    },
-    {
-        "ISBN": "978-85-06-04721-6",
-        "name": "As Crônicas de Nárnia: O Leão, a Feiticeira e o Guarda-Roupa",
-        "author": "C.S. Lewis",
-        "synopsis": "Quatro irmãos descobrem um mundo mágico através de um guarda-roupa e enfrentam uma feiticeira malvada.",
-        "pages": 208,
-        "genre": "LITERATURA_JUVENIL"
-    },
-    {
-        "ISBN": "978-85-03-02134-6",
-        "name": "A série de Desventuras em Série: Mau Começo",
-        "author": "Lemony Snicket",
-        "synopsis": "Três órfãos enfrentam uma série de desventuras enquanto tentam desvendar o mistério da morte de seus pais.",
-        "pages": 162,
-        "genre": "LITERATURA_JUVENIL"
-    },
-    {
-        "ISBN": "978-85-02-02755-4",
-        "name": "Harry Potter e a Câmara Secreta",
-        "author": "J.K. Rowling",
-        "synopsis": "Harry Potter retorna a Hogwarts e descobre os segredos da Câmara Secreta.",
-        "pages": 251,
-        "genre": "LITERATURA_JUVENIL"
-    },
-    {
-        "ISBN": "978-0-06-273103-1",
-        "name": "Duna",
-        "author": "Frank Herbert",
-        "synopsis": "Uma epopeia de ficção científica que narra a luta por controle do planeta desértico Arrakis e a especiaria melange.",
-        "pages": 412,
-        "genre": "FICCAO_CIENTIFICA"
-    },
-    {
-        "ISBN": "978-0-345-39180-3",
-        "name": "Neuromancer",
-        "author": "William Gibson",
-        "synopsis": "Um hacker é contratado para realizar um último trabalho em um mundo cyberpunk, misturando tecnologia e ação.",
-        "pages": 271,
-        "genre": "FICCAO_CIENTIFICA"
-    },
-    {
-        "ISBN": "978-0-451-52993-7",
-        "name": "Fahrenheit 451",
-        "author": "Ray Bradbury",
-        "synopsis": "Em um futuro onde os livros são queimados, um bombeiro começa a questionar sua existência.",
-        "pages": 158,
-        "genre": "FICCAO_CIENTIFICA"
-    },
-    {
-        "ISBN": "978-0-06-222255-4",
-        "name": "A Máquina do Tempo",
-        "author": "H.G. Wells",
-        "synopsis": "Um cientista viaja ao futuro e testemunha as consequências da evolução da humanidade.",
-        "pages": 118,
-        "genre": "FICCAO_CIENTIFICA"
-    },
-    {
-        "ISBN": "978-0-7432-7352-5",
-        "name": "O Guia do Mochileiro das Galáxias",
-        "author": "Douglas Adams",
-        "synopsis": "As aventuras de Arthur Dent enquanto explora o universo com a ajuda de um guia intergaláctico.",
-        "pages": 224,
-        "genre": "FICCAO_CIENTIFICA"
-    },
-    {
-        "ISBN": "978-0-06-213049-5",
-        "name": "O Cão dos Baskervilles",
-        "author": "Arthur Conan Doyle",
-        "synopsis": "Sherlock Holmes investiga a lenda de um cão sobrenatural que aterroriza uma família.",
-        "pages": 256,
-        "genre": "MISTERIO"
-    },
-    {
-        "ISBN": "978-0-06-087255-4",
-        "name": "Assassinato no Expresso do Oriente",
-        "author": "Agatha Christie",
-        "synopsis": "Hercule Poirot investiga um assassinato em um trem luxuoso.",
-        "pages": 256,
-        "genre": "MISTERIO"
-    },
-    {
-        "ISBN": "978-0-525-65212-0",
-        "name": "A Casa dos Espíritos",
-        "author": "Isabel Allende",
-        "synopsis": "Uma saga familiar que explora questões de amor, política e magia em um país da América Latina.",
-        "pages": 480,
-        "genre": "MISTERIO"
-    },
-    {
-        "ISBN": "978-0-06-173821-5",
-        "name": "O Silêncio dos Inocentes",
-        "author": "Thomas Harris",
-        "synopsis": "Uma jovem agente do FBI deve consultar um assassino em série para capturar outro criminoso.",
-        "pages": 368,
-        "genre": "MISTERIO"
-    },
-    {
-        "ISBN": "978-0-06-229118-0",
-        "name": "O Homem que Não Amava as Mulheres",
-        "author": "Stieg Larsson",
-        "synopsis": "Um jornalista e uma hacker se unem para resolver um mistério de desaparecimento que remonta a décadas.",
-        "pages": 540,
-        "genre": "MISTERIO"
-    },
-    {
-        "ISBN": "978-0-06-250217-2",
-        "name": "It: A Coisa",
-        "author": "Stephen King",
-        "synopsis": "Um grupo de crianças enfrenta uma entidade maligna que se alimenta do medo.",
-        "pages": 1138,
-        "genre": "HORROR"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "O Iluminado",
-        "author": "Stephen King",
-        "synopsis": "Uma família se muda para um hotel isolado, onde o pai sucumbe a forças sobrenaturais.",
-        "pages": 659,
-        "genre": "HORROR"
-    },
-    {
-        "ISBN": "978-85-390-0553-5",
-        "name": "Drácula",
-        "author": "Bram Stoker",
-        "synopsis": "A história de um vampiro que busca novas vítimas na Inglaterra.",
-        "pages": 432,
-        "genre": "HORROR"
-    },
-    {
-        "ISBN": "978-0-06-236181-0",
-        "name": "Frankenstein",
-        "author": "Mary Shelley",
-        "synopsis": "A história de um cientista que cria uma criatura que se torna uma ameaça.",
-        "pages": 280,
-        "genre": "HORROR"
-    },
-    {
-        "ISBN": "978-0-06-225837-1",
-        "name": "A Assombração da Casa da Colina",
-        "author": "Shirley Jackson",
-        "synopsis": "Um grupo de pessoas se reúne em uma casa supostamente assombrada, enfrentando seus medos.",
-        "pages": 182,
-        "genre": "HORROR"
-    }
+  {
+    "ISBN": "978-0-7475-3274-0",
+    "name": "Harry Potter e a Pedra Filosofal",
+    "author": "J.K. Rowling",
+    "synopsis": "Um jovem bruxo descobre seu legado e vai para a Escola de Magia e Bruxaria de Hogwarts.",
+    "pages": 223,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-14-028333-4",
+    "name": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien",
+    "synopsis": "A primeira parte da jornada de Frodo Bolseiro para destruir o Um Anel e salvar a Terra Média.",
+    "pages": 423,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112008-4",
+    "name": "A Crônica do Gelo e Fogo: A Guerra dos Tronos",
+    "author": "George R.R. Martin",
+    "synopsis": "Nobres famílias lutam pelo controle do trono em um mundo medieval repleto de intrigas e magia.",
+    "pages": 694,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-1-250-08227-2",
+    "name": "Mistborn: O Último Império",
+    "author": "Brandon Sanderson",
+    "synopsis": "Em um mundo onde o Senhor Soberano governa com punho de ferro, uma jovem descobre seus poderes mágicos.",
+    "pages": 541,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-312-35473-2",
+    "name": "O Nome do Vento",
+    "author": "Patrick Rothfuss",
+    "synopsis": "A história de Kvothe, um jovem prodígio que se torna uma lenda, narrada em primeira pessoa.",
+    "pages": 662,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-85-01-05888-5",
+    "name": "A Culpa é das Estrelas",
+    "author": "John Green",
+    "synopsis": "A história de amor entre dois adolescentes que lutam contra o câncer.",
+    "pages": 313,
+    "genre": "ROMANCE"
+  },
+  {
+    "ISBN": "978-85-02-02050-7",
+    "name": "O Morro dos Ventos Uivantes",
+    "author": "Emily Brontë",
+    "synopsis": "Um romance gótico que narra a tumultuada relação entre Heathcliff e Catherine.",
+    "pages": 384,
+    "genre": "ROMANCE"
+  },
+  {
+    "ISBN": "978-0-14-027416-5",
+    "name": "Orgulho e Preconceito",
+    "author": "Jane Austen",
+    "synopsis": "A história de Elizabeth Bennet e seu tumultuado relacionamento com o Sr. Darcy.",
+    "pages": 279,
+    "genre": "ROMANCE"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "Dom Casmurro",
+    "author": "Machado de Assis",
+    "synopsis": "Bentinho tenta entender a traição de Capitu e revive suas memórias do passado.",
+    "pages": 256,
+    "genre": "ROMANCE"
+  },
+  {
+    "ISBN": "978-0-06-245773-8",
+    "name": "O Lado Bom da Vida",
+    "author": "Matthew Quick",
+    "synopsis": "Pat Peoples tenta reconstruir sua vida após um tempo em uma instituição mental.",
+    "pages": 304,
+    "genre": "ROMANCE"
+  },
+  {
+    "ISBN": "978-0-06-112008-4",
+    "name": "Cem Anos de Solidão",
+    "author": "Gabriel García Márquez",
+    "synopsis": "A história da família Buendía e suas maldições em Macondo, uma aldeia mágica.",
+    "pages": 432,
+    "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-0-06-112008-4",
+    "name": "O Estrangeiro",
+    "author": "Albert Camus",
+    "synopsis": "A vida de Meursault, um homem que comete um crime sem motivo aparente, é examinada sob a luz da absurdidade da existência.",
+    "pages": 123,
+    "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-85-7683-052-3",
+    "name": "A Metamorfose",
+    "author": "Franz Kafka",
+    "synopsis": "A história de Gregor Samsa, que acorda transformado em um inseto e enfrenta a rejeição da família.",
+    "pages": 201,
+    "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-0-14-028951-0",
+    "name": "O Sol é Para Todos",
+    "author": "Harper Lee",
+    "synopsis": "Um relato sobre a perda da inocência e as injustiças raciais no sul dos Estados Unidos, visto pelos olhos de uma criança.",
+    "pages": 336,
+    "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-85-030-3872-5",
+    "name": "O Pequeno Príncipe",
+    "author": "Antoine de Saint-Exupéry",
+    "synopsis": "Um piloto perdido no deserto encontra um príncipe de um asteroide que ensina lições sobre a vida.",
+    "pages": 96,
+    "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-85-7653-106-3",
+    "name": "O Gene: Uma História Íntima",
+    "author": "Siddhartha Mukherjee",
+    "synopsis": "Uma narrativa abrangente sobre a história da genética e o impacto dos genes na nossa identidade e saúde.",
+    "pages": 608,
+    "genre": "ACADEMICO"
+  },
+  {
+    "ISBN": "978-0-06-246431-6",
+    "name": "Sapiens: Uma Breve História da Humanidade",
+    "author": "Yuval Noah Harari",
+    "synopsis": "Uma exploração sobre a história da humanidade desde a era das pedras até o futuro das nossas espécies.",
+    "pages": 512,
+    "genre": "ACADEMICO"
+  },
+  {
+    "ISBN": "978-85-7252-865-2",
+    "name": "O Capital no Século XXI",
+    "author": "Thomas Piketty",
+    "synopsis": "Uma análise detalhada da desigualdade econômica e da distribuição de riqueza ao longo da história.",
+    "pages": 608,
+    "genre": "ACADEMICO"
+  },
+  {
+    "ISBN": "978-0-14-302701-0",
+    "name": "A República",
+    "author": "Platão",
+    "synopsis": "Platão discute a natureza da justiça e a ordem política ideal, na forma de um diálogo entre Sócrates e vários interlocutores.",
+    "pages": 416,
+    "genre": "ACADEMICO"
+  },
+  {
+    "ISBN": "978-1-5011-1752-9",
+    "name": "O Que É Literatura",
+    "author": "Julio Cortázar",
+    "synopsis": "Uma reflexão sobre o papel da literatura na sociedade contemporânea.",
+    "pages": 154,
+    "genre": "ACADEMICO"
+  },
+  {
+    "ISBN": "978-0-385-50399-8",
+    "name": "1984",
+    "author": "George Orwell",
+    "synopsis": "Uma distopia que retrata um futuro totalitário, onde o Grande Irmão vigia e controla a vida dos cidadãos.",
+    "pages": 328,
+    "genre": "DISTOPIA"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "A Estrangeira",
+    "author": "Paula Pimenta",
+    "synopsis": "Uma jovem se muda para uma nova cidade e se vê envolvida em um romance inesperado.",
+    "pages": 288,
+    "genre": "DISTOPIA"
+  },
+  {
+    "ISBN": "978-0-06-245773-8",
+    "name": "A Corrida do Ouro",
+    "author": "H.G. Wells",
+    "synopsis": "Uma história de aventuras que se passa em uma sociedade futurista, onde a corrida do ouro se torna uma questão de sobrevivência.",
+    "pages": 432,
+    "genre": "DISTOPIA"
+  },
+  {
+    "ISBN": "978-1-5011-1752-9",
+    "name": "Admirável Mundo Novo",
+    "author": "Aldous Huxley",
+    "synopsis": "Um olhar crítico sobre uma sociedade futurista onde a felicidade é alcançada por meio do controle social.",
+    "pages": 268,
+    "genre": "DISTOPIA"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "synopsis": "Em um futuro onde os livros são proibidos, um bombeiro se torna um fugitivo e busca a liberdade do pensamento.",
+    "pages": 158,
+    "genre": "DISTOPIA"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "O Silêncio dos Inocentes",
+    "author": "Thomas Harris",
+    "synopsis": "Uma agente do FBI busca a ajuda de um assassino em série para capturar outro criminoso.",
+    "pages": 368,
+    "genre": "SUSPENSE"
+  },
+  {
+    "ISBN": "978-0-06-227778-2",
+    "name": "A Garota no Trem",
+    "author": "Paula Hawkins",
+    "synopsis": "Uma mulher se envolve em um mistério de desaparecimento que desafia sua própria sanidade.",
+    "pages": 326,
+    "genre": "SUSPENSE"
+  },
+  {
+    "ISBN": "978-85-02-02620-5",
+    "name": "O código Da Vinci",
+    "author": "Dan Brown",
+    "synopsis": "Um simbologista se vê envolvido em uma conspiração religiosa após um assassinato no Louvre.",
+    "pages": 456,
+    "genre": "SUSPENSE"
+  },
+  {
+    "ISBN": "978-0-06-227778-2",
+    "name": "Garota Exemplar",
+    "author": "Gillian Flynn",
+    "synopsis": "Um thriller psicológico sobre o desaparecimento de uma mulher e a investigação que revela segredos perturbadores.",
+    "pages": 432,
+    "genre": "SUSPENSE"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "Os Homens que Não Amavam as Mulheres",
+    "author": "Stieg Larsson",
+    "synopsis": "Um jornalista e uma hacker se unem para resolver um mistério de desaparecimento que remonta a décadas.",
+    "pages": 540,
+    "genre": "SUSPENSE"
+  },
+  {
+    "ISBN": "978-0-06-234058-0",
+    "name": "A Menina que Roubava Livros",
+    "author": "Markus Zusak",
+    "synopsis": "Durante a Segunda Guerra Mundial, uma jovem encontra consolo em livros e nas palavras enquanto a guerra destrói seu mundo.",
+    "pages": 552,
+    "genre": "LITERATURA_JUVENIL"
+  },
+  {
+    "ISBN": "978-0-06-076549-5",
+    "name": "O Diário de Anne Frank",
+    "author": "Anne Frank",
+    "synopsis": "O relato verdadeiro de uma jovem judia que se esconde dos nazistas durante a Segunda Guerra Mundial.",
+    "pages": 304,
+    "genre": "LITERATURA_JUVENIL"
+  },
+  {
+    "ISBN": "978-85-06-04721-6",
+    "name": "As Crônicas de Nárnia: O Leão, a Feiticeira e o Guarda-Roupa",
+    "author": "C.S. Lewis",
+    "synopsis": "Quatro irmãos descobrem um mundo mágico através de um guarda-roupa e enfrentam uma feiticeira malvada.",
+    "pages": 208,
+    "genre": "LITERATURA_JUVENIL"
+  },
+  {
+    "ISBN": "978-85-03-02134-6",
+    "name": "A série de Desventuras em Série: Mau Começo",
+    "author": "Lemony Snicket",
+    "synopsis": "Três órfãos enfrentam uma série de desventuras enquanto tentam desvendar o mistério da morte de seus pais.",
+    "pages": 162,
+    "genre": "LITERATURA_JUVENIL"
+  },
+  {
+    "ISBN": "978-85-02-02755-4",
+    "name": "Harry Potter e a Câmara Secreta",
+    "author": "J.K. Rowling",
+    "synopsis": "Harry Potter retorna a Hogwarts e descobre os segredos da Câmara Secreta.",
+    "pages": 251,
+    "genre": "LITERATURA_JUVENIL"
+  },
+  {
+    "ISBN": "978-0-06-273103-1",
+    "name": "Duna",
+    "author": "Frank Herbert",
+    "synopsis": "Uma epopeia de ficção científica que narra a luta por controle do planeta desértico Arrakis e a especiaria melange.",
+    "pages": 412,
+    "genre": "FICCAO_CIENTIFICA"
+  },
+  {
+    "ISBN": "978-0-345-39180-3",
+    "name": "Neuromancer",
+    "author": "William Gibson",
+    "synopsis": "Um hacker é contratado para realizar um último trabalho em um mundo cyberpunk, misturando tecnologia e ação.",
+    "pages": 271,
+    "genre": "FICCAO_CIENTIFICA"
+  },
+  {
+    "ISBN": "978-0-451-52993-7",
+    "name": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "synopsis": "Em um futuro onde os livros são queimados, um bombeiro começa a questionar sua existência.",
+    "pages": 158,
+    "genre": "FICCAO_CIENTIFICA"
+  },
+  {
+    "ISBN": "978-0-06-222255-4",
+    "name": "A Máquina do Tempo",
+    "author": "H.G. Wells",
+    "synopsis": "Um cientista viaja ao futuro e testemunha as consequências da evolução da humanidade.",
+    "pages": 118,
+    "genre": "FICCAO_CIENTIFICA"
+  },
+  {
+    "ISBN": "978-0-7432-7352-5",
+    "name": "O Guia do Mochileiro das Galáxias",
+    "author": "Douglas Adams",
+    "synopsis": "As aventuras de Arthur Dent enquanto explora o universo com a ajuda de um guia intergaláctico.",
+    "pages": 224,
+    "genre": "FICCAO_CIENTIFICA"
+  },
+  {
+    "ISBN": "978-0-06-213049-5",
+    "name": "O Cão dos Baskervilles",
+    "author": "Arthur Conan Doyle",
+    "synopsis": "Sherlock Holmes investiga a lenda de um cão sobrenatural que aterroriza uma família.",
+    "pages": 256,
+    "genre": "MISTERIO"
+  },
+  {
+    "ISBN": "978-0-06-087255-4",
+    "name": "Assassinato no Expresso do Oriente",
+    "author": "Agatha Christie",
+    "synopsis": "Hercule Poirot investiga um assassinato em um trem luxuoso.",
+    "pages": 256,
+    "genre": "MISTERIO"
+  },
+  {
+    "ISBN": "978-0-525-65212-0",
+    "name": "A Casa dos Espíritos",
+    "author": "Isabel Allende",
+    "synopsis": "Uma saga familiar que explora questões de amor, política e magia em um país da América Latina.",
+    "pages": 480,
+    "genre": "MISTERIO"
+  },
+  {
+    "ISBN": "978-0-06-173821-5",
+    "name": "O Silêncio dos Inocentes",
+    "author": "Thomas Harris",
+    "synopsis": "Uma jovem agente do FBI deve consultar um assassino em série para capturar outro criminoso.",
+    "pages": 368,
+    "genre": "MISTERIO"
+  },
+  {
+    "ISBN": "978-0-06-229118-0",
+    "name": "O Homem que Não Amava as Mulheres",
+    "author": "Stieg Larsson",
+    "synopsis": "Um jornalista e uma hacker se unem para resolver um mistério de desaparecimento que remonta a décadas.",
+    "pages": 540,
+    "genre": "MISTERIO"
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "name": "It: A Coisa",
+    "author": "Stephen King",
+    "synopsis": "Um grupo de crianças enfrenta uma entidade maligna que se alimenta do medo.",
+    "pages": 1138,
+    "genre": "HORROR"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "O Iluminado",
+    "author": "Stephen King",
+    "synopsis": "Uma família se muda para um hotel isolado, onde o pai sucumbe a forças sobrenaturais.",
+    "pages": 659,
+    "genre": "HORROR"
+  },
+  {
+    "ISBN": "978-85-390-0553-5",
+    "name": "Drácula",
+    "author": "Bram Stoker",
+    "synopsis": "A história de um vampiro que busca novas vítimas na Inglaterra.",
+    "pages": 432,
+    "genre": "HORROR"
+  },
+  {
+    "ISBN": "978-0-06-236181-0",
+    "name": "Frankenstein",
+    "author": "Mary Shelley",
+    "synopsis": "A história de um cientista que cria uma criatura que se torna uma ameaça.",
+    "pages": 280,
+    "genre": "HORROR"
+  },
+  {
+    "ISBN": "978-0-06-225837-1",
+    "name": "A Assombração da Casa da Colina",
+    "author": "Shirley Jackson",
+    "synopsis": "Um grupo de pessoas se reúne em uma casa supostamente assombrada, enfrentando seus medos.",
+    "pages": 182,
+    "genre": "HORROR"
+  }
 ]

@@ -23,7 +23,7 @@ public class BookReviews extends BasicScreen {
 
     public void drawReviewsList() {
         String BOOK_ISBN = AplicationWindow.getBook();
-        List<Review> reviews = reviewService.getReviewsByISBN(BOOK_ISBN);
+        List<Review> reviews = reviewService.getAllReviewsByISBN(BOOK_ISBN);
 
         if(reviews.isEmpty()) {
             addComponent(new JLabel("Nenhuma avaliação disponível"), 0, 0);
