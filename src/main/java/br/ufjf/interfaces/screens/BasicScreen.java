@@ -24,12 +24,14 @@ import br.ufjf.interfaces.widgets.Style;
 
 public class BasicScreen extends ScrollPanel {
 
-    private JPanel mainPanel; // Painel principal para o BorderLayout
-    private JPanel centerPanel; // Painel central para centralizar os componentes
-
+    protected JPanel mainPanel; // Painel principal para o BorderLayout
+    protected JPanel centerPanel; // Painel central para centralizar os componentes
+    
     private JButton back = new JButton(); // Botão de voltar
     private Component emptyArea = Box.createRigidArea(new Dimension(50, 50));
-
+    
+    private Color backgroundColor; // Cor de fundo da tela
+    
     public BasicScreen(String backScreen) {
         this(backScreen, Style.getBackgroundColor());
     }
@@ -37,7 +39,9 @@ public class BasicScreen extends ScrollPanel {
     public BasicScreen(String backScreen, Color backgroundColor) {
       
         mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(backgroundColor);
+
+        this.backgroundColor = backgroundColor;
+        mainPanel.setBackground(this.backgroundColor);
 
         setViewportView(mainPanel);
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -66,11 +70,11 @@ public class BasicScreen extends ScrollPanel {
 
     public void addTitle(JLabel titleLabel, boolean isIconVisible) {
         JPanel titlePanel = new JPanel(new BorderLayout(10, 10));
-        titlePanel.setBackground(Style.getBackgroundColor()); // Define a cor de fundo
+        titlePanel.setBackground(this.backgroundColor); // Define a cor de fundo
         titlePanel.setBorder(new EmptyBorder(20, 10, 10, 10)); // Margem ao redor do título
 
         back.setIcon(Style.getBackIcon()); // Define o ícone do botão de voltar
-        back.setBackground(Style.getBackgroundColor()); // Define a cor de fundo do botão
+        back.setBackground(this.backgroundColor); // Define a cor de fundo do botão
         back.setBorderPainted(false); // Remove a borda do botão
 
         titlePanel.add(back, BorderLayout.WEST); // Adiciona o botão de voltar ao painel de título
@@ -93,7 +97,7 @@ public class BasicScreen extends ScrollPanel {
     // Adiciona botões na base da tela
     public void addButtons(JComponent... buttons) {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 20)); // Cria um painel com FlowLayout
-        buttonPanel.setBackground(Style.getBackgroundColor()); // Define a cor de fundo
+        buttonPanel.setBackground(this.backgroundColor); // Define a cor de fundo
         buttonPanel.setBorder(new EmptyBorder(0, 0, 20, 0)); // Adiciona margem
 
         for (JComponent button : buttons) { // Adiciona cada botão ao painel
@@ -106,7 +110,7 @@ public class BasicScreen extends ScrollPanel {
 
     public void addTopButtons(int gridx, int gridy, JComponent... buttons) {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 20)); // Cria um painel com FlowLayout
-        buttonPanel.setBackground(Style.getBackgroundColor()); // Define a cor de fundo
+        buttonPanel.setBackground(this.backgroundColor); // Define a cor de fundo
         buttonPanel.setBorder(new EmptyBorder(5, 0, 5, 0)); // Adiciona margem
 
         for (JComponent button : buttons) { // Adiciona cada botão ao painel
@@ -126,7 +130,6 @@ public class BasicScreen extends ScrollPanel {
     }
 
     public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter, int margem) {
-
         component.setFont(Style.getMainFont());
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -146,5 +149,4 @@ public class BasicScreen extends ScrollPanel {
 
         centerPanel.add(component, gbc);
     }
-
 }

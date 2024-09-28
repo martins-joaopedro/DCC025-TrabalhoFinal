@@ -7,8 +7,8 @@ import javax.swing.border.Border;
 
 public class UIConstants {
     
-    public static int REVIEW_CARD_WIDTH = 300;
-    public static int REVIEW_CARD_HEIGHT = 320;
+    public static int REVIEW_CARD_WIDTH = 350;
+    public static int REVIEW_CARD_HEIGHT = 350;
     public static int BOOK_CARD_WIDTH = 300;
     public static int BOOK_CARD_HEIGHT = 350;
     

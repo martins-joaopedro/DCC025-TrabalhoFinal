@@ -1,14 +1,14 @@
 [
   {
+    "ISBN": "978-0-14-028333-4",
+    "user": "1",
+    "status": "ABANDONEI",
+    "currentPage": 0.0
+  },
+  {
     "ISBN": "978-0-7475-3274-0",
     "user": "1",
     "status": "LIDO",
     "currentPage": 10
-  },
-  {
-    "ISBN": "978-0-14-028333-4",
-    "user": "1",
-    "status": "QUERO_LER",
-    "currentPage": 0
   }
 ]

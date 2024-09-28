@@ -33,9 +33,9 @@ public class BookCard extends JPanel {
 
     ReviewService service = new ReviewService();
     private final Button seeReview = new Button("Ver Avaliações");
-
+    
     public BookCard(Book book) {
-
+        
         int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
 
         this.bookName.setText(book.getName());
@@ -76,6 +76,8 @@ public class BookCard extends JPanel {
 
     public BookCard(PersonalBook book) {
 
+        int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
+
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
         this.genero.setText("Genero: " + book.getGenre().getDisplayName());
@@ -89,9 +91,7 @@ public class BookCard extends JPanel {
         setMaximumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
         setBackground(Style.getBackgroundColor());
 
-        Border roundedBorder = BorderFactory.createLineBorder(Color.GRAY, 2, true); // true para cantos arredondados
-        Border padding = BorderFactory.createEmptyBorder(5, 2, 2, 2); // Espaçamento interno
-        setBorder(BorderFactory.createCompoundBorder(roundedBorder, padding));
+        setBorder(UIConstants.ROUNDED_BORDER);
 
         JPanel header = new JPanel();
             header.setLayout(new GridLayout(4, 0, 15, 5));
@@ -101,15 +101,28 @@ public class BookCard extends JPanel {
             header.add(bookInfo(book));
             header.setBackground(Style.getBackgroundColor());
         add(header);
+
+        seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(book.getISBN()));
+        if(reviewsAmount > 0)
+            addButtons(seeReview);
     }
 
-    private JLabel bookInfo(PersonalBook book) {
+    private JPanel bookInfo(PersonalBook book) {
 
-        JLabel info = new JLabel();
+        JPanel info = new JPanel();
+        info.setBackground(Style.getBackgroundColor());
         info.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
 
         if(book.getStatus().equals(Status.LENDO)) {
-            info.setText("Página atual: " + String.valueOf(book.getCurrentPage()));
+        } else if (book.getStatus().equals(Status.LIDO)) {
+            if(service.getUserReviewByISBN(book.getISBN(), AplicationWindow.getUser()) != null) {
+                for(int i=0; i<service.getUserReviewByISBN(book.getISBN(), AplicationWindow.getUser()).getStars(); i++)
+                    info.add(new ImageCard("star.png", 20, 20, Style.getBackgroundColor()));;
+            } else {
+                info.add(new JLabel("Livro sem avaliação."));
+            }
+        } else if(book.getStatus().equals(Status.ABANDONEI)) {
+            info.add(new JLabel("Livro abandonado na página " + book.getCurrentPage() + "/" + book.getPages() + "."));
         }
 
         return info;

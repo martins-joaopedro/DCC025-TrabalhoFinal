@@ -2,9 +2,8 @@ package br.ufjf.interfaces.components.cards;
 
 import java.awt.Dimension;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
+import java.awt.*;
 
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
@@ -18,37 +17,58 @@ public class ReviewCard extends BasicScreen {
 
     ReviewService service = new ReviewService();
     String USER = AplicationWindow.getUser();
-   
+
     public ReviewCard(Review review) {
         super(null, Style.getLightBackgroundColor());
 
         setPreferredSize(new Dimension(UIConstants.REVIEW_CARD_WIDTH, UIConstants.REVIEW_CARD_HEIGHT));
+        setBackground(Style.getLightBackgroundColor());
         setBorder(UIConstants.ROUNDED_BORDER);
+
+        setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-        addComponent(new JLabel(review.getUsername()), 0, 0, false, 5);
+        JLabel username = new JLabel("Avaliação de " + review.getUsername());
+            username.setFont(Style.getMainFont().deriveFont(Font.BOLD, 18));
+            username.setBackground(Style.getLightBackgroundColor());
+        addSimpleComponent(username, 0, 0);
+        
+        JPanel starsPanel = new JPanel();
+            starsPanel.setBackground(Style.getLightBackgroundColor());
+            for(int i=0; i<review.getStars(); i++)
+                starsPanel.add(new ImageCard("star.png", 20, 20, Style.getLightBackgroundColor()));
+        addSimpleComponent(starsPanel, 0, 1);
 
         JTextArea comment = new JTextArea(review.getComment());
             comment.setFont(Style.getFitFont());
-            comment.setPreferredSize(new Dimension(150, 120));
-            comment.setMinimumSize(new Dimension(150, 120));
+            comment.setBackground(Style.getLightBackgroundColor());
             comment.setEditable(false);
             comment.setWrapStyleWord(true);
             comment.setAutoscrolls(true);
             comment.setLineWrap(true);
-        addComponent(comment, 0, 1, false, 5);
-
-        JPanel starsPanel = new JPanel();
-        for(int i=0; i<review.getStars(); i++)
-            starsPanel.add(new ImageCard("star.png", 10, 10, getBackground()));
-
-        addComponent(starsPanel, 0, 2, false, 5);
-
+        addSimpleComponent(comment, 0, 2);
+        
         Button editReview = new Button("Editar Avaliação");
         editReview.addActionListener(e -> {
             AplicationWindow.showEditReviewScreen(review.getISBN());
         });
-
+        
         if(review.getUsername().equalsIgnoreCase(USER))
-            addComponent(editReview, 0, 4, true);
+            addTopButtons(0, 3, editReview);
+    }
+
+    public void addSimpleComponent(JComponent component, int gridx, int gridy) {
+
+        this.centerPanel.setBackground(Style.getLightBackgroundColor());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        gbc.weightx = 1;
+
+        gbc.insets = new Insets(10, 15, 0, 30);
+        gbc.gridx = gridx;
+        gbc.gridy = gridy;
+
+        this.centerPanel.add(component, gbc);
     }
 }
