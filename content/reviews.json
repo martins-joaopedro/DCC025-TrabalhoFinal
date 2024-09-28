@@ -1,86 +1,16 @@
 [
   {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 4.0,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 5.0,
-    "comment": "AAAAAAAAAAAA222284349889434343eeee"
-  },
-  {
-    "id": "3",
+    "id": "1",
     "username": "1",
     "ISBN": "978-0-7475-3274-0",
     "stars": 2.0,
-    "comment": "AAAAAAAAAAAA"
+    "comment": "123"
   },
   {
-    "id": "3",
+    "id": "1",
     "username": "1",
     "ISBN": "978-0-7475-3274-0",
-    "stars": 2.0,
-    "comment": "AAAAAAAAAAAA222233rff"
-  },
-  {
-    "id": "4",
-    "username": "1",
-    "ISBN": "978-0-14-028333-4",
-    "stars": 4.0,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 4.0,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 5.0,
-    "comment": "AAAAAAAAAAAA222284349889434343eeee"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2.0,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2.0,
-    "comment": "AAAAAAAAAAAA222233rff"
-  },
-  {
-    "id": "4",
-    "username": "1",
-    "ISBN": "978-0-14-028333-4",
-    "stars": 4.0,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-06-112008-4",
-    "stars": 4.0,
-    "comment": "AAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-06-112008-4",
-    "stars": 2,
-    "comment": "AAAAAAAAAAAA2222222222AAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkAAAAAAAAAAAA2222222222dsdsdsdds4jkdsjahkfhjsdfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+    "stars": 5,
+    "comment": "123333"
   }
 ]

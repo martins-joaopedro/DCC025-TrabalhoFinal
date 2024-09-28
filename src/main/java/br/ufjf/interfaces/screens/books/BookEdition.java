@@ -47,7 +47,6 @@ public class BookEdition extends BasicScreen {
         this.book = personalLibraryService.getAsPersonalBook(BOOK_ISBN);
         this.review = reviewService.getUserReviewByISBN(BOOK_ISBN, USER);
         this.currentPage.setText(String.valueOf(book.getCurrentPage()));
-        this.selectedStars = String.valueOf(review.getStars());
         this.selectedStatus = book.getStatus();
 
         addComponent(new JLabel("Nome: " + book.getName()), 0, 0);
@@ -66,6 +65,18 @@ public class BookEdition extends BasicScreen {
             this.selectedStatus = Status.fromDisplayName(statusBox.getSelectedItem().toString());
         });
         addComponent(statusBox, 0, 6);
+
+        if(review != null)
+            drawReviewEdition();
+
+        JButton save = new JButton("Salvar");
+        save.addActionListener(e -> handleSave());
+        addButtons(save);
+    }
+
+    public void drawReviewEdition() {
+
+        this.selectedStars = String.valueOf(review.getStars());
 
         for(int i=1; i<=5; i++) {
             this.starsBox.addItem(String.valueOf(i));
@@ -87,10 +98,6 @@ public class BookEdition extends BasicScreen {
         comment.setLineWrap(true);
         comment.setBackground(Style.getLightBackgroundColor());
         addComponent(comment, 0, 9);
-
-        JButton save = new JButton("Salvar");
-        save.addActionListener(e -> handleSave());
-        addButtons(save);
     }
 
     public void handleSave() {

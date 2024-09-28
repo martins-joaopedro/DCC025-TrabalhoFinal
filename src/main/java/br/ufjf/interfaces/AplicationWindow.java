@@ -41,8 +41,8 @@ public class AplicationWindow {
         //mainPanel.add(new Teste(), "home3");
         mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
-        mainPanel.add(new Register(), "register");
         mainPanel.add(new PersonalLibrary(), "personalLibrary");
+        mainPanel.add(new Register(), "register");
         mainPanel.add(new Admin(), "admin");
         mainPanel.add(new Library(), "library");
 

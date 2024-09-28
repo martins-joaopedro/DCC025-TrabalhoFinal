@@ -48,9 +48,8 @@ public class BookInformations extends BasicScreen {
         updateData(ISBN);
 
         adicionarLivro.addActionListener(e -> {
-                personalLibraryService.addToPersonalLibrary( new PersonalBookDTO(ISBN, AplicationWindow.getUser(), selectedStatus, 0));
-                reviewService.create(new Review("0", "1", ISBN, 4, "AAAAAAAAAAAA"));
-                AplicationWindow.showScreen("personalLibrary");
+            personalLibraryService.addToPersonalLibrary( new PersonalBookDTO(ISBN, AplicationWindow.getUser(), this.selectedStatus, 0));
+            AplicationWindow.showScreen("personalLibrary");
         });
         
         addTitle(title, false);
@@ -106,13 +105,19 @@ public class BookInformations extends BasicScreen {
         });
 
         avaliacoesList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        avaliacoesList.setViewportView(drawReviewsList());
+
+        ComponentList list = loadReviewsList();
+        if(list != null)
+            avaliacoesList.setViewportView(list);
+        else avaliacoesList.setViewportView(new JLabel("Nenhuma avaliação disponível!"));
     }
 
-    private ComponentList drawReviewsList() {
+    private ComponentList loadReviewsList() {
         List<Review> reviews = reviewService.getReviewsByISBN(ISBN);
         List<JComponent> components = new ArrayList<JComponent>();
 
+        if(reviews.isEmpty())
+            return null;
         JPanel avaliacoes = new JPanel();
         avaliacoes.setLayout(new BoxLayout(avaliacoes, BoxLayout.Y_AXIS));
         avaliacoes.setBackground(Color.WHITE);

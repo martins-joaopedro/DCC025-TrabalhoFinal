@@ -14,18 +14,15 @@ public class BookReviews extends BasicScreen {
 
     private ReviewService reviewService = new ReviewService();
 
-    String BOOK_ISBN = AplicationWindow.getBook();
-
     public BookReviews() {
         super("personalLibrary");
 
-        //setPreferredSize(new Dimension(Style.getWidth(), Style.getHeight()));
         addTitle(new JLabel("Avaliações do Livro: "));
-        
         drawReviewsList();
     }
 
     public void drawReviewsList() {
+        String BOOK_ISBN = AplicationWindow.getBook();
         List<Review> reviews = reviewService.getReviewsByISBN(BOOK_ISBN);
 
         if(reviews.isEmpty()) {
