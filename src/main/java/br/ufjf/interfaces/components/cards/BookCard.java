@@ -1,21 +1,10 @@
 package br.ufjf.interfaces.components.cards;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.border.Border;
+import javax.swing.*;
+import java.awt.*;
 
-import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.UIConstants;
+import br.ufjf.interfaces.*;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Book;
@@ -129,7 +118,7 @@ public class BookCard extends JPanel {
     }
 
     public void addButtons(Button... buttons) {
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 4, 6));
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         buttonPanel.setBackground(Style.getBackgroundColor());
         
         for (JComponent button : buttons) {

@@ -12,7 +12,9 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
+import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
+import br.ufjf.interfaces.widgets.TextField;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.models.Review;
 import br.ufjf.models.dto.PersonalBookDTO;
@@ -35,7 +37,7 @@ public class BookEdition extends BasicScreen {
     JComboBox<String> starsBox = new JComboBox<>();
     private Status selectedStatus;
     private String selectedStars;
-    private JTextField currentPage = new JTextField();
+    private TextField currentPage = new TextField(30);
 
     JTextArea comment = new JTextArea("");
 
@@ -79,8 +81,8 @@ public class BookEdition extends BasicScreen {
         addComponent(starsBox, 0, 8);
 
         comment.setText(review.getComment());
-        comment.setPreferredSize(new Dimension(300, 80));
-        comment.setMinimumSize(new Dimension(300, 80));
+        comment.setPreferredSize(new Dimension(500, 300));
+        comment.setMinimumSize(new Dimension(500, 300));
         comment.setEditable(true);
         comment.setWrapStyleWord(true);
         comment.setAutoscrolls(true);
@@ -88,7 +90,7 @@ public class BookEdition extends BasicScreen {
         comment.setBackground(Style.getLightBackgroundColor());
         addComponent(comment, 0, 9);
 
-        JButton save = new JButton("Salvar");
+        JButton save = new Button("Salvar");
         save.addActionListener(e -> handleSave());
         addButtons(save);
     }

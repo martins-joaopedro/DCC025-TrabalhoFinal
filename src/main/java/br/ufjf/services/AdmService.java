@@ -1,7 +1,14 @@
 package br.ufjf.services;
 
-public class AdmService {
-    // ADICIONA NOVO LIVRO
+import br.ufjf.models.Book;
 
-    //REMOVE LIVRO
+public class AdmService {
+    
+    public void addBook(Book book) {
+
+    }
+    
+    public void removeBook(String ISBN) {
+
+    }
 }

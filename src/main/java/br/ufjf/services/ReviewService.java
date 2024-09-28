@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.screens.libraries.Adm;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.models.Review;
 import br.ufjf.persistence.FileManager;
@@ -75,6 +76,12 @@ public class ReviewService implements IService<Review> {
             }
         }
         FileManager.write(path, reviews);
+
+        if(AplicationWindow.getUser().equals("admin")) {
+            AplicationWindow.reloadScreen(new Adm(), "adm");
+            return;
+        }
+        
         AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 

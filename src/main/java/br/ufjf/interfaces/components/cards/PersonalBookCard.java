@@ -4,7 +4,6 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.models.PersonalBook;
 import br.ufjf.services.PersonalLibraryService;
-import br.ufjf.services.ReviewService;
 
 public class PersonalBookCard extends BookCard {
 

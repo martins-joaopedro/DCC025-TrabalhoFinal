@@ -11,6 +11,7 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
+import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
 import br.ufjf.services.ReviewService;
@@ -46,8 +47,8 @@ public class ReviewEdition extends BasicScreen {
         starsBox.setSelectedItem(this.selectedStars);
         addComponent(starsBox, 0, 3);
 
-        comment.setPreferredSize(new Dimension(300, 80));
-        comment.setMinimumSize(new Dimension(300, 80));
+        comment.setPreferredSize(new Dimension(500, 300));
+        comment.setMinimumSize(new Dimension(500, 300));
         comment.setEditable(true);
         comment.setWrapStyleWord(true);
         comment.setAutoscrolls(true);
@@ -55,7 +56,7 @@ public class ReviewEdition extends BasicScreen {
         comment.setBackground(Style.getLightBackgroundColor());
         addComponent(comment, 0, 5);
 
-        JButton save = new JButton("Salvar");
+        JButton save = new Button("Salvar");
         save.addActionListener(e -> handleSave());
         addComponent(save, 0, 7);
     }

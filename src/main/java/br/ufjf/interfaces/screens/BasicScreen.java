@@ -53,7 +53,10 @@ public class BasicScreen extends ScrollPanel {
         this.centerPanel = new JPanel(new GridBagLayout());
         this.centerPanel.setOpaque(false); // Define o fundo como transparente
 
-        if (backScreen != null) {
+        if(backScreen == "homeUser") {
+            String backPage = AplicationWindow.getUser() == "admin" ? "adm" : "personalLibrary";
+            this.back.addActionListener(e -> AplicationWindow.showScreen(backPage));
+        } else if (backScreen != null) {
             this.back.addActionListener(e -> AplicationWindow.showScreen(backScreen)); // Adiciona a ação de voltar
         } else {
             this.back.setVisible(false); // Esconde o botão de voltar se não houver tela anterior

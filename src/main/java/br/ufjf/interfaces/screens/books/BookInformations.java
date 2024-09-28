@@ -8,6 +8,7 @@ import java.util.List;
 
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.components.cards.ReviewCard;
@@ -36,7 +37,6 @@ public class BookInformations extends BasicScreen {
     private JLabel status = new JLabel();
     private JComboBox<String> statusBox = new JComboBox<String>();
     private Status selectedStatus = Status.QUERO_LER;
-    private ScrollPanel avaliacoesList = new ScrollPanel();
     private JButton adicionarLivro = new Button("Adicionar Livro");
 
     public BookInformations() {
@@ -63,7 +63,7 @@ public class BookInformations extends BasicScreen {
         addComponent(status, 0, 6, false);
         addComponent(statusBox, 0, 7, false);
         addComponent(new JLabel("Avaliações: "), 0, 8, false);
-        addComponent(avaliacoesList, 0, 9, false);
+        addComponent(new BookReviews(false, new Object()), 0, 9, false);
         addButtons(adicionarLivro);
     }
 
@@ -104,26 +104,6 @@ public class BookInformations extends BasicScreen {
         statusBox.addActionListener(e -> {
             this.selectedStatus = Status.fromDisplayName(statusBox.getSelectedItem().toString());
         });
-
-        avaliacoesList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        avaliacoesList.setViewportView(drawReviewsList());
-    }
-
-    private ComponentList drawReviewsList() {
-        List<Review> reviews = reviewService.getReviewsByISBN(ISBN);
-        List<JComponent> components = new ArrayList<JComponent>();
-
-        JPanel avaliacoes = new JPanel();
-        avaliacoes.setLayout(new BoxLayout(avaliacoes, BoxLayout.Y_AXIS));
-        avaliacoes.setBackground(Color.WHITE);
-        avaliacoes.setPreferredSize(new Dimension(300, 150));
-        avaliacoes.setMinimumSize(new Dimension(300, 150));
-
-        for (Review review : reviews) {
-            components.add(new ReviewCard(review));
-        }
-
-        return new ComponentList(components, false);
     }
     
 }

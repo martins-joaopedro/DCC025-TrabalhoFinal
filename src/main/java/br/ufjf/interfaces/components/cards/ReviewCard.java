@@ -1,7 +1,5 @@
 package br.ufjf.interfaces.components.cards;
 
-import java.awt.Dimension;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,7 +16,7 @@ public class ReviewCard extends BasicScreen {
     ReviewService service = new ReviewService();
     String USER = AplicationWindow.getUser();
 
-    public ReviewCard(Review review) {
+    public ReviewCard(Review review, boolean isAdm) {
         super(null, Style.getLightBackgroundColor());
 
         setPreferredSize(new Dimension(UIConstants.REVIEW_CARD_WIDTH, UIConstants.REVIEW_CARD_HEIGHT));
@@ -51,8 +49,15 @@ public class ReviewCard extends BasicScreen {
         editReview.addActionListener(e -> {
             AplicationWindow.showEditReviewScreen(review.getISBN());
         });
-        
-        if(review.getUsername().equalsIgnoreCase(USER))
+
+        if(isAdm) {
+            Button deleteReview = new Button("Deletar Avaliação");
+            deleteReview.addActionListener(e -> {
+                service.removeUserReview(review);
+                AplicationWindow.showScreen("adm");
+            });
+            addTopButtons(0, 3, deleteReview);
+        } else if(review.getUsername().equalsIgnoreCase(USER))
             addTopButtons(0, 3, editReview);
     }
 

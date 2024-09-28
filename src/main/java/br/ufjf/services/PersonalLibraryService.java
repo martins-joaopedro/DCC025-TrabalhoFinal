@@ -91,8 +91,12 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
 
     public boolean isOnPersonalLibrary(String id) {
         List<PersonalBookDTO> dtos = findAll();
+
+        if(AplicationWindow.getUser() == "admin")
+            return false;
+
         for(PersonalBookDTO dto : dtos)
-            if(dto.ISBN().equalsIgnoreCase(id))
+            if(dto.ISBN().equalsIgnoreCase(id) && dto.user().equalsIgnoreCase(AplicationWindow.getUser()))
                 return true;
         return false;
     }
