@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Book;
@@ -47,10 +48,7 @@ public class BookCard extends JPanel {
         setMinimumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
         setMaximumSize(new Dimension(BOOKCARD_WIDTH, BOOKCARD_HEIGHT));
         setBackground(Style.getBackgroundColor());
-
-        Border roundedBorder = BorderFactory.createLineBorder(Color.GRAY, 2, true); // true para cantos arredondados
-        Border padding = BorderFactory.createEmptyBorder(5, 2, 2, 2); // Espaçamento interno
-        setBorder(BorderFactory.createCompoundBorder(roundedBorder, padding));
+        setBorder(UIConstants.ROUNDED_BORDER);
 
         JPanel header = new JPanel();
             header.setLayout(new GridLayout(2, 1, 15, 5));
@@ -70,7 +68,6 @@ public class BookCard extends JPanel {
             sinopsysArea.setMaximumSize(new Dimension(BOOKCARD_WIDTH, 50));
             sinopsysArea.setBackground(Style.getBackgroundColor());
         add(sinopsysArea);
-
 
         seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(book.getISBN()));
         if(reviewsAmount > 0)

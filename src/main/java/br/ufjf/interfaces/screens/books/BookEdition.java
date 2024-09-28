@@ -1,5 +1,13 @@
 package br.ufjf.interfaces.screens.books;
 
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
@@ -11,9 +19,6 @@ import br.ufjf.models.dto.PersonalBookDTO;
 import br.ufjf.models.enums.Status;
 import br.ufjf.services.PersonalLibraryService;
 import br.ufjf.services.ReviewService;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class BookEdition extends BasicScreen {
 
@@ -37,22 +42,24 @@ public class BookEdition extends BasicScreen {
     public BookEdition() {
         super("personalLibrary");
 
+        addTitle(new JLabel("Editar"));
+
         this.book = personalLibraryService.getAsPersonalBook(BOOK_ISBN);
         this.review = reviewService.getUserReviewByISBN(BOOK_ISBN, USER);
-        this.selectedStars = String.valueOf(review.getStars());
         this.currentPage.setText(String.valueOf(book.getCurrentPage()));
+        this.selectedStars = String.valueOf(review.getStars());
         this.selectedStatus = book.getStatus();
 
         addComponent(new JLabel("Nome: " + book.getName()), 0, 0);
         addComponent(new JLabel("Gênero: " + book.getGenre().getDisplayName()), 0, 1);
         addComponent(new JLabel("Sinopse: " + book.getSynopsis()), 0, 2);
         addComponent(new JLabel("Página atual: " + book.getCurrentPage()), 0, 3);
-
         addComponent(currentPage, 0, 4);
 
         for(Status s : Status.values()) {
             statusBox.addItem(s.getDisplayName());
         }
+        statusBox.setSelectedItem(this.selectedStatus.getDisplayName());
 
         addComponent(new JLabel("Status: "), 0, 5);
         statusBox.addActionListener(e -> {
@@ -63,6 +70,7 @@ public class BookEdition extends BasicScreen {
         for(int i=1; i<=5; i++) {
             this.starsBox.addItem(String.valueOf(i));
         }
+        starsBox.setSelectedItem(this.selectedStars);
 
         addComponent(new JLabel("Estrelas: "), 0, 7);
         starsBox.addActionListener(e -> {

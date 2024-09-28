@@ -1,17 +1,17 @@
 package br.ufjf.interfaces.screens.libraries;
 
-import javax.swing.*;
-
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+
+import br.ufjf.interfaces.components.cards.LibraryBookCard;
+import br.ufjf.interfaces.components.lists.ComponentList;
 import br.ufjf.interfaces.screens.BasicScreen;
-import br.ufjf.interfaces.widgets.*;
 import br.ufjf.models.Book;
 import br.ufjf.models.enums.Genre;
 import br.ufjf.services.LibraryService;
-import br.ufjf.interfaces.components.cards.LibraryBookCard;
-import br.ufjf.interfaces.components.lists.ComponentList;
 
 public class Library extends BasicScreen {
 
@@ -33,7 +33,7 @@ public class Library extends BasicScreen {
     }
 
     private ComponentList bookList(Genre genre) {
-        List<JComponent> components = new ArrayList<JComponent>();
+        List<JComponent> components = new ArrayList<>();
 
         List<Book> books = service.getBooksByGenre(genre);
 

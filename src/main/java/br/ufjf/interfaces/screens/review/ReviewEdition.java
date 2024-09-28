@@ -1,18 +1,19 @@
 package br.ufjf.interfaces.screens.review;
 
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
-import br.ufjf.models.dto.PersonalBookDTO;
-import br.ufjf.models.enums.Status;
 import br.ufjf.services.ReviewService;
-import org.w3c.dom.Text;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class ReviewEdition extends BasicScreen {
 
@@ -29,19 +30,21 @@ public class ReviewEdition extends BasicScreen {
     public ReviewEdition() {
         super("personalLibrary");
 
-        review = service.getUserReviewByISBN(BOOK_ISBN, USER);
-        comment.setText(review.getComment());
-        selectedStars = String.valueOf(review.getStars());
+        addTitle(new JLabel("Avaliações"));
+        this.review = service.getUserReviewByISBN(BOOK_ISBN, USER);
+        this.comment.setText(review.getComment());
+        this.selectedStars = String.valueOf(review.getStars());
 
         for(int i=1; i<=5; i++) {
             this.starsBox.addItem(String.valueOf(i));
         }
 
-        addComponent(new JLabel("Estrelas: "), 0, 7);
+        addComponent(new JLabel("Estrelas: "), 0, 1);
         starsBox.addActionListener(e -> {
             this.selectedStars = starsBox.getSelectedItem().toString();
         });
-        addComponent(starsBox, 0, 8);
+        starsBox.setSelectedItem(this.selectedStars);
+        addComponent(starsBox, 0, 3);
 
         comment.setPreferredSize(new Dimension(300, 80));
         comment.setMinimumSize(new Dimension(300, 80));
@@ -50,11 +53,11 @@ public class ReviewEdition extends BasicScreen {
         comment.setAutoscrolls(true);
         comment.setLineWrap(true);
         comment.setBackground(Style.getLightBackgroundColor());
-        addComponent(comment, 0, 8);
+        addComponent(comment, 0, 5);
 
         JButton save = new JButton("Salvar");
         save.addActionListener(e -> handleSave());
-        addComponent(save, 0, 9);
+        addComponent(save, 0, 7);
     }
 
     public void handleSave() {

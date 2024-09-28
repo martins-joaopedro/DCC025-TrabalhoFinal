@@ -35,16 +35,15 @@ public class BasicScreen extends ScrollPanel {
     }
 
     public BasicScreen(String backScreen, Color backgroundColor) {
-        // Inicializa o painel principal com BorderLayout
+      
         mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBackground(backgroundColor); // Define a cor de fundo
+        mainPanel.setBackground(backgroundColor);
 
-        // Adiciona o mainPanel ao JScrollPane
         setViewportView(mainPanel);
-
-        // Remove as barras de rolagem
         setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        getHorizontalScrollBar().setUnitIncrement(20);
+        getVerticalScrollBar().setUnitIncrement(20);
 
         // Painel central com GridBagLayout para centralizar os componentes e ocupar o espaço restante
         this.centerPanel = new JPanel(new GridBagLayout());
@@ -126,29 +125,26 @@ public class BasicScreen extends ScrollPanel {
         addComponent(component, gridx, gridy, isInCenter, 20);
     }
 
-    // Adiciona um componente centralizado no painel central
     public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter, int margem) {
 
-        component.setFont(Style.getMainFont()); // Define a fonte do componente
+        component.setFont(Style.getMainFont());
 
-        // Define as constraints para centralizar o componente
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Preenche horizontalmente
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
         if(isInCenter)
-            gbc.anchor = GridBagConstraints.CENTER; // Centraliza o componente
+            gbc.anchor = GridBagConstraints.CENTER;
         else {
-            gbc.anchor = GridBagConstraints.NORTHWEST; // Alinha à esquerda
-            
+            gbc.anchor = GridBagConstraints.NORTHWEST;
             if(margem >= 20) 
-                gbc.weightx = 1; // Ocupa o espaço restante
+                gbc.weightx = 1;
         }
 
-        gbc.insets = new Insets(5, margem, 5, margem);  // Margens ao redor do componente
+        gbc.insets = new Insets(5, margem, 5, margem);
         gbc.gridx = gridx;
         gbc.gridy = gridy;
 
-        centerPanel.add(component, gbc);  // Adiciona o componente ao painel central
+        centerPanel.add(component, gbc);
     }
 
 }
