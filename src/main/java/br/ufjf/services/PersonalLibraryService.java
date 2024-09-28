@@ -159,7 +159,6 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         for(PersonalBook book : this.getAllAsPersonalBooks()) {
             if(book.getStatus() == Status.LIDO) {
                 Genre genre = book.getGenre();
-                System.out.println(genre.toString());
 
                 try {
                     if(readGenres.containsKey(genre))

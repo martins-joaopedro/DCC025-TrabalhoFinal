@@ -1,10 +1,19 @@
 package br.ufjf.interfaces.components.cards;
 
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 
-import br.ufjf.interfaces.*;
+import javax.swing.BoxLayout;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Book;
@@ -20,12 +29,12 @@ public class BookCard extends JPanel {
     private static final int BOOKCARD_WIDTH = 300;
     private static final int BOOKCARD_HEIGHT = 250;
 
-    ReviewService service = new ReviewService();
+    protected ReviewService service = new ReviewService();
     private final Button seeReview = new Button("Ver Avaliações");
     
     public BookCard(Book book) {
-        
-        int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
+
+        int reviewsAmount = service.getAllReviewsByISBN(book.getISBN()).size();
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
@@ -65,7 +74,7 @@ public class BookCard extends JPanel {
 
     public BookCard(PersonalBook book) {
 
-        int reviewsAmount = service.getReviewsByISBN(book.getISBN()).size();
+        int reviewsAmount = service.getAllReviewsByISBN(book.getISBN()).size();
 
         this.bookName.setText(book.getName());
         this.autor.setText(book.getAuthor());
@@ -128,6 +137,5 @@ public class BookCard extends JPanel {
 
         buttonPanel.setFont(Style.getFitFont().deriveFont(Font.PLAIN));
         add(buttonPanel);
-    } 
-
+    }
 }

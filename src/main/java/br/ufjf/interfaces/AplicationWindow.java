@@ -16,7 +16,6 @@ import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.interfaces.screens.review.ReviewEdition;
 import br.ufjf.interfaces.screens.users.Login;
-import br.ufjf.interfaces.screens.users.Register;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.User;
 
@@ -42,7 +41,6 @@ public class AplicationWindow {
         //mainPanel.add(new Teste(), "home3");
         mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
-        mainPanel.add(new Register(), "register");
         mainPanel.add(new PersonalLibrary(), "personalLibrary");
         mainPanel.add(new Adm(), "admin");
         mainPanel.add(new Library(), "library");
@@ -84,8 +82,6 @@ public class AplicationWindow {
 
         cardLayout.show(mainPanel, "reviewEdition");
     }
-
-
 
     static public String getBook() {
         return book;

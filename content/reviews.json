@@ -1,58 +1,9 @@
 [
   {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "3",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2,
-    "comment": "AAAAAAAAAAAA222233rff"
-  },
-  {
     "id": "4",
     "username": "1",
     "ISBN": "978-0-14-028333-4",
-    "stars": 4,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 4,
-    "comment": "AAAAAAAAAAAA22228434988943"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-14-028333-4",
-    "stars": 4,
-    "comment": "AAAAAAAAAAAA"
-  },
-  {
-    "id": "11",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 2,
-    "comment": "AAAAAAAAAAAA222233rffaaas"
-  },
-  {
-    "id": "10",
-    "username": "1",
-    "ISBN": "978-0-7475-3274-0",
-    "stars": 4,
-    "comment": "AAAAAAAAAAAAsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+    "stars": 5,
+    "comment": "AAAAAAAAAAAA33333333"
   }
 ]
