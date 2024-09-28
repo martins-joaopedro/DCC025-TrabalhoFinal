@@ -10,8 +10,11 @@ public class InputParser {
         if(pages.matches("[A-Z]*"))
             throw new ParserExceptions("Informe um valor numérico");
 
-        if(value < 0 || value > max)
-            throw new ParserExceptions("Informe um valor válido");
-        else return value;
+        if(value < 0) 
+            if(max != -1)
+                if(value > max)
+                    throw new ParserExceptions("Informe um menor que o total de páginas.");
+            else throw new ParserExceptions("Informe um valor válido!");
+        return value;
     }
 }

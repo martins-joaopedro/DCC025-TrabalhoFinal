@@ -1,5 +1,7 @@
 package br.ufjf.interfaces.screens.books;
 
+import br.ufjf.exceptions.ExceptionsController;
+import br.ufjf.exceptions.ParserExceptions;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.components.lists.ComponentList;
@@ -10,7 +12,7 @@ import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.services.AdmService;
 import br.ufjf.services.LibraryService;
 import br.ufjf.services.ReviewService;
-
+import br.ufjf.utils.InputParser;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.interfaces.widgets.TextField;
 import br.ufjf.models.Book;
@@ -19,9 +21,12 @@ import br.ufjf.models.enums.Genre;
 import br.ufjf.interfaces.widgets.Button;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+
+import br.ufjf.exceptions.LibraryException;
 
 public class NewBook extends BasicScreen {
 
@@ -74,12 +79,28 @@ public class NewBook extends BasicScreen {
         addComponent(new JLabel("Avaliações: "), 0, 3, false);
         addComponent(new BookReviews(true, new Object()), 0, 4, false);
         
-        adicionarLivro.addActionListener(e -> {
-                service.addBook(new Book(bookName.getText(), autor.getText(), isbnText.getText(), sinopseText.getText(), Integer.parseInt(numPaginas.getText()), this.selectedGenre));
-                AplicationWindow.showScreen("adm");
-        });
+        adicionarLivro.addActionListener(e -> addBookController());
 
         addButtons(adicionarLivro);
+    }
+
+    private void addBookController() {
+
+        int page = 0;
+        try {
+            page = InputParser.toInteger(numPaginas.getText(), -1);
+        } catch (ParserExceptions e) {
+            new ExceptionsController(e);
+        }
+
+        Book data = new Book(bookName.getText(), autor.getText(), isbnText.getText(), sinopseText.getText(), page, this.selectedGenre);
+        
+        try {
+            service.addBook(data);
+        } catch (LibraryException e) {
+            new ExceptionsController(e);
+        }
+        AplicationWindow.showScreen("adm");
     }
 
     private void updateData(String ISBN) {

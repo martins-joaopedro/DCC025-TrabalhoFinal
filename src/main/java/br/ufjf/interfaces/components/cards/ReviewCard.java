@@ -1,8 +1,18 @@
 package br.ufjf.interfaces.components.cards;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+import br.ufjf.exceptions.ExceptionsController;
+import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
@@ -52,10 +62,7 @@ public class ReviewCard extends BasicScreen {
 
         if(isAdm) {
             Button deleteReview = new Button("Deletar Avaliação");
-            deleteReview.addActionListener(e -> {
-                service.removeUserReview(review);
-                AplicationWindow.showScreen("adm");
-            });
+            deleteReview.addActionListener(e -> deleteReviewController(review));
             addTopButtons(0, 3, deleteReview);
         } else if(review.getUsername().equalsIgnoreCase(USER))
             addTopButtons(0, 3, editReview);
@@ -75,5 +82,14 @@ public class ReviewCard extends BasicScreen {
         gbc.gridy = gridy;
 
         this.centerPanel.add(component, gbc);
+    }
+
+    private void deleteReviewController(Review review) {
+        try {
+            service.removeUserReview(review);        
+        } catch (ReviewsException e) {
+            new ExceptionsController(e);
+        }
+        AplicationWindow.showScreen("adm");
     }
 }
