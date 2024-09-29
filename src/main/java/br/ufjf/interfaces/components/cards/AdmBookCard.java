@@ -3,17 +3,23 @@ package br.ufjf.interfaces.components.cards;
 import javax.swing.*;
 import java.awt.*;
 
+import br.ufjf.exceptions.ExceptionsController;
+import br.ufjf.exceptions.LibraryException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
+import br.ufjf.interfaces.screens.libraries.Adm;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Book;
+import br.ufjf.services.AdmService;
+import br.ufjf.services.LibraryService;
 
-public class LibraryBookCard extends BookCard {
+public class AdmBookCard extends BookCard {
 
-    private final Button addBook = new Button("Adicionar livro");
+    private final AdmService admService = new AdmService();
+    private final LibraryService libraryService = new LibraryService();
     
-    public LibraryBookCard(Book book) {
+    public AdmBookCard(Book book) {
         super(book);
 
         JTextArea sinopsysArea = new JTextArea(book.getSynopsis());
@@ -40,12 +46,20 @@ public class LibraryBookCard extends BookCard {
 
     @Override
     protected void drawButtons(String ISBN) {
-        seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(ISBN));
-        addBook.addActionListener(e -> AplicationWindow.showBookScreen("bookInfo", ISBN));
-        
-        if(reviewsAmount > 0)
-            addButtons(seeReview, addBook);
-        else
-            addButtons(addBook);
+        Button editBook = new Button("Editar livro");
+        Button removeBook = new Button("Remover livro");
+
+        editBook.addActionListener(e -> AplicationWindow.showBookScreen("newBook", ISBN));
+        removeBook.addActionListener(e -> {
+            try {
+                admService.removeBook(libraryService.findById(ISBN));
+                AplicationWindow.reloadScreen(new Adm(), "adm");
+            
+            } catch (LibraryException err) {    
+                new ExceptionsController(err);
+            }
+        });
+
+        addButtons(editBook, removeBook);
     }
 }

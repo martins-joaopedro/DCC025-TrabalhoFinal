@@ -38,11 +38,11 @@ public class Login extends BasicScreen {
         addComponent(userText, 0, 0);
         addComponent(passwordText, 0, 1);
 
-        userField.setPreferredSize(new Dimension(100, 24)); // Define o tamanho preferido
-        userField.setMinimumSize(new Dimension(100, 24)); // Define o tamanho mínimo
+        userField.setPreferredSize(new Dimension(100, 24));
+        userField.setMinimumSize(new Dimension(100, 24));
 
-        passwordField.setPreferredSize(new Dimension(100, 24)); // Define o tamanho preferido
-        passwordField.setMinimumSize(new Dimension(100, 24)); // Define o tamanho mínimo
+        passwordField.setPreferredSize(new Dimension(100, 24));
+        passwordField.setMinimumSize(new Dimension(100, 24)); 
 
         addComponent(userField, 1, 0);
         addComponent(passwordField, 1, 1);
@@ -65,7 +65,7 @@ public class Login extends BasicScreen {
 
             if (service.findById(user).getPassword().equals(password)) {
                 if(user.equals("admin")) {
-                    AplicationWindow.showScreen("admin", service.findById(user));
+                    AplicationWindow.showScreen("adm", service.findById(user));
                     return;
                 }
 

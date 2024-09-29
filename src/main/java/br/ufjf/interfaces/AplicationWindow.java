@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.books.BookEdition;
 import br.ufjf.interfaces.screens.books.BookInformations;
+import br.ufjf.interfaces.screens.books.NewBook;
 import br.ufjf.interfaces.screens.general.Home;
-import br.ufjf.interfaces.screens.libraries.Admin;
+import br.ufjf.interfaces.screens.libraries.Adm;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.screens.review.BookReviews;
@@ -37,20 +38,20 @@ public class AplicationWindow {
         cardLayout = new CardLayout();
 
         mainPanel = new JPanel(cardLayout);
-
-        //mainPanel.add(new Teste(), "home3");
         mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
         mainPanel.add(new Register(), "register");
-        mainPanel.add(new PersonalLibrary(), "personalLibrary");
-        mainPanel.add(new Admin(), "admin");
-        mainPanel.add(new Library(), "library");
 
         frame.add(mainPanel);
         frame.setVisible(true);
     }
 
     static public void showScreen(String screenName) {
+        if(screenName.equals("library"))
+            mainPanel.add(new Library(), "library");
+        else if(screenName.equals("personalLibrary"))
+            mainPanel.add(new PersonalLibrary(), "personalLibrary");
+
         cardLayout.show(mainPanel, screenName);
     }
 
@@ -61,13 +62,18 @@ public class AplicationWindow {
             mainPanel.add(new BookInformations(), "bookInfo");
         else if(screenName.equals("bookEdit"))
             mainPanel.add(new BookEdition(), "bookEdit");
+        else if(screenName.equals("newBook"))
+            mainPanel.add(new NewBook(), "newBook");
 
         cardLayout.show(mainPanel, screenName);
     }
 
     public static void showReviewScreen(String ISBN) {
         AplicationWindow.book = ISBN;
-        mainPanel.add(new BookReviews(), "bookReviews");
+        if(user.equals("admin"))
+            mainPanel.add(new BookReviews(true), "bookReviews");
+        else
+            mainPanel.add(new BookReviews(), "bookReviews");
 
         cardLayout.show(mainPanel, "bookReviews");
     }
@@ -79,8 +85,6 @@ public class AplicationWindow {
         cardLayout.show(mainPanel, "reviewEdition");
     }
 
-
-
     static public String getBook() {
         return book;
     }
@@ -89,7 +93,7 @@ public class AplicationWindow {
         AplicationWindow.user = user.getUsername();
 
         if(user.getUsername().equals("admin"))
-            mainPanel.add(new Admin(), "admin");
+            mainPanel.add(new Adm(), "adm");
         else if(screenName.equals("personalLibrary"))
             mainPanel.add(new PersonalLibrary(), "personalLibrary");
         

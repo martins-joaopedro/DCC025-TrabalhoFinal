@@ -46,7 +46,6 @@ public class LoginService implements IService<User> {
         
         try {
             users = new ArrayList<>(JsonConverter.convertDataIntoList(data, type));
-            System.out.println(users); 
         } catch (CouldNotConvertJsonException e) {
             System.out.println(e.getMessage());
         }    

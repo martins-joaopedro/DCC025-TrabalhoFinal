@@ -28,7 +28,6 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
 
     @Override
     public PersonalBookDTO findById(String id) {
-        String data = FileManager.load(path);
         List<PersonalBookDTO> dtos = findAll();
 
         for (PersonalBookDTO dto : dtos) {
@@ -80,19 +79,21 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     }
 
     public PersonalBook getAsPersonalBook(String ISBN) {
-        PersonalBookDTO dto = findById(ISBN);
-        Book book = service.findById(dto.ISBN());
-
-        if(book != null)
-            return new PersonalBook(book, dto.user(), dto.status(), dto.currentPage());
-        else return  null;
+        for(PersonalBook book : this.getAllAsPersonalBooks())
+            if(book.getISBN().equals(ISBN))
+                return book;
+        return  null;
     }
 
 
     public boolean isOnPersonalLibrary(String id) {
         List<PersonalBookDTO> dtos = findAll();
+
+        if(AplicationWindow.getUser() == "admin")
+            return false;
+
         for(PersonalBookDTO dto : dtos)
-            if(dto.ISBN().equalsIgnoreCase(id))
+            if(dto.ISBN().equalsIgnoreCase(id) && dto.user().equalsIgnoreCase(AplicationWindow.getUser()))
                 return true;
         return false;
     }
@@ -155,7 +156,6 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
         for(PersonalBook book : this.getAllAsPersonalBooks()) {
             if(book.getStatus() == Status.LIDO) {
                 Genre genre = book.getGenre();
-                System.out.println(genre.toString());
 
                 try {
                     if(readGenres.containsKey(genre))

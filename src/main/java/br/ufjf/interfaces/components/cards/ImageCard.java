@@ -12,13 +12,13 @@ import javax.swing.JPanel;
 
 public class ImageCard extends JPanel {
 
-    int width;
-    int height;
-    int x;
-    int y;
-    BufferedImage img;
-    Color color;
-    String mainPath = "src" + File.separator + "main" 
+    private int width;
+    private int height;
+    private int x;
+    private int y;
+    private BufferedImage img;
+    private Color color;
+    private String mainPath = "src" + File.separator + "main"
         + File.separator + "java" + File.separator + "br" 
         + File.separator + "ufjf" + File.separator + "interfaces"
         + File.separator + "resources" + File.separator;
