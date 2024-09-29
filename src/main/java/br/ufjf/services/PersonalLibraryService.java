@@ -1,5 +1,12 @@
 package br.ufjf.services;
 
+/*
+ * autores:
+    João Pedro Martins Cruz, 202365552C
+    Júlia Zoffoli Caçador, 202365520B
+    Robert Gonçalves Vieira de Souza, 202365505B
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

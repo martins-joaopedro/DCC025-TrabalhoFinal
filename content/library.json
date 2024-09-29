@@ -63,6 +63,18 @@
     "ISBN": "978-0-06-250217-2",
     "user": "1",
     "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-312-35473-2",
+    "user": "a",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-7475-3274-0",
+    "user": "Júlia",
+    "status": "LIDO",
     "currentPage": 0
   }
 ]

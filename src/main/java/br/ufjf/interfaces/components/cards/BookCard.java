@@ -1,5 +1,12 @@
 package br.ufjf.interfaces.components.cards;
 
+/*
+ * autores:
+    João Pedro Martins Cruz, 202365552C
+    Júlia Zoffoli Caçador, 202365520B
+    Robert Gonçalves Vieira de Souza, 202365505B
+ */
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;

@@ -1,5 +1,12 @@
 package br.ufjf.persistence;
 
+/*
+ * autores:
+    João Pedro Martins Cruz, 202365552C
+    Júlia Zoffoli Caçador, 202365520B
+    Robert Gonçalves Vieira de Souza, 202365505B
+ */
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
