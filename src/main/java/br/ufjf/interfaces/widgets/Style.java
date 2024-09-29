@@ -20,7 +20,6 @@ public class Style {
     private static Font mainFont;
     private static Font fitFont;
 
-    // Carrega a fonte "AlbertSans" do diretório de recursos
     static {
         try { 
             File file = new File("resources/albert_sans_font.ttf");
@@ -51,15 +50,12 @@ public class Style {
     public static Color getPrimaryColor() { return primaryColor; }
     public static Color getBackgroundColor() { return backgroundColor; }
     public static Color getButtonColor() { return buttonColor; }
-    public static Color getLightBackgroundColor() {
-        return lightBackgroundColor;
-    }
+    public static Color getLightBackgroundColor() { return lightBackgroundColor; }
 
     public static Font getTitleFont() { return titleFont; }
     public static Font getMainFont() { return mainFont; }
     public static Font getFitFont() { return fitFont; }
 
-    // Método para retornar uma borda arredondada
     public static int getBorderRadius() { return borderRadius; }
 
     public static ImageIcon getHomeLogo() { return homeLogo; }

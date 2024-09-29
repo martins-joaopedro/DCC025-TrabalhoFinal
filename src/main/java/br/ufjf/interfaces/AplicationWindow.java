@@ -17,7 +17,6 @@ import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.interfaces.screens.review.ReviewEdition;
 import br.ufjf.interfaces.screens.users.Login;
 import br.ufjf.interfaces.screens.users.Register;
-import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.User;
 
 public class AplicationWindow {

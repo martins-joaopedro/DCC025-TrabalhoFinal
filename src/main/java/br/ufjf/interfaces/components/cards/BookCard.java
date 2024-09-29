@@ -1,6 +1,5 @@
 package br.ufjf.interfaces.components.cards;
 
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,6 +9,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;

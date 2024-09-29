@@ -9,7 +9,7 @@ public class Button extends JButton {
     public Button(String text) {
         super(text);
         this.borderRadius = Style.getBorderRadius();
-        setContentAreaFilled(false); // Evita que o fundo padrão seja desenhado
+        setContentAreaFilled(false);
     }
 
     @Override
@@ -17,7 +17,6 @@ public class Button extends JButton {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Pinta o fundo com cor arredondada
         g2.setColor(Style.getButtonColor());
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), borderRadius, borderRadius);
 
@@ -30,7 +29,6 @@ public class Button extends JButton {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Pinta a borda arredondada
         g2.setColor(getForeground());
         g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, borderRadius, borderRadius);
 

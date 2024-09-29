@@ -1,15 +1,11 @@
 package br.ufjf.interfaces.screens.books;
 
 import javax.swing.*;
-
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
-import br.ufjf.interfaces.AplicationWindow;
-import br.ufjf.interfaces.UIConstants;
-import br.ufjf.interfaces.screens.BasicScreen;
-import br.ufjf.interfaces.screens.review.BookReviews;
+import br.ufjf.interfaces.*;
+import br.ufjf.interfaces.screens.*;
+import br.ufjf.interfaces.screens.review.*;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.*;
@@ -21,7 +17,6 @@ import br.ufjf.services.*;
 public class BookInformations extends BasicScreen {
 
     private String ISBN = AplicationWindow.getBook();
-    private final ReviewService reviewService = new ReviewService();
     private final LibraryService libraryService = new LibraryService();
     private final PersonalLibraryService personalLibraryService = new PersonalLibraryService();
     

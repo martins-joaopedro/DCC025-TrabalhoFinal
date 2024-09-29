@@ -49,7 +49,6 @@ public class BasicScreen extends ScrollPanel {
         getHorizontalScrollBar().setUnitIncrement(20);
         getVerticalScrollBar().setUnitIncrement(20);
 
-        // Painel central com GridBagLayout para centralizar os componentes e ocupar o espaço restante
         this.centerPanel = new JPanel(new GridBagLayout());
         this.centerPanel.setOpaque(false);
 
