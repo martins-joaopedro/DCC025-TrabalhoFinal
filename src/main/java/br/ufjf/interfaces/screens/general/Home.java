@@ -8,10 +8,11 @@ import javax.swing.JLabel;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.Button;
+import br.ufjf.interfaces.widgets.Style;
 
 public class Home extends BasicScreen {
 
-    private final JLabel titulo = new JLabel("Bookself");
+    private final JLabel title = new JLabel("Bookself");
 
     private JLabel citacao = new JLabel("<html><p style='text-align:center;'>"
                                     + "Eu vivi mil vidas e amei mil amores. "
@@ -27,14 +28,17 @@ public class Home extends BasicScreen {
     public Home() {
         super(null);
 
-        addTitle(titulo);
+        JLabel image = new JLabel(Style.getHomeLogo());
+        addComponent(image, 0, 2, true);
+        title.setHorizontalAlignment(JLabel.CENTER);
+        addComponent(title, 0, 0, Style.getTitleFont());
 
         login.addActionListener(e -> AplicationWindow.showScreen("login"));
         signin.addActionListener(e -> AplicationWindow.showScreen("register"));
 
         citacao.setPreferredSize(new Dimension(300, 300));
         citacao.setMinimumSize(new Dimension(300, 300));
-        addComponent(citacao, 0, 0);
+        addComponent(citacao, 0, 4, true);
 
         addButtons(login, signin);
     }

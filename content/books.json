@@ -328,14 +328,6 @@
     "genre": "MISTERIO"
   },
   {
-    "ISBN": "978-0-06-250217-2",
-    "name": "It: A Coisa",
-    "author": "Stephen King",
-    "synopsis": "Um grupo de crianças enfrenta uma entidade maligna que se alimenta do medo.",
-    "pages": 1138,
-    "genre": "HORROR"
-  },
-  {
     "ISBN": "978-85-390-0200-5",
     "name": "O Iluminado",
     "author": "Stephen King",
@@ -430,5 +422,13 @@
     "synopsis": "Nobres famílias lutam pelo controle do trono em um mundo medieval repleto de intrigas e magia.",
     "pages": 694,
     "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "name": "It: A Coisa",
+    "author": "Stephen King",
+    "synopsis": "Um grupo de crianças enfrenta uma entidade maligna que se alimenta do medo \u003c3.",
+    "pages": 1138,
+    "genre": "HORROR"
   }
 ]

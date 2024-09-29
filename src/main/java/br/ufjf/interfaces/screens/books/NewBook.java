@@ -31,10 +31,10 @@ public class NewBook extends BasicScreen {
     private final LibraryService libraryService = new LibraryService();
     
     private JLabel title = new JLabel("Informações do livro:");
-    private TextField bookName = new TextField(30);
-    private TextField autor = new TextField(30);
-    private TextField isbnText = new TextField(30);
-    private TextField numPaginas = new TextField(30);
+    private TextField bookName = new TextField(10);
+    private TextField autor = new TextField(10);
+    private TextField isbnText = new TextField(10);
+    private TextField numPaginas = new TextField(10);
     private JComboBox<String> genreBox = new JComboBox<String>();
     private Genre selectedGenre = Genre.FANTASIA;
     private JTextArea sinopseText = new JTextArea();
@@ -69,10 +69,13 @@ public class NewBook extends BasicScreen {
         
         addComponent(info, 0, 0);
         addComponent(new JLabel("Sinopse: "), 0, 1, false);
+        sinopseText.setPreferredSize(new Dimension(Style.getWidth()-100, 200));
+        sinopseText.setMinimumSize(new Dimension(Style.getWidth()-100, 200));
+        sinopseText.setMaximumSize(new Dimension(Style.getWidth()-100, 200));
         addComponent(sinopseText, 0, 2, false);
         
         addComponent(new JLabel("Avaliações: "), 0, 3, false);
-        addComponent(new BookReviews(true, new Object()), 0, 4, false);
+        addComponent(new BookReviews(true, 1), 0, 4, false);
 
         if(isEditing) 
             this.saveBook = new Button("Editar Livro");

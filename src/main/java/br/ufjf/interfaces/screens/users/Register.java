@@ -53,9 +53,6 @@ public class Register extends BasicScreen {
 
     private void startRegister(String user, String password) {
 
-        System.out.println(user);
-        System.out.println(password);
-
         if (service.findById(user) != null) {
             JOptionPane.showMessageDialog(null, "Esse Usuário já existe. Insira outro", "Erro", JOptionPane.ERROR_MESSAGE);
         }

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -114,16 +115,24 @@ public class BasicScreen extends ScrollPanel {
     }
 
     public void addComponent(JComponent component, int gridx, int gridy) {
-        addComponent(component, gridx, gridy, true, 20);
+        addComponent(component, gridx, gridy, true, 20, Style.getMainFont());
     }
-
+    
+    public void addComponent(JComponent component, int gridx, int gridy, Font font) {
+        addComponent(component, gridx, gridy, true, 20, font);
+    }
+    
     public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter) {
-        addComponent(component, gridx, gridy, isInCenter, 20);
+        addComponent(component, gridx, gridy, isInCenter, 20, Style.getMainFont());
+    }
+    
+    public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter, int margem) {
+        addComponent(component, gridx, gridy, isInCenter, margem, Style.getMainFont());
     }
 
-    public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter, int margem) {
-        component.setFont(Style.getMainFont());
-
+    public void addComponent(JComponent component, int gridx, int gridy, boolean isInCenter, int margem, Font font) {
+        component.setFont(font);
+        
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
@@ -140,5 +149,5 @@ public class BasicScreen extends ScrollPanel {
         gbc.gridy = gridy;
 
         centerPanel.add(component, gbc);
-    }
+    }    
 }

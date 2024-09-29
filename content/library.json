@@ -1,11 +1,5 @@
 [
   {
-    "ISBN": "978-0-14-028333-4",
-    "user": "1",
-    "status": "LENDO",
-    "currentPage": 20.0
-  },
-  {
     "ISBN": "978-0-312-35473-2",
     "user": "1",
     "status": "RELENDO",
@@ -26,6 +20,48 @@
   {
     "ISBN": "978-0-06-112008-4",
     "user": "robert",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-7475-3274-0",
+    "user": "1",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-1-250-08227-2",
+    "user": "1",
+    "status": "QUERO_LER",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "user": "2",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "user": "3",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "user": "1",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-06-250217-2",
+    "user": "robert",
+    "status": "LIDO",
+    "currentPage": 0.0
+  },
+  {
+    "ISBN": "978-0-14-028333-4",
+    "user": "1",
     "status": "LIDO",
     "currentPage": 0
   }

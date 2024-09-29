@@ -59,7 +59,7 @@ public class ReviewEdition extends BasicScreen {
 
         Button remove = new Button("Excluir");
         remove.addActionListener(e -> removeDataController());
-        addComponent(remove, 1, 7);
+        addComponent(remove, 0, 8);
 
         Button save = new Button("Salvar");
         save.addActionListener(e -> updateDataController());

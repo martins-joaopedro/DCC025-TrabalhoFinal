@@ -52,17 +52,12 @@ public class Login extends BasicScreen {
 
     private void startLogin(String user, String password) {
 
-        System.out.println(user);
-        System.out.println(password);
-
         if (service.findById(user) == null) {
             JOptionPane.showMessageDialog(null, "Esse Usuário não existe. Cadastre-se!", "Erro", JOptionPane.ERROR_MESSAGE);
             // return; //para parar a execução se o usuário já existir
         } else {
             // conferir se a senha bate com o usuario
-            System.out.println(password);
-            System.out.println(service.findById(user).getPassword());
-
+    
             if (service.findById(user).getPassword().equals(password)) {
                 if(user.equals("admin")) {
                     AplicationWindow.showScreen("adm", service.findById(user));

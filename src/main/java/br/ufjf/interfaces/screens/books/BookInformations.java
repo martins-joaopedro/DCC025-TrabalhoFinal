@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.interfaces.widgets.*;
@@ -56,7 +57,7 @@ public class BookInformations extends BasicScreen {
         addComponent(status, 0, 6, false);
         addComponent(statusBox, 0, 7, false);
         addComponent(new JLabel("Avaliações: "), 0, 8, false);
-        addComponent(new BookReviews(false, new Object()), 0, 9, false);
+        addComponent(new BookReviews(false, 0), 0, 9, false);
         addButtons(adicionarLivro);
     }
 
@@ -79,6 +80,7 @@ public class BookInformations extends BasicScreen {
             sinopseText.setText(book.getSynopsis());
             sinopseText.setPreferredSize(new Dimension(300, 100));
             sinopseText.setMinimumSize(new Dimension(300, 100));
+            sinopseText.setMaximumSize(new Dimension(300, 100));
                 sinopseText.setEditable(false);
                 sinopseText.setWrapStyleWord(true);
                 sinopseText.setAutoscrolls(true);
@@ -103,32 +105,6 @@ public class BookInformations extends BasicScreen {
         statusBox.setSelectedItem(this.selectedStatus.getDisplayName());
         statusBox.addActionListener(e -> {
             this.selectedStatus = Status.fromDisplayName(statusBox.getSelectedItem().toString());
-        });
-
-        avaliacoesList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-        ComponentList list = loadReviewsList();
-        if(list != null)
-            avaliacoesList.setViewportView(list);
-        else avaliacoesList.setViewportView(new JLabel("Nenhuma avaliação disponível!"));
-    }
-
-    private ComponentList loadReviewsList() {
-        List<Review> reviews = reviewService.getAllReviewsByISBN(ISBN);
-        List<JComponent> components = new ArrayList<JComponent>();
-
-        if(reviews.isEmpty())
-            return null;
-        JPanel avaliacoes = new JPanel();
-        avaliacoes.setLayout(new BoxLayout(avaliacoes, BoxLayout.Y_AXIS));
-        avaliacoes.setBackground(Color.WHITE);
-        avaliacoes.setPreferredSize(new Dimension(300, 150));
-        avaliacoes.setMinimumSize(new Dimension(300, 150));
-
-        for (Review review : reviews) {
-            components.add(new ReviewCard(review, false));
-        }
-
-        return new ComponentList(components, false);
+        }); 
     }
 }

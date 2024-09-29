@@ -37,7 +37,7 @@ public class BookEdition extends BasicScreen {
     private JComboBox<String> starsBox = new JComboBox<>();
     private Status selectedStatus;
     private String selectedStars;
-    private TextField currentPage = new TextField(30);
+    private TextField currentPage = new TextField(10);
 
     JTextArea comment = new JTextArea("");
 
@@ -53,7 +53,16 @@ public class BookEdition extends BasicScreen {
 
         addComponent(new JLabel("Nome: " + book.getName()), 0, 0);
         addComponent(new JLabel("Gênero: " + book.getGenre().getDisplayName()), 0, 1);
-        addComponent(new JLabel("Sinopse: " + book.getSynopsis()), 0, 2);
+        JTextArea synopsys = new JTextArea("Sinopse: " + book.getSynopsis());
+        synopsys.setPreferredSize(new Dimension(Style.getWidth()-100, 200));
+        synopsys.setMinimumSize(new Dimension(Style.getWidth()-100, 200));
+        synopsys.setMaximumSize(new Dimension(Style.getWidth()-100, 200));
+        synopsys.setWrapStyleWord(true);
+        synopsys.setEditable(false);
+        synopsys.setAutoscrolls(true);
+        synopsys.setLineWrap(true);
+        synopsys.setBackground(Style.getBackgroundColor());
+        addComponent(synopsys, 0, 2);
 
         if(book.getStatus() == Status.LENDO || book.getStatus() == Status.RELENDO) {
             addComponent(new JLabel("Página atual: " + book.getCurrentPage()), 0, 3);
@@ -95,8 +104,9 @@ public class BookEdition extends BasicScreen {
         addComponent(starsBox, 0, 8);
 
         comment.setText(review.getComment());
-        comment.setPreferredSize(new Dimension(500, 300));
-        comment.setMinimumSize(new Dimension(500, 300));
+        comment.setPreferredSize(new Dimension(Style.getWidth()-100, 250));
+        comment.setMinimumSize(new Dimension(Style.getWidth()-100, 250));
+        comment.setMaximumSize(new Dimension(Style.getWidth()-100, 250));
         comment.setEditable(true);
         comment.setWrapStyleWord(true);
         comment.setAutoscrolls(true);

@@ -18,10 +18,7 @@ public class ImageCard extends JPanel {
     private int y;
     private BufferedImage img;
     private Color color;
-    private String mainPath = "src" + File.separator + "main"
-        + File.separator + "java" + File.separator + "br" 
-        + File.separator + "ufjf" + File.separator + "interfaces"
-        + File.separator + "resources" + File.separator;
+    private String mainPath = "./resources/";
 
     public ImageCard(String path, int width, int height, Color color) {
         this.width = width;
