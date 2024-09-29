@@ -32,7 +32,7 @@ public class AplicationWindow {
     public AplicationWindow() {
         JFrame frame = new JFrame("Bookself");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(Style.getWidth(), Style.getHeight());
+        frame.setSize(UIConstants.WINDOW_WIDTH, UIConstants.WINDOW_HEIGHT);
         frame.setLocationRelativeTo(null);
 
         cardLayout = new CardLayout();

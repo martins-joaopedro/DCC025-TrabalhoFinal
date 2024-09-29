@@ -10,10 +10,8 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.review.BookReviews;
-import br.ufjf.interfaces.widgets.*;
 import br.ufjf.interfaces.widgets.Button;
-import br.ufjf.interfaces.components.cards.ReviewCard;
-import br.ufjf.interfaces.components.lists.ComponentList;
+import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.*;
 import br.ufjf.models.dto.PersonalBookDTO;
 import br.ufjf.models.enums.Status;
@@ -35,7 +33,6 @@ public class BookInformations extends BasicScreen {
     private JLabel sinopse = new JLabel();
     private JTextArea sinopseText = new JTextArea();
     private JLabel status = new JLabel();
-    private ScrollPanel avaliacoesList = new ScrollPanel();
     private JComboBox<String> statusBox = new JComboBox<String>();
     private Status selectedStatus = Status.QUERO_LER;
     private JButton adicionarLivro = new Button("Adicionar Livro");
@@ -46,6 +43,10 @@ public class BookInformations extends BasicScreen {
         updateData(ISBN);
 
         adicionarLivro.addActionListener(e -> addBookController());
+
+        bookName.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH-100, UIConstants.TEXTBOX_HEIGHT-150));
+        bookName.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH-100, UIConstants.TEXTBOX_HEIGHT-150));
+        bookName.setMaximumSize(new Dimension(UIConstants.TEXTBOX_WIDTH-100, UIConstants.TEXTBOX_HEIGHT-150));
         
         addTitle(title, false);
         addComponent(bookName, 0, 0, false);
@@ -78,9 +79,9 @@ public class BookInformations extends BasicScreen {
             sinopse.setText("Sinopse: ");
 
             sinopseText.setText(book.getSynopsis());
-            sinopseText.setPreferredSize(new Dimension(300, 100));
-            sinopseText.setMinimumSize(new Dimension(300, 100));
-            sinopseText.setMaximumSize(new Dimension(300, 100));
+            sinopseText.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT-100));
+            sinopseText.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT-100));
+            sinopseText.setMaximumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT-100));
                 sinopseText.setEditable(false);
                 sinopseText.setWrapStyleWord(true);
                 sinopseText.setAutoscrolls(true);

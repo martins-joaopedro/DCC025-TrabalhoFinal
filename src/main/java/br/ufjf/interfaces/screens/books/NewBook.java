@@ -51,27 +51,28 @@ public class NewBook extends BasicScreen {
         addTitle(title, false);
 
         BasicScreen info = new BasicScreen(null);
-        info.addComponent(new JLabel("Nome do livro: "), 0, 0, false);
-        info.addComponent(bookName, 1, 0, false);
+        info.addComponent(new JLabel(), 0, 0, false);
+        info.addComponent(new JLabel("Nome do livro: "), 0, 1, false);
+        info.addComponent(bookName, 1, 1, false);
         
-        info.addComponent(new JLabel("Autor: "), 0, 1, false);
-        info.addComponent(autor, 1, 1, false);
+        info.addComponent(new JLabel("Autor: "), 0, 2, false);
+        info.addComponent(autor, 1, 2, false);
 
-        info.addComponent(new JLabel("ISBN: "), 0, 2, false);
+        info.addComponent(new JLabel("ISBN: "), 0, 3, false);
         if(isEditing) isbnText.setEditable(false);
-        info.addComponent(isbnText, 1, 2, false);
+        info.addComponent(isbnText, 1, 3, false);
 
-        info.addComponent(new JLabel("Número de páginas: "), 0, 3, false);
-        info.addComponent(numPaginas, 1, 3, false);
+        info.addComponent(new JLabel("Número de páginas: "), 0, 4, false);
+        info.addComponent(numPaginas, 1, 4, false);
 
-        info.addComponent(new JLabel("Gênero: "), 0, 4, false);
-        info.addComponent(genreBox, 1, 4, false);
+        info.addComponent(new JLabel("Gênero: "), 0, 5, false);
+        info.addComponent(genreBox, 1, 5, false);
         
         addComponent(info, 0, 0);
         addComponent(new JLabel("Sinopse: "), 0, 1, false);
-        sinopseText.setPreferredSize(new Dimension(Style.getWidth()-100, 200));
-        sinopseText.setMinimumSize(new Dimension(Style.getWidth()-100, 200));
-        sinopseText.setMaximumSize(new Dimension(Style.getWidth()-100, 200));
+        sinopseText.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        sinopseText.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        sinopseText.setMaximumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
         addComponent(sinopseText, 0, 2, false);
         
         addComponent(new JLabel("Avaliações: "), 0, 3, false);
@@ -132,8 +133,8 @@ public class NewBook extends BasicScreen {
             System.out.println("Erro ao atualizar dados do livro");
         }
         
-        sinopseText.setPreferredSize(new Dimension(300, 200));
-        sinopseText.setMinimumSize(new Dimension(300, 200));
+        sinopseText.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        sinopseText.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
         sinopseText.setEditable(true);
         sinopseText.setWrapStyleWord(true);
         sinopseText.setAutoscrolls(true);

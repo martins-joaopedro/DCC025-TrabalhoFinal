@@ -11,9 +11,6 @@ import javax.swing.ImageIcon;
 
 public class Style {
 
-    private static final int WIDTH = 600;
-    private static final int HEIGHT = 950;
-
     private static final Color lightBackgroundColor = new Color(235, 243, 245);
     private static final Color primaryColor = new Color(30, 0, 100);
     private static final Color backgroundColor = new Color(173, 216, 230);
@@ -50,9 +47,6 @@ public class Style {
     private static ImageIcon homeLogo = new ImageIcon(new ImageIcon("./resources/bookself_logo.png").getImage().getScaledInstance(145, 145, Image.SCALE_DEFAULT));
     private static ImageIcon logo = new ImageIcon(new ImageIcon("./resources/bookself_logo.png").getImage().getScaledInstance(45, 45, Image.SCALE_DEFAULT));
     private static ImageIcon backIcon = new ImageIcon(new ImageIcon("./resources/back_icon.png").getImage().getScaledInstance(45, 45, Image.SCALE_DEFAULT));
-
-    public static int getWidth() { return WIDTH; }
-    public static int getHeight() { return HEIGHT; }
 
     public static Color getPrimaryColor() { return primaryColor; }
     public static Color getBackgroundColor() { return backgroundColor; }

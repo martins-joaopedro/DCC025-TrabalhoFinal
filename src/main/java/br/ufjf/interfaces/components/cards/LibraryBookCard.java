@@ -11,7 +11,7 @@ import br.ufjf.models.Book;
 
 public class LibraryBookCard extends BookCard {
 
-    private final Button addBook = new Button("Adicionar livro");
+    private final Button addBook = new Button("Adicionar");
     
     public LibraryBookCard(Book book) {
         super(book);

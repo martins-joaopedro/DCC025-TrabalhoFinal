@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import br.ufjf.exceptions.ExceptionsController;
 import br.ufjf.exceptions.ParserExceptions;
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.Library;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
@@ -54,9 +55,9 @@ public class BookEdition extends BasicScreen {
         addComponent(new JLabel("Nome: " + book.getName()), 0, 0);
         addComponent(new JLabel("Gênero: " + book.getGenre().getDisplayName()), 0, 1);
         JTextArea synopsys = new JTextArea("Sinopse: " + book.getSynopsis());
-        synopsys.setPreferredSize(new Dimension(Style.getWidth()-100, 200));
-        synopsys.setMinimumSize(new Dimension(Style.getWidth()-100, 200));
-        synopsys.setMaximumSize(new Dimension(Style.getWidth()-100, 200));
+        synopsys.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        synopsys.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        synopsys.setMaximumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
         synopsys.setWrapStyleWord(true);
         synopsys.setEditable(false);
         synopsys.setAutoscrolls(true);
@@ -104,9 +105,9 @@ public class BookEdition extends BasicScreen {
         addComponent(starsBox, 0, 8);
 
         comment.setText(review.getComment());
-        comment.setPreferredSize(new Dimension(Style.getWidth()-100, 250));
-        comment.setMinimumSize(new Dimension(Style.getWidth()-100, 250));
-        comment.setMaximumSize(new Dimension(Style.getWidth()-100, 250));
+        comment.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT+50));
+        comment.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT+50));
+        comment.setMaximumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT+50));
         comment.setEditable(true);
         comment.setWrapStyleWord(true);
         comment.setAutoscrolls(true);

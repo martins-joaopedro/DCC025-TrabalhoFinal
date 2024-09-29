@@ -40,9 +40,9 @@ public class BookReviews extends BasicScreen {
     public BookReviews(boolean isAdm, int onPage) {
         super(null);
 
-        setPreferredSize(new Dimension(300, 420));
+        setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT+100));
         setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_AS_NEEDED);
-
+        setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 
         this.isAdm = isAdm;
         drawReviewsList(onPage);
@@ -50,6 +50,7 @@ public class BookReviews extends BasicScreen {
 
     public BookReviews(boolean isAdm) {
         super("adm");
+        setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 
         this.isAdm = true;
         
@@ -62,6 +63,7 @@ public class BookReviews extends BasicScreen {
         super("personalLibrary");
         
         addTitle(new JLabel("Avaliações do Livro: "));
+        setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
 
         Review review = reviewService.getUserReviewByISBN(BOOK_ISBN, USER);
         Status status = null;

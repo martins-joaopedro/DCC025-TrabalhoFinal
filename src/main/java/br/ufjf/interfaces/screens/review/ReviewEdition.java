@@ -10,6 +10,7 @@ import br.ufjf.exceptions.ExceptionsController;
 import br.ufjf.exceptions.ParserExceptions;
 import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
+import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
@@ -48,8 +49,8 @@ public class ReviewEdition extends BasicScreen {
         starsBox.setSelectedItem(this.selectedStars);
         addComponent(starsBox, 0, 3);
 
-        comment.setPreferredSize(new Dimension(500, 300));
-        comment.setMinimumSize(new Dimension(500, 300));
+        comment.setPreferredSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
+        comment.setMinimumSize(new Dimension(UIConstants.TEXTBOX_WIDTH, UIConstants.TEXTBOX_HEIGHT));
         comment.setEditable(true);
         comment.setWrapStyleWord(true);
         comment.setAutoscrolls(true);
