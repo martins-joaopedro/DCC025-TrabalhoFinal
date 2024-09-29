@@ -65,7 +65,7 @@ public class Login extends BasicScreen {
 
             if (service.findById(user).getPassword().equals(password)) {
                 if(user.equals("admin")) {
-                    AplicationWindow.showScreen("admin", service.findById(user));
+                    AplicationWindow.showScreen("adm", service.findById(user));
                     return;
                 }
 

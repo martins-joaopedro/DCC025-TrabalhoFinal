@@ -1,21 +1,5 @@
 [
   {
-    "ISBN": "978-0-7475-3274-0",
-    "name": "Harry Potter e a Pedra Filosofal",
-    "author": "J.K. Rowling",
-    "synopsis": "Um jovem bruxo descobre seu legado e vai para a Escola de Magia e Bruxaria de Hogwarts.",
-    "pages": 223,
-    "genre": "FANTASIA"
-  },
-  {
-    "ISBN": "978-0-14-028333-4",
-    "name": "O Senhor dos Anéis: A Sociedade do Anel",
-    "author": "J.R.R. Tolkien",
-    "synopsis": "A primeira parte da jornada de Frodo Bolseiro para destruir o Um Anel e salvar a Terra Média.",
-    "pages": 423,
-    "genre": "FANTASIA"
-  },
-  {
     "ISBN": "978-0-06-112008-4",
     "name": "A Crônica do Gelo e Fogo: A Guerra dos Tronos",
     "author": "George R.R. Martin",
@@ -121,7 +105,7 @@
   },
   {
     "ISBN": "978-85-7653-106-3",
-    "name": "O Gene: Uma História Íntima",
+    "name": "O Gene: Uma História �?ntima",
     "author": "Siddhartha Mukherjee",
     "synopsis": "Uma narrativa abrangente sobre a história da genética e o impacto dos genes na nossa identidade e saúde.",
     "pages": 608,
@@ -398,5 +382,21 @@
     "synopsis": "Um grupo de pessoas se reúne em uma casa supostamente assombrada, enfrentando seus medos.",
     "pages": 182,
     "genre": "HORROR"
+  },
+  {
+    "ISBN": "978-0-7475-3274-0",
+    "name": "Harry Potter e a Pedra Filosofal",
+    "author": "J.K. Rowling",
+    "synopsis": "Um jovem bruxo descobre seu legado e vai para a Escola de Magia e Bruxaria de Hogwarts.",
+    "pages": 223,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-14-028333-4",
+    "name": "O Senhor dos Anéis: A Sociedade do Anel",
+    "author": "J.R.R. Tolkien",
+    "synopsis": "A primeira parte da jornada de Frodo Bolseiro para destruir o Um Anel e salvar a Terra Média.",
+    "pages": 423,
+    "genre": "FANTASIA"
   }
 ]

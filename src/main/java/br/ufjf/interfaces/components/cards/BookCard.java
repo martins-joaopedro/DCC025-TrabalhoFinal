@@ -27,10 +27,11 @@ public class BookCard extends JPanel {
     private final JLabel autor = new JLabel();
     private final JLabel genero = new JLabel();
     private static final int BOOKCARD_WIDTH = 300;
-    private static final int BOOKCARD_HEIGHT = 250;
+    private static final int BOOKCARD_HEIGHT = 260;
 
     protected ReviewService service = new ReviewService();
     private final Button seeReview = new Button("Ver Avaliações");
+    private final Button addReview = new Button("Adicionar Avaliação");
     
     public BookCard(Book book) {
 
@@ -101,8 +102,15 @@ public class BookCard extends JPanel {
         add(header);
 
         seeReview.addActionListener(e -> AplicationWindow.showReviewScreen(book.getISBN()));
+        addReview.addActionListener(e -> AplicationWindow.showEditReviewScreen(book.getISBN()));
+    
+        if(service.getUserReviewByISBN(book.getISBN(), book.getUser()) != null)
+            addReview.setText("Editar Avaliação");
+
         if(reviewsAmount > 0)
             addButtons(seeReview);
+        else if(book.getStatus().equals(Status.LIDO))
+                addButtons(addReview);
     }
 
     private JPanel bookInfo(PersonalBook book) {

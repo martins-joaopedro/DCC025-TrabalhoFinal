@@ -35,6 +35,11 @@ public class ReviewEdition extends BasicScreen {
 
         addTitle(new JLabel("Avaliações"));
         this.review = service.getUserReviewByISBN(BOOK_ISBN, USER);
+
+        if(this.review == null) {
+            this.review = new Review("0", USER, BOOK_ISBN, 1, "");
+        }
+
         this.comment.setText(review.getComment());
         this.selectedStars = String.valueOf(review.getStars());
 
@@ -101,6 +106,8 @@ public class ReviewEdition extends BasicScreen {
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }
+
+        reload();
     }
 
     private void reload() {

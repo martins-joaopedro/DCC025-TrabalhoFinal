@@ -102,7 +102,7 @@ public class BasicScreen extends ScrollPanel {
 
     public void addTopButtons(int gridx, int gridy, JComponent... buttons) {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 20));
-        buttonPanel.setBackground(Style.getBackgroundColor());
+        buttonPanel.setBackground(this.backgroundColor);
         buttonPanel.setBorder(new EmptyBorder(5, 0, 5, 0));
 
         for (JComponent button : buttons) {

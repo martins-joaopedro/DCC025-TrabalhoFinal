@@ -24,6 +24,7 @@ public class AdmBookCard extends LibraryBookCard {
         removeBook.addActionListener(e -> {
             try {
                 service.removeBook(book);
+                AplicationWindow.showScreen("adm");
             } catch (LibraryException err) {
                 new ExceptionsController(err);
             }

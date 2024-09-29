@@ -28,7 +28,6 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
 
     @Override
     public PersonalBookDTO findById(String id) {
-        String data = FileManager.load(path);
         List<PersonalBookDTO> dtos = findAll();
 
         for (PersonalBookDTO dto : dtos) {

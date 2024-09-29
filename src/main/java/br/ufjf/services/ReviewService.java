@@ -89,12 +89,10 @@ public class ReviewService implements IService<Review> {
 
     public void update(Review receivedReview) throws ReviewsException {
         List<Review> reviews = findAll();
-        boolean isFound = false;
         for(Review review : reviews) {
             if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
                 reviews.remove(review);
                 reviews.add(receivedReview);
-                isFound = true;
                 break;
             }
         }

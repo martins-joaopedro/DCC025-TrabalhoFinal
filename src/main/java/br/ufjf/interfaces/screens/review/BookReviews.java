@@ -11,14 +11,17 @@ import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.components.cards.ReviewCard;
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.models.Review;
+import br.ufjf.services.PersonalLibraryService;
 import br.ufjf.services.ReviewService;
 import br.ufjf.utils.InputParser;
 
 public class BookReviews extends BasicScreen {
 
     private ReviewService reviewService = new ReviewService();
+    private PersonalLibraryService service = new PersonalLibraryService();
 
     String BOOK_ISBN = AplicationWindow.getBook();
     String USER = AplicationWindow.getUser();
@@ -54,9 +57,11 @@ public class BookReviews extends BasicScreen {
         addTitle(new JLabel("Avaliações do Livro: "));
 
         Review review = reviewService.getUserReviewByISBN(BOOK_ISBN, USER);
-        if(review == null)
+        if(review == null && service.getAsPersonalBook(BOOK_ISBN).getStatus().equals("LIDO")) {
             drawAddReviewPanel();
-        drawReviewsList(1);
+            drawReviewsList(1);
+        }
+        else drawReviewsList(0);
     }
 
     public void drawAddReviewPanel() {
@@ -97,6 +102,7 @@ public class BookReviews extends BasicScreen {
         Review data = new Review("0", USER, BOOK_ISBN, stars, comment.getText());
         try {
             this.reviewService.addUserReview(data);
+            AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }

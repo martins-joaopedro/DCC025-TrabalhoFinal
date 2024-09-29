@@ -2,13 +2,10 @@ package br.ufjf.interfaces.screens.libraries;
 
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.components.cards.AdmBookCard;
-import br.ufjf.interfaces.components.cards.LibraryBookCard;
 import br.ufjf.interfaces.components.lists.ComponentList;
-import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.models.Book;
 import br.ufjf.models.enums.Genre;
-import br.ufjf.services.AdmService;
 
 import java.util.List;
 import java.util.ArrayList;

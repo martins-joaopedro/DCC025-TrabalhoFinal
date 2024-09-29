@@ -6,7 +6,6 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.components.cards.LibraryBookCard;
 import br.ufjf.interfaces.components.lists.ComponentList;
 import br.ufjf.interfaces.screens.BasicScreen;

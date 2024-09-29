@@ -16,6 +16,7 @@ import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.interfaces.screens.review.ReviewEdition;
 import br.ufjf.interfaces.screens.users.Login;
+import br.ufjf.interfaces.screens.users.Register;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.User;
 
@@ -37,19 +38,20 @@ public class AplicationWindow {
         cardLayout = new CardLayout();
 
         mainPanel = new JPanel(cardLayout);
-
-        //mainPanel.add(new Teste(), "home3");
         mainPanel.add(new Home(), "home");
         mainPanel.add(new Login(), "login");
-        mainPanel.add(new PersonalLibrary(), "personalLibrary");
-        mainPanel.add(new Adm(), "admin");
-        mainPanel.add(new Library(), "library");
+        mainPanel.add(new Register(), "register");
 
         frame.add(mainPanel);
         frame.setVisible(true);
     }
 
     static public void showScreen(String screenName) {
+        if(screenName.equals("library"))
+            mainPanel.add(new Library(), "library");
+        else if(screenName.equals("personalLibrary"))
+            mainPanel.add(new PersonalLibrary(), "personalLibrary");
+
         cardLayout.show(mainPanel, screenName);
     }
 
