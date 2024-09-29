@@ -71,7 +71,7 @@ public class BookEdition extends BasicScreen {
         if(review != null)
             drawReviewEdition();
 
-        Button save = new Button("Editar");
+        Button save = new Button("Salvar");
         save.addActionListener(e -> updateDataController());
         addButtons(save);
     }
@@ -103,7 +103,7 @@ public class BookEdition extends BasicScreen {
     }
 
     public void updateDataController() {
-        int page = 0;
+        int page = this.book.getCurrentPage();
         int stars = 0;
         try {
             page = InputParser.toInteger(currentPage.getText(), book.getPages());

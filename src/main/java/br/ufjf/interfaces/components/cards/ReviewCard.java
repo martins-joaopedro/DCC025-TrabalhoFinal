@@ -86,7 +86,7 @@ public class ReviewCard extends BasicScreen {
 
     private void deleteReviewController(Review review) {
         try {
-            service.removeUserReview(review);        
+            service.removeUserReviewById(review.getId());        
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }

@@ -14,6 +14,7 @@ import br.ufjf.interfaces.screens.BasicScreen;
 import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.models.Review;
+import br.ufjf.models.enums.Status;
 import br.ufjf.services.PersonalLibraryService;
 import br.ufjf.services.ReviewService;
 import br.ufjf.utils.InputParser;
@@ -57,11 +58,15 @@ public class BookReviews extends BasicScreen {
         addTitle(new JLabel("Avaliações do Livro: "));
 
         Review review = reviewService.getUserReviewByISBN(BOOK_ISBN, USER);
-        if(review == null && service.getAsPersonalBook(BOOK_ISBN).getStatus().equals("LIDO")) {
+        Status status = null;
+        if (service.isOnPersonalLibrary(BOOK_ISBN)) {
+            status = service.getAsPersonalBook(BOOK_ISBN).getStatus();
+
+            if (review == null && status == Status.LIDO) {
             drawAddReviewPanel();
-            drawReviewsList(1);
+            }
         }
-        else drawReviewsList(0);
+        drawReviewsList(review == null && status == Status.LIDO ? 1 : 0);
     }
 
     public void drawAddReviewPanel() {
@@ -111,7 +116,7 @@ public class BookReviews extends BasicScreen {
     public void drawReviewsList(int line) {
         List<Review> reviews = reviewService.getAllReviewsByISBN(BOOK_ISBN);
 
-        if(reviews.isEmpty()) {
+        if(reviews.isEmpty() && line == 0) {
             addComponent(new JLabel("Nenhuma avaliação disponível"), 0, line);
         } else {
             int i = 0;

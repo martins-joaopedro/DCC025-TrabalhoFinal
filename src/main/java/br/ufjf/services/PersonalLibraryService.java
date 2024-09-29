@@ -79,12 +79,10 @@ public class PersonalLibraryService implements IService<PersonalBookDTO> {
     }
 
     public PersonalBook getAsPersonalBook(String ISBN) {
-        PersonalBookDTO dto = findById(ISBN);
-        Book book = service.findById(dto.ISBN());
-
-        if(book != null)
-            return new PersonalBook(book, dto.user(), dto.status(), dto.currentPage());
-        else return  null;
+        for(PersonalBook book : this.getAllAsPersonalBooks())
+            if(book.getISBN().equals(ISBN))
+                return book;
+        return  null;
     }
 
 

@@ -6,6 +6,7 @@ import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
 
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.libraries.Adm;
 import br.ufjf.interfaces.screens.review.BookReviews;
 import br.ufjf.services.AdmService;
 import br.ufjf.services.LibraryService;
@@ -82,23 +83,24 @@ public class NewBook extends BasicScreen {
 
     private void addBookController() {
 
-        int page = 0;
         try {
-            page = InputParser.toInteger(numPaginas.getText(), -1);
+            Book data = InputParser.toBook(bookName.getText(), autor.getText(), isbnText.getText(), sinopseText.getText(), numPaginas.getText(), this.selectedGenre);
+            
+            try {
+                if(this.isEditing)
+                    service.update(data);
+                else service.addBook(data);
+            } catch (LibraryException e) {
+                new ExceptionsController(e);
+            }
+        
         } catch (ParserExceptions e) {
             new ExceptionsController(e);
+            AplicationWindow.showScreen("adm");
+            return;
         }
-
-        Book data = new Book(bookName.getText(), autor.getText(), isbnText.getText(), sinopseText.getText(), page, this.selectedGenre);
         
-        try {
-            if(this.isEditing)
-                service.update(data);
-            else service.addBook(data);
-        } catch (LibraryException e) {
-            new ExceptionsController(e);
-        }
-        AplicationWindow.showScreen("adm");
+        AplicationWindow.reloadScreen(new Adm(), "adm");
     }
 
     private void updateData(String ISBN) {

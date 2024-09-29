@@ -64,7 +64,7 @@
     "genre": "ROMANCE"
   },
   {
-    "ISBN": "978-0-06-112008-4",
+    "ISBN": "978-0-06-112038-5",
     "name": "Cem Anos de Solidão",
     "author": "Gabriel García Márquez",
     "synopsis": "A história da família Buendía e suas maldições em Macondo, uma aldeia mágica.",
@@ -72,7 +72,7 @@
     "genre": "FICCAO"
   },
   {
-    "ISBN": "978-0-06-112008-4",
+    "ISBN": "978-0-06-112038-2",
     "name": "O Estrangeiro",
     "author": "Albert Camus",
     "synopsis": "A vida de Meursault, um homem que comete um crime sem motivo aparente, é examinada sob a luz da absurdidade da existência.",
@@ -105,7 +105,7 @@
   },
   {
     "ISBN": "978-85-7653-106-3",
-    "name": "O Gene: Uma História �?ntima",
+    "name": "O Gene: Uma História �?ntima",
     "author": "Siddhartha Mukherjee",
     "synopsis": "Uma narrativa abrangente sobre a história da genética e o impacto dos genes na nossa identidade e saúde.",
     "pages": 608,
@@ -136,7 +136,7 @@
     "genre": "ACADEMICO"
   },
   {
-    "ISBN": "978-1-5011-1752-9",
+    "ISBN": "978-0-06-227778-8",
     "name": "O Que É Literatura",
     "author": "Julio Cortázar",
     "synopsis": "Uma reflexão sobre o papel da literatura na sociedade contemporânea.",
@@ -152,7 +152,7 @@
     "genre": "DISTOPIA"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-39-0000-5",
     "name": "A Estrangeira",
     "author": "Paula Pimenta",
     "synopsis": "Uma jovem se muda para uma nova cidade e se vê envolvida em um romance inesperado.",
@@ -160,7 +160,7 @@
     "genre": "DISTOPIA"
   },
   {
-    "ISBN": "978-0-06-245773-8",
+    "ISBN": "978-0-06-245770-8",
     "name": "A Corrida do Ouro",
     "author": "H.G. Wells",
     "synopsis": "Uma história de aventuras que se passa em uma sociedade futurista, onde a corrida do ouro se torna uma questão de sobrevivência.",
@@ -176,7 +176,7 @@
     "genre": "DISTOPIA"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-390-0001-5",
     "name": "Fahrenheit 451",
     "author": "Ray Bradbury",
     "synopsis": "Em um futuro onde os livros são proibidos, um bombeiro se torna um fugitivo e busca a liberdade do pensamento.",
@@ -184,7 +184,7 @@
     "genre": "DISTOPIA"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-390-0002-5",
     "name": "O Silêncio dos Inocentes",
     "author": "Thomas Harris",
     "synopsis": "Uma agente do FBI busca a ajuda de um assassino em série para capturar outro criminoso.",
@@ -192,7 +192,7 @@
     "genre": "SUSPENSE"
   },
   {
-    "ISBN": "978-0-06-227778-2",
+    "ISBN": "978-0-06-112038-0",
     "name": "A Garota no Trem",
     "author": "Paula Hawkins",
     "synopsis": "Uma mulher se envolve em um mistério de desaparecimento que desafia sua própria sanidade.",
@@ -208,7 +208,7 @@
     "genre": "SUSPENSE"
   },
   {
-    "ISBN": "978-0-06-227778-2",
+    "ISBN": "978-0-06-227778-1",
     "name": "Garota Exemplar",
     "author": "Gillian Flynn",
     "synopsis": "Um thriller psicológico sobre o desaparecimento de uma mulher e a investigação que revela segredos perturbadores.",
@@ -216,7 +216,7 @@
     "genre": "SUSPENSE"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-390-0050-5",
     "name": "Os Homens que Não Amavam as Mulheres",
     "author": "Stieg Larsson",
     "synopsis": "Um jornalista e uma hacker se unem para resolver um mistério de desaparecimento que remonta a décadas.",
@@ -352,7 +352,7 @@
     "genre": "HORROR"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-390-0200-5",
     "name": "O Iluminado",
     "author": "Stephen King",
     "synopsis": "Uma família se muda para um hotel isolado, onde o pai sucumbe a forças sobrenaturais.",
@@ -360,7 +360,7 @@
     "genre": "HORROR"
   },
   {
-    "ISBN": "978-85-390-0553-5",
+    "ISBN": "978-85-390-0053-5",
     "name": "Drácula",
     "author": "Bram Stoker",
     "synopsis": "A história de um vampiro que busca novas vítimas na Inglaterra.",
@@ -398,5 +398,37 @@
     "synopsis": "A primeira parte da jornada de Frodo Bolseiro para destruir o Um Anel e salvar a Terra Média.",
     "pages": 423,
     "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112010-4",
+    "name": "O Hobbit",
+    "author": "J.R.R. Tolkien",
+    "synopsis": "A história de Bilbo Bolseiro e sua aventura para recuperar um tesouro roubado de um dragão.",
+    "pages": 366,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112018-4",
+    "name": "As Crônicas de Nárnia: O Leão, a Feiticeira e o Guarda-Roupa",
+    "author": "C.S. Lewis",
+    "synopsis": "Quatro irmãos descobrem um mundo mágico através de um guarda-roupa e enfrentam uma feiticeira malvada.",
+    "pages": 208,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112020-4",
+    "name": "Mistborn: O Império Final",
+    "author": "Brandon Sanderson",
+    "synopsis": "Vin, uma jovem ladra com poderes mágicos, se junta a um grupo de rebeldes para derrubar o Senhor Soberano.",
+    "pages": 541,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112048-4",
+    "name": "O Mar Infinito",
+    "author": "Rick Yancey",
+    "synopsis": "Cassie luta para sobreviver em um mundo pós-apocalíptico onde alienígenas invadiram a Terra.",
+    "pages": 320,
+    "genre": "FICCAO"
   }
 ]

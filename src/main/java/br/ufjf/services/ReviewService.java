@@ -27,70 +27,79 @@ public class ReviewService implements IService<Review> {
     public List<Review> findAll() {
         String data = FileManager.load(path);
         List<Review> reviews;
-        if(!data.isEmpty()) {
-            var type = new TypeToken<List<Review>>(){}.getType();
+        if (!data.isEmpty()) {
+            var type = new TypeToken<List<Review>>() {
+            }.getType();
             reviews = new ArrayList<>(gson.fromJson(data, type));
             return reviews;
-        } else return new ArrayList<>();
+        } else
+            return new ArrayList<>();
     }
 
     @Override
     public void create(Review obj) {
-        int id = findAll().size();
-        obj.setId(String.valueOf(id));
-        System.out.println(obj);
-        FileManager.append(path, obj);
+        List<Review> reviews = findAll();
+        reviews.add(obj);
+
+        int id = 0;
+        for (Review review : reviews) {
+            review.setId(String.valueOf(id));
+            id++;
+        }
+        saveAll(reviews);
     }
 
     @Override
     public void saveAll(List<Review> obj) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        FileManager.write(path, obj);
     }
 
     public void addUserReview(Review review) throws ReviewsException {
-        if(getUserReviewByISBN(review.getISBN(), review.getUsername()) != null)
+        if (getUserReviewByISBN(review.getISBN(), review.getUsername()) != null)
             throw new ReviewsException("Esse Usuário já cadastrou sua avalição!");
-        else create(review);
+        else
+            create(review);
     }
 
-    public void removeUserReview(Review receivedReview) throws ReviewsException {
+    public void removeUserReviewById(String id) throws ReviewsException {
         List<Review> reviews = findAll();
         boolean isFound = false;
-        for(Review review : reviews) {
-            if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
+        for (Review review : reviews) {
+            if (review.getId().equalsIgnoreCase(id)) {
                 reviews.remove(review);
                 isFound = true;
                 break;
             }
         }
 
-        if(isFound) {
+        if (isFound) {
             FileManager.write(path, reviews);
             AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
-        } else throw new ReviewsException("Avaliação não encontrada!");
+        } else
+            throw new ReviewsException("Avaliação não encontrada!");
     }
 
     public List<Review> getAllReviewsByISBN(String ISBN) {
-        
+
         List<Review> reviews = new ArrayList<>();
-        
-        for(Review review : findAll())
-            if(review.getISBN().equalsIgnoreCase(ISBN))
+
+        for (Review review : findAll())
+            if (review.getISBN().equalsIgnoreCase(ISBN))
                 reviews.add(review);
         return reviews;
     }
 
     public Review getUserReviewByISBN(String ISBN, String username) {
-        for(Review review : getAllReviewsByISBN(ISBN))
-            if(review.getUsername().equalsIgnoreCase(username))
+        for (Review review : getAllReviewsByISBN(ISBN))
+            if (review.getUsername().equalsIgnoreCase(username))
                 return review;
         return null;
     }
 
     public void update(Review receivedReview) throws ReviewsException {
         List<Review> reviews = findAll();
-        for(Review review : reviews) {
-            if(review.getId().equalsIgnoreCase(receivedReview.getId())) {
+        for (Review review : reviews) {
+            if (review.getId().equalsIgnoreCase(receivedReview.getId())) {
                 reviews.remove(review);
                 reviews.add(receivedReview);
                 break;
@@ -98,27 +107,28 @@ public class ReviewService implements IService<Review> {
         }
         FileManager.write(path, reviews);
 
-        if(AplicationWindow.getUser().equals("admin")) {
+        if (AplicationWindow.getUser().equals("admin")) {
             AplicationWindow.reloadScreen(new Adm(), "adm");
         }
-        
-        //AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
+
+        // AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
-    
+
     public int getAverageStarsByISBN(String ISBN) {
         List<Review> reviews = findAll();
         int sum = 0;
         int amount = 0;
-        for(Review review : reviews) {
-            if(review.getISBN().equalsIgnoreCase(ISBN)) {
+        for (Review review : reviews) {
+            if (review.getISBN().equalsIgnoreCase(ISBN)) {
                 sum += review.getStars();
                 amount++;
             }
         }
 
-        if(amount == 0)
+        if (amount == 0)
             return 0;
-        else return sum/amount;
+        else
+            return sum / amount;
     }
 
 }

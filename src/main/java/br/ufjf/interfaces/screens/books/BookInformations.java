@@ -100,6 +100,7 @@ public class BookInformations extends BasicScreen {
         }
 
         status.setText("Status: ");
+        statusBox.setSelectedItem(this.selectedStatus.getDisplayName());
         statusBox.addActionListener(e -> {
             this.selectedStatus = Status.fromDisplayName(statusBox.getSelectedItem().toString());
         });

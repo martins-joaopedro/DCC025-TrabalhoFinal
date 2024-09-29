@@ -11,8 +11,6 @@ import br.ufjf.exceptions.ParserExceptions;
 import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.screens.BasicScreen;
-import br.ufjf.interfaces.screens.libraries.Library;
-import br.ufjf.interfaces.screens.libraries.PersonalLibrary;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
@@ -35,10 +33,6 @@ public class ReviewEdition extends BasicScreen {
 
         addTitle(new JLabel("Avaliações"));
         this.review = service.getUserReviewByISBN(BOOK_ISBN, USER);
-
-        if(this.review == null) {
-            this.review = new Review("0", USER, BOOK_ISBN, 1, "");
-        }
 
         this.comment.setText(review.getComment());
         this.selectedStars = String.valueOf(review.getStars());
@@ -74,16 +68,8 @@ public class ReviewEdition extends BasicScreen {
 
     private void removeDataController() {
 
-        int stars = 0;
         try {
-            stars = InputParser.toInteger(selectedStars.toString(), 5);
-        } catch (ParserExceptions e) {
-            new ExceptionsController(e);
-        }
-
-        try {
-            Review data = new Review(review.getId(), USER, BOOK_ISBN, stars, comment.getText());
-            service.removeUserReview(data);
+            service.removeUserReviewById(review.getId());
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }
@@ -111,8 +97,8 @@ public class ReviewEdition extends BasicScreen {
     }
 
     private void reload() {
-        AplicationWindow.reloadScreen(new Library(), "library");
-        AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
+        //AplicationWindow.reloadScreen(new Library(), "library");
+        //AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
     }
 
 }
