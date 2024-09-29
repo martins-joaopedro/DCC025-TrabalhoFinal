@@ -1,21 +1,5 @@
 [
   {
-    "ISBN": "978-0-06-112008-4",
-    "name": "A Crônica do Gelo e Fogo: A Guerra dos Tronos",
-    "author": "George R.R. Martin",
-    "synopsis": "Nobres famílias lutam pelo controle do trono em um mundo medieval repleto de intrigas e magia.",
-    "pages": 694,
-    "genre": "FANTASIA"
-  },
-  {
-    "ISBN": "978-1-250-08227-2",
-    "name": "Mistborn: O Último Império",
-    "author": "Brandon Sanderson",
-    "synopsis": "Em um mundo onde o Senhor Soberano governa com punho de ferro, uma jovem descobre seus poderes mágicos.",
-    "pages": 541,
-    "genre": "FANTASIA"
-  },
-  {
     "ISBN": "978-0-312-35473-2",
     "name": "O Nome do Vento",
     "author": "Patrick Rothfuss",
@@ -416,19 +400,35 @@
     "genre": "FANTASIA"
   },
   {
-    "ISBN": "978-0-06-112020-4",
-    "name": "Mistborn: O Império Final",
-    "author": "Brandon Sanderson",
-    "synopsis": "Vin, uma jovem ladra com poderes mágicos, se junta a um grupo de rebeldes para derrubar o Senhor Soberano.",
-    "pages": 541,
-    "genre": "FANTASIA"
-  },
-  {
     "ISBN": "978-0-06-112048-4",
     "name": "O Mar Infinito",
     "author": "Rick Yancey",
     "synopsis": "Cassie luta para sobreviver em um mundo pós-apocalíptico onde alienígenas invadiram a Terra.",
     "pages": 320,
     "genre": "FICCAO"
+  },
+  {
+    "ISBN": "978-1-250-08227-2",
+    "name": "Mistborn: O Último Império",
+    "author": "Brandon Sanderson",
+    "synopsis": "Em um mundo onde o Senhor Soberano governa com punho de ferro, uma jovem descobre seus poderes mágicos.",
+    "pages": 542,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112020-4",
+    "name": "Mistborn: O Poço da Ascensão",
+    "author": "Brandon Sanderson",
+    "synopsis": "Numa sucessão de golpes de sorte, Elend Venture subiu ao trono de Luthadel, a principal cidade do Império Final. Nos meses que seguiram a queda do Senhor Soberano e a dissolução de seu governo, o novo rei revolucionou as relações entre os skaa a classe social inferior e os nobres e atraiu a atenção dos diversos governantes das outras partes do grande império. Dentro das muralhas de Luthadel, o perigo espreita de todos os lados. Assassinos de aluguel alomânticos ameaçam a vida do rei, a desconfiança generalizada faz a população temer pelos rumos da cidade e desejar o retorno do Senhor Soberano, e um inverno inclemente se aproxima.",
+    "pages": 700,
+    "genre": "FANTASIA"
+  },
+  {
+    "ISBN": "978-0-06-112008-4",
+    "name": "A Crônica do Gelo e Fogo: A Guerra dos Tronos",
+    "author": "George R.R. Martin",
+    "synopsis": "Nobres famílias lutam pelo controle do trono em um mundo medieval repleto de intrigas e magia.",
+    "pages": 694,
+    "genre": "FANTASIA"
   }
 ]

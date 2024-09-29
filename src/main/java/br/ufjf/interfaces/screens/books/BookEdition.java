@@ -54,8 +54,11 @@ public class BookEdition extends BasicScreen {
         addComponent(new JLabel("Nome: " + book.getName()), 0, 0);
         addComponent(new JLabel("Gênero: " + book.getGenre().getDisplayName()), 0, 1);
         addComponent(new JLabel("Sinopse: " + book.getSynopsis()), 0, 2);
-        addComponent(new JLabel("Página atual: " + book.getCurrentPage()), 0, 3);
-        addComponent(currentPage, 0, 4);
+
+        if(book.getStatus() == Status.LENDO || book.getStatus() == Status.RELENDO) {
+            addComponent(new JLabel("Página atual: " + book.getCurrentPage()), 0, 3);
+            addComponent(currentPage, 0, 4);
+        }
 
         for(Status s : Status.values()) {
             statusBox.addItem(s.getDisplayName());

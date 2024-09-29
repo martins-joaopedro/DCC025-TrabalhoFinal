@@ -48,6 +48,10 @@ public class PersonalBookCard extends BookCard {
             case LENDO:
                 info.add(new JLabel("Página atual: " + book.getCurrentPage() + "/" + book.getPages() + "."));
                 break;
+                
+            case RELENDO:
+                info.add(new JLabel("Página atual: " + book.getCurrentPage() + "/" + book.getPages() + "."));
+                break;
 
             case LIDO:
                 if (userReview != null)

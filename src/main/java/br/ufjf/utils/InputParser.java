@@ -25,7 +25,7 @@ public class InputParser {
 
         String isbnReplace = isbn.replaceAll("-", "");
 
-        if(isbn.length() != 13)
+        if(isbnReplace.length() != 13)
             throw new ParserExceptions("Informe um ISBN com tamanho válido!");
 
         if(!isbnReplace.matches("[0-9]+"))

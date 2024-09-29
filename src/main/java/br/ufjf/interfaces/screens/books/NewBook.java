@@ -58,6 +58,7 @@ public class NewBook extends BasicScreen {
         info.addComponent(autor, 1, 1, false);
 
         info.addComponent(new JLabel("ISBN: "), 0, 2, false);
+        if(isEditing) isbnText.setEditable(false);
         info.addComponent(isbnText, 1, 2, false);
 
         info.addComponent(new JLabel("Número de páginas: "), 0, 3, false);
@@ -73,7 +74,7 @@ public class NewBook extends BasicScreen {
         addComponent(new JLabel("Avaliações: "), 0, 3, false);
         addComponent(new BookReviews(true, new Object()), 0, 4, false);
 
-        if(isEditing)
+        if(isEditing) 
             this.saveBook = new Button("Editar Livro");
         else this.saveBook = new Button("Adicionar Livro");
         saveBook.addActionListener(e -> addBookController());

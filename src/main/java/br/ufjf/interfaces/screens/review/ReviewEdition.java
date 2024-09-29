@@ -74,7 +74,7 @@ public class ReviewEdition extends BasicScreen {
             new ExceptionsController(e);
         }
 
-        reload();
+        AplicationWindow.reloadScreen(new BookReviews(), "bookReviews");
     }
 
     private void updateDataController() {
@@ -93,12 +93,7 @@ public class ReviewEdition extends BasicScreen {
             new ExceptionsController(e);
         }
 
-        reload();
+        AplicationWindow.reloadScreen(new BookReviews(), "bookReviews");
     }
-
-    private void reload() {
-        //AplicationWindow.reloadScreen(new Library(), "library");
-        //AplicationWindow.reloadScreen(new PersonalLibrary(), "personalLibrary");
-    }
-
 }
+

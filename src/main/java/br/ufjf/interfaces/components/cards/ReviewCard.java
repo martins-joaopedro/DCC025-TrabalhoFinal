@@ -16,6 +16,7 @@ import br.ufjf.exceptions.ReviewsException;
 import br.ufjf.interfaces.AplicationWindow;
 import br.ufjf.interfaces.UIConstants;
 import br.ufjf.interfaces.screens.BasicScreen;
+import br.ufjf.interfaces.screens.libraries.Adm;
 import br.ufjf.interfaces.widgets.Button;
 import br.ufjf.interfaces.widgets.Style;
 import br.ufjf.models.Review;
@@ -90,6 +91,6 @@ public class ReviewCard extends BasicScreen {
         } catch (ReviewsException e) {
             new ExceptionsController(e);
         }
-        AplicationWindow.showScreen("adm");
+        AplicationWindow.reloadScreen(new Adm(), "adm");
     }
 }
