@@ -2,28 +2,44 @@
 repositório do trabalho final da disciplina de orientação a objetos 
 
 ``` mermaid
-classDiagram
+classDiagram 
 
-Acervo *-- Livro
-Biblioteca
- Leitor
+Book <|-- PersonalBook
+Review *-- Book
+Status *-- Book
+User <|-- Reader
+IService <|.. LibraryService
+IService <|.. LoginService
+IService <|.. PersonalLibraryService
+IService <|.. ReviewService
+JsonConverter *-- CouldNotConvertJsonException
 
-Livro
-Biblioteca
-
-
-class Livro {
-    -String nome
-    -String autor
-    -String ISBN
-    -String sinopse
-    -int paginas
-    -Genero genero 
-    -Avaliacao avaliacao
-    -Status status
+class CouldNotConvertJsonException
+class JsonConverter {
+    + convertDataIntoList() : List<T>
 }
 
-class Genero {
+class PersonalBookDTO {
+    + PersonalBookDTO() : record
+}
+
+class Book {
+    - name : String
+    - author : String
+    - ISBN : String 
+    - synopsis : String 
+    - pages : int 
+    - genre : Genre
+}
+
+class PersonalBook {
+    - status : Status
+    - user : String
+    - currentPage : int
+}
+
+
+class Genre {
     <<enumeration>>
     Fantasia
     Romance
@@ -31,47 +47,96 @@ class Genero {
     Academico
     Distopia
     Suspense
-    Terror
-}
-
-class Acervo {
-    -Livro[] livros
-}
-
-class Avaliacao {
-    -int estrelas
-    -String comentario
+    Literatura_Juvenil
+    Ficcao_Cientifica
+    Misterio
+    Horror
+    - type : String
 }
 
 class Status {
     <<enumeration>>
     Lendo
     Lido
-    Pretendo ler
+    Quero_Ler
+    Abandonei
+    - dispalyName : String
+
+    + fromDisplayName() : Status
 }
 
-class Leitor {
-    -String nome
-    -String idade
-    -Biblioteca biblioteca
+class Review {
+    - id : String
+    - username : String
+    - ISBN : String
+    - stars : int
+    - comment : String
 }
 
-class Biblioteca {
-    -Livros[] livros
-
-    -addLivro
-    -removerLivro
-    -editarLivro
-
-    -int calcTotalPaginas
-    -String calcGeneroMaisLido
-    -listarHistorico
+class Reader {
+    - name : String
+    - personalLibrary : Map<String, Book> 
 }
 
-class Administrador {
-    -addLivro()
-    -removerLivro()
-    -editarLivro()
+class User {
+    - username : String
+    - password : String
 }
 
+class FileManager {
+    + write()
+    + load() : String
+    + append()
+    + clear()   
+}
+
+class IService {
+    <<interface>>
+
+    + findById() : T
+    + findAll() : List<T> 
+    + create()
+    + saveAll()
+}
+
+class LibraryService {
+    + findById() : Book
+    + findAll() : List<Book>
+    + create()
+    + saveAll()
+    + getBooksByGenre : List <Book>
+}
+
+class LoginService {
+    + findById() : User
+    + findAll() : LIst<User>
+    + create()
+    + saveAll()
+    + clearAll()
+}
+
+class PersonalLibraryService {
+    + findById() : PersonalBookDTO ATENcAOO
+    + findAll() : List<PersonalBookDTO>
+    + create()
+    + saveAll()
+    + addToPersonalLibrary()
+    + getAllAsPersonalBooks() : List<PersonalBook>
+    + isOnPersonalLibrary() : boolean
+    + removeFromPersonalLibrary()
+    + getBooksByStatus() : List<PersonalBook>
+    + getNumTotalPaginasLidas() : int
+    + getNumLivrosLidos() : int
+    + getGenreMaisLido() : Genre 
+}
+
+class ReviewService {
+    + findById() : Review
+    + findAll() : List<Review>
+    + create()
+    + saveAll()
+    + getReviewsByISBN() : List<Review>
+    + getUserReviewByISBN : Review
+    + removeUserReview()
+}
 ```

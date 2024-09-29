@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "username": "user",
+    "ISBN": "978-0-06-250217-2",
+    "stars": 1,
+    "comment": "adadsasd"
+  },
+  {
+    "id": "3",
+    "username": "robert",
+    "ISBN": "978-1-250-08227-2",
+    "stars": 4,
+    "comment": "muito bom"
+  }
+]
