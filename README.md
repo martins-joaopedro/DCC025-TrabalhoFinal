@@ -13,7 +13,6 @@ IService <|.. LoginService
 IService <|.. PersonalLibraryService
 IService <|.. ReviewService
 IService <|.. AdmService
-JsonConverter *-- CouldNotConvertJsonException
 
 class PersonalBookDTO {
     + PersonalBookDTO() : record
