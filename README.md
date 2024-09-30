@@ -6,13 +6,17 @@ classDiagram
 
 Book <|-- PersonalBook 
 Review *-- Book
-Status *-- Book
+Status o-- PersonalBook
+AdmService o-- Book
 User <|-- Reader
+User o-- Review
+Reader o-- PersonalBook
 IService <|.. LibraryService
 IService <|.. LoginService
 IService <|.. PersonalLibraryService
 IService <|.. ReviewService
 IService <|.. AdmService
+
 
 class PersonalBookDTO {
     + PersonalBookDTO() : record
@@ -68,10 +72,7 @@ class Review {
     - comment : String
 }
 
-class Reader {
-    - name : String
-    - personalLibrary : Map<String, Book> 
-}
+class Reader 
 
 class User {
     - username : String
