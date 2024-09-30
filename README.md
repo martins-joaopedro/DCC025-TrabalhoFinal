@@ -4,7 +4,7 @@ repositório do trabalho final da disciplina de orientação a objetos
 ``` mermaid
 classDiagram 
 
-Book <|-- PersonalBook
+Book <|-- PersonalBook 
 Review *-- Book
 Status *-- Book
 User <|-- Reader
@@ -12,12 +12,8 @@ IService <|.. LibraryService
 IService <|.. LoginService
 IService <|.. PersonalLibraryService
 IService <|.. ReviewService
+IService <|.. AdmService
 JsonConverter *-- CouldNotConvertJsonException
-
-class CouldNotConvertJsonException
-class JsonConverter {
-    + convertDataIntoList() : List<T>
-}
 
 class PersonalBookDTO {
     + PersonalBookDTO() : record
@@ -60,7 +56,7 @@ class Status {
     Lido
     Quero_Ler
     Abandonei
-    - dispalyName : String
+    - displayName : String
 
     + fromDisplayName() : Status
 }
@@ -97,6 +93,16 @@ class IService {
     + findAll() : List<T> 
     + create()
     + saveAll()
+}
+
+class AdmService {
+    + findById() : Book
+    + findAll() : List<Book>
+    + create()
+    + saveAll()
+    + update()
+    + addBook()
+    + removeBook()
 }
 
 class LibraryService {
